@@ -3,25 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio - Nome Cognome. Progetti, pubblicazioni e contatti." />
+  <meta name="description" content="Portfolio accademico - Nome Cognome. Ricerca, pubblicazioni, talk e contatti." />
   <title>Portfolio — Nome Cognome</title>
 
-  <!-- Font (facoltativo) -->
+  <!-- Font vibe “editorial + friendly” -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Palette ispirata alle foto: verde parete, terracotta divano, rosa, senape, teal */
     :root{
-      --bg:#070A12;
-      --card:#0D1222CC;
-      --stroke:#24304F;
-      --text:#E9EEFF;
-      --muted:#A8B3D6;
-      --accent:#7C5CFF;
-      --accent2:#00D4FF;
-      --good:#35E3A1;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --bg: #0B1A14;           /* verde scuro */
+      --bg2:#0E231B;           /* verde scuro leggermente diverso */
+      --card:#10241DCC;        /* vetro verde */
+      --paper:#F6F0E6;         /* crema (come pareti/legno chiaro) */
+      --ink:#10201A;           /* testo scuro su crema */
+      --text:#F7F1E8;          /* testo chiaro su verde */
+      --muted:#DCCFBE;         /* beige/rosa soft */
+      --stroke: rgba(246,240,230,.18);
+
+      --terracotta:#C85B3D;    /* divano */
+      --rust:#B44A33;
+      --rose:#E7A3B0;          /* cuscini */
+      --mustard:#E2B230;       /* vaso senape */
+      --teal:#2BB3A3;          /* struttura teal */
+      --sky:#6CCDE6;           /* accento poster */
+
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
       --radius: 22px;
     }
 
@@ -30,412 +39,418 @@
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,.25), transparent 55%),
-                  radial-gradient(900px 500px at 90% 20%, rgba(0,212,255,.22), transparent 55%),
-                  radial-gradient(900px 500px at 30% 90%, rgba(53,227,161,.18), transparent 55%),
-                  var(--bg);
+      color: var(--text);
+      background:
+        radial-gradient(1000px 650px at 14% 10%, rgba(200,91,61,.25), transparent 55%),
+        radial-gradient(900px 600px at 88% 18%, rgba(43,179,163,.18), transparent 55%),
+        radial-gradient(800px 560px at 50% 92%, rgba(226,178,48,.16), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
-    /* Subtle noise */
+    /* grain / texture */
     body:before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-      mix-blend-mode:overlay;
-      opacity:.25;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity:.28;
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{width:min(1120px, 92vw); margin:0 auto; padding:22px 0 70px}
-    .nav{
+    .wrap{width:min(1180px, 92vw); margin:0 auto; padding:18px 0 70px}
+
+    /* Top bar */
+    .top{
       position:sticky; top:14px; z-index:20;
       display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
       padding:12px 14px;
+      border:1px solid var(--stroke);
+      background: rgba(16,36,29,.65);
       backdrop-filter: blur(14px);
-      border:1px solid rgba(36,48,79,.65);
-      background: rgba(13,18,34,.60);
       border-radius: 999px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      box-shadow: 0 10px 28px rgba(0,0,0,.22);
     }
     .brand{
-      display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
     }
-    .dot{
+    .mark{
       width:14px; height:14px; border-radius:50%;
-      background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--good), var(--accent));
-      box-shadow: 0 0 24px rgba(124,92,255,.35);
+      background: conic-gradient(from 180deg, var(--terracotta), var(--mustard), var(--teal), var(--rose), var(--terracotta));
+      box-shadow: 0 0 22px rgba(200,91,61,.28);
     }
-    .links{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .nav{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+    }
     .pill{
       padding:9px 12px;
-      border:1px solid rgba(36,48,79,.65);
-      background: rgba(7,10,18,.35);
+      border:1px solid var(--stroke);
+      background: rgba(11,26,20,.25);
       border-radius: 999px;
-      color:var(--muted);
+      color: rgba(247,241,232,.88);
       font-size:14px;
-      transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
-    .pill:hover{
-      transform: translateY(-1px);
-      border-color: rgba(124,92,255,.65);
-      color:var(--text);
-      background: rgba(124,92,255,.10);
+    .pill:hover{ transform: translateY(-1px); border-color: rgba(226,178,48,.45); background: rgba(226,178,48,.12); }
+    .pill.accent:hover{ border-color: rgba(43,179,163,.55); background: rgba(43,179,163,.12); }
+
+    @media (max-width: 940px){
+      .nav{display:none}
     }
 
+    /* Layout */
     .hero{
-      margin-top:26px;
+      margin-top:18px;
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:18px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
       align-items:stretch;
     }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .links{display:none}
-    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
 
     .card{
-      border:1px solid rgba(36,48,79,.65);
-      background: linear-gradient(180deg, rgba(13,18,34,.72), rgba(13,18,34,.45));
+      position:relative;
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(16,36,29,.72), rgba(16,36,29,.45));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
-      position:relative;
     }
     .card:before{
       content:"";
       position:absolute; inset:-2px;
-      background: radial-gradient(700px 250px at 20% 0%, rgba(124,92,255,.18), transparent 60%),
-                  radial-gradient(600px 220px at 90% 10%, rgba(0,212,255,.14), transparent 60%);
+      background:
+        radial-gradient(700px 260px at 18% 0%, rgba(200,91,61,.20), transparent 60%),
+        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.18), transparent 60%),
+        radial-gradient(520px 220px at 60% 110%, rgba(226,178,48,.14), transparent 60%);
       pointer-events:none;
     }
-    .pad{padding:22px}
+    .pad{padding:22px; position:relative; z-index:1}
+
+    /* Typography */
     .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+      display:inline-flex; align-items:center; gap:10px;
       padding:8px 12px;
-      border:1px solid rgba(36,48,79,.65);
+      border:1px solid var(--stroke);
       border-radius: 999px;
-      color:var(--muted);
-      background: rgba(7,10,18,.28);
+      background: rgba(11,26,20,.30);
+      color: rgba(247,241,232,.90);
       font-size:14px;
     }
-    .spark{
-      width:10px;height:10px;border-radius:50%;
-      background: var(--good);
-      box-shadow: 0 0 18px rgba(53,227,161,.45);
-    }
+    .spark{width:10px;height:10px;border-radius:50%; background: var(--mustard); box-shadow: 0 0 18px rgba(226,178,48,.35);}
 
     h1{
-      margin:14px 0 10px;
+      margin:14px 0 8px;
+      font-family: Fraunces, serif;
+      font-weight: 800;
       font-size: clamp(34px, 5vw, 54px);
-      line-height:1.02;
-      letter-spacing:-.8px;
-    }
-    .grad{
-      background: linear-gradient(90deg, var(--text), rgba(233,238,255,.72), rgba(0,212,255,.85));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      line-height: 1.03;
+      letter-spacing: -.6px;
     }
     .sub{
       margin:0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      max-width: 62ch;
+      color: rgba(247,241,232,.84);
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 70ch;
     }
 
-    .ctaRow{
-      margin-top:18px;
+    .metaRow{
+      margin-top:14px;
       display:flex; gap:10px; flex-wrap:wrap;
+      color: rgba(247,241,232,.88);
+      font-size: 14px;
     }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--stroke);
+      background: rgba(11,26,20,.28);
+    }
+    .dot{width:8px;height:8px;border-radius:50%; background: var(--teal); box-shadow: 0 0 14px rgba(43,179,163,.35);}
+
+    .ctaRow{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
       padding:12px 14px;
-      border-radius: 14px;
-      border:1px solid rgba(36,48,79,.65);
-      background: rgba(7,10,18,.30);
-      color:var(--text);
-      font-weight:600;
+      border-radius: 16px;
+      border:1px solid var(--stroke);
+      background: rgba(11,26,20,.28);
+      font-weight: 700;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(0,212,255,.55); background: rgba(0,212,255,.08)}
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(43,179,163,.55); background: rgba(43,179,163,.12); }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.75));
-      border-color: rgba(124,92,255,.4);
-      box-shadow: 0 12px 30px rgba(124,92,255,.18);
+      border-color: rgba(200,91,61,.35);
+      background: linear-gradient(135deg, rgba(200,91,61,.92), rgba(226,178,48,.72));
+      box-shadow: 0 14px 34px rgba(200,91,61,.16);
     }
-    .btn.primary:hover{background: linear-gradient(135deg, rgba(124,92,255,1), rgba(0,212,255,.92))}
-    .tiny{
-      color:var(--muted);
-      font-size:13px;
-      margin-top:12px;
+    .btn.primary:hover{
+      border-color: rgba(226,178,48,.45);
+      background: linear-gradient(135deg, rgba(200,91,61,1), rgba(226,178,48,.90));
     }
 
-    /* Right column “profile” */
-    .profile{
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      min-height: 100%;
-    }
-    .avatar{
-      width: 100%;
-      aspect-ratio: 4/3;
-      border-radius: calc(var(--radius) - 4px);
-      border:1px solid rgba(36,48,79,.65);
-      background:
-        radial-gradient(300px 200px at 30% 20%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(240px 180px at 80% 30%, rgba(0,212,255,.25), transparent 60%),
-        linear-gradient(180deg, rgba(7,10,18,.2), rgba(7,10,18,.6));
-      display:flex;
-      align-items:flex-end;
-      padding:16px;
-      position:relative;
-      overflow:hidden;
-    }
-    .avatar:after{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background: conic-gradient(from 120deg, rgba(124,92,255,.0), rgba(124,92,255,.25), rgba(0,212,255,.18), rgba(53,227,161,.12), rgba(124,92,255,.0));
-      animation: spin 10s linear infinite;
-      filter: blur(10px);
-      opacity:.6;
-    }
-    @keyframes spin {to{transform: rotate(360deg)}}
-    .avatarLabel{
-      position:relative;
-      z-index:1;
-      width:100%;
-      display:flex; justify-content:space-between; align-items:center;
+    /* Right “poster wall” vibe */
+    .collage{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
       gap:10px;
     }
-    .tag{
-      display:inline-flex; gap:8px; align-items:center;
+    .tile{
+      border-radius: 18px;
+      border:1px solid var(--stroke);
+      background: rgba(11,26,20,.22);
+      overflow:hidden;
+      min-height: 110px;
+      position:relative;
+    }
+    .tile.big{ grid-column: 1 / -1; min-height: 170px; }
+    .tile .label{
+      position:absolute; left:12px; bottom:12px;
       padding:8px 10px;
       border-radius: 999px;
-      border:1px solid rgba(36,48,79,.65);
-      background: rgba(13,18,34,.55);
-      color:var(--muted);
-      font-size:13px;
-      white-space:nowrap;
+      border:1px solid var(--stroke);
+      background: rgba(16,36,29,.65);
+      font-size: 13px;
+      color: rgba(247,241,232,.92);
     }
-    .pulse{
-      width:8px;height:8px;border-radius:50%;
-      background: rgba(0,212,255,.9);
-      box-shadow: 0 0 16px rgba(0,212,255,.55);
-    }
+    /* “Poster” gradients */
+    .p1{ background: linear-gradient(135deg, rgba(43,179,163,.55), rgba(11,26,20,.25)), radial-gradient(240px 160px at 20% 20%, rgba(226,178,48,.45), transparent 60%); }
+    .p2{ background: linear-gradient(135deg, rgba(231,163,176,.50), rgba(11,26,20,.25)), radial-gradient(260px 160px at 80% 30%, rgba(108,205,230,.35), transparent 60%); }
+    .p3{ background: linear-gradient(135deg, rgba(200,91,61,.55), rgba(11,26,20,.25)), radial-gradient(240px 160px at 30% 70%, rgba(226,178,48,.30), transparent 60%); }
+    .p4{ background: linear-gradient(135deg, rgba(108,205,230,.45), rgba(11,26,20,.25)), radial-gradient(240px 160px at 70% 60%, rgba(43,179,163,.30), transparent 60%); }
 
-    /* Sections */
-    section{margin-top:18px}
+    /* Sections grid */
+    section{margin-top:16px}
     .grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:18px;
+      gap:16px;
     }
-    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
 
     .sectionTitle{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
       margin:0 0 10px;
     }
     .sectionTitle h2{
       margin:0;
-      font-size:18px;
-      letter-spacing:.2px;
+      font-family: Fraunces, serif;
+      font-size: 20px;
+      letter-spacing: -.2px;
     }
-    .hint{color:var(--muted); font-size:13px}
+    .hint{color: rgba(247,241,232,.72); font-size: 13px}
 
-    .list{
-      display:flex; flex-direction:column; gap:10px;
-    }
+    .list{display:flex; flex-direction:column; gap:10px}
     .item{
       padding:14px;
-      border-radius: 16px;
-      border:1px solid rgba(36,48,79,.65);
-      background: rgba(7,10,18,.22);
+      border-radius: 18px;
+      border:1px solid var(--stroke);
+      background: rgba(11,26,20,.20);
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
     .item:hover{
       transform: translateY(-1px);
-      border-color: rgba(124,92,255,.55);
-      background: rgba(124,92,255,.07);
+      border-color: rgba(231,163,176,.40);
+      background: rgba(231,163,176,.08);
     }
-    .itemTop{
-      display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
-    }
+    .itemTop{display:flex; justify-content:space-between; gap:12px; align-items:flex-start}
     .item h3{margin:0; font-size:16px}
-    .meta{color:var(--muted); font-size:13px; margin-top:6px; line-height:1.5}
-    .chips{margin-top:10px; display:flex; gap:6px; flex-wrap:wrap}
+    .meta{margin-top:6px; color: rgba(247,241,232,.80); font-size:13px; line-height:1.55}
+
+    .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:6px}
     .chip{
       font-size:12px;
-      color: rgba(233,238,255,.86);
-      padding:6px 8px;
+      padding:6px 9px;
       border-radius: 999px;
-      border:1px solid rgba(36,48,79,.65);
-      background: rgba(13,18,34,.35);
+      border:1px solid var(--stroke);
+      background: rgba(16,36,29,.45);
+      color: rgba(247,241,232,.90);
     }
+    .chip.teal{ border-color: rgba(43,179,163,.40); background: rgba(43,179,163,.12); }
+    .chip.mustard{ border-color: rgba(226,178,48,.40); background: rgba(226,178,48,.12); }
+    .chip.rose{ border-color: rgba(231,163,176,.40); background: rgba(231,163,176,.10); }
+    .chip.rust{ border-color: rgba(200,91,61,.40); background: rgba(200,91,61,.10); }
 
-    /* Footer */
+    /* Full-width “cream” band for hobbies (light + cozy like la seconda foto) */
+    .creamBand{
+      background: linear-gradient(180deg, rgba(246,240,230,.96), rgba(246,240,230,.90));
+      color: var(--ink);
+      border: 1px solid rgba(16,32,26,.10);
+    }
+    .creamBand:before{
+      background:
+        radial-gradient(700px 260px at 14% 0%, rgba(200,91,61,.18), transparent 60%),
+        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.14), transparent 60%),
+        radial-gradient(520px 220px at 58% 110%, rgba(226,178,48,.12), transparent 60%);
+    }
+    .creamBand .hint{color: rgba(16,32,26,.65)}
+    .creamBand .item{ border-color: rgba(16,32,26,.12); background: rgba(255,255,255,.55); }
+    .creamBand .item:hover{ border-color: rgba(200,91,61,.28); background: rgba(200,91,61,.06); }
+    .creamBand .meta{color: rgba(16,32,26,.72)}
+    .creamBand .chip{ border-color: rgba(16,32,26,.18); background: rgba(255,255,255,.65); color: rgba(16,32,26,.86) }
+
     footer{
-      margin-top:22px;
-      color:var(--muted);
-      font-size:13px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-      padding-bottom:16px;
-      opacity:.95;
+      margin-top:16px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      color: rgba(247,241,232,.72);
+      font-size: 13px;
+      padding-bottom: 6px;
     }
-    .sep{opacity:.45}
 
-    /* Motion reduce */
     @media (prefers-reduced-motion: reduce){
-      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+      *{transition:none!important; scroll-behavior:auto!important}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="nav">
+
+    <!-- TOP BAR -->
+    <div class="top">
       <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
+        <span class="mark" aria-hidden="true"></span>
         <span>Nome Cognome</span>
       </div>
-      <div class="links" aria-label="Navigazione rapida">
-        <a class="pill" href="#projects">Progetti</a>
-        <a class="pill" href="#publications">Pubblicazioni</a>
+
+      <nav class="nav" aria-label="Sezioni">
+        <a class="pill" href="#about">About</a>
+        <a class="pill accent" href="#experience">Esperienza</a>
+        <a class="pill" href="#keywords">Keywords</a>
+        <a class="pill accent" href="#publications">Pubblicazioni</a>
         <a class="pill" href="#talks">Talk</a>
-        <a class="pill" href="#contact">Contatti</a>
-      </div>
-      <a class="pill" href="#contact">↗ Contattami</a>
+        <a class="pill accent" href="#contact">Contatti</a>
+        <a class="pill" href="#hobbies">Hobby</a>
+      </nav>
+
+      <a class="pill accent" href="#contact">↗ Contattami</a>
     </div>
 
+    <!-- HERO -->
     <div class="hero">
-      <!-- Left: Hero copy -->
       <div class="card">
         <div class="pad">
-          <div class="kicker"><span class="spark"></span> PhD / XR / Accessibility</div>
-          <h1><span class="grad">Progetto esperienze immersive</span><br/>inclusive e accessibili.</h1>
-          <p class="sub">
-            Ricerca e sviluppo su AR/VR e Universal Design for Learning.
-            Mi interessa trasformare ambienti e strumenti digitali in esperienze
-            che funzionano davvero per persone con bisogni diversi.
+          <div class="kicker"><span class="spark"></span> Ruolo · Affiliazione · Area</div>
+          <h1>Nome Cognome<br><span style="opacity:.88">XR & Inclusive Learning</span></h1>
+
+          <p class="sub" id="about">
+            Breve presentazione (3–5 righe): di cosa ti occupi, perché è importante e cosa stai costruendo adesso.
+            Esempio: “PhD student in Computer Science (Università di Pisa). Progetto esperienze immersive accessibili
+            e strumenti UDL per supportare studenti con bisogni diversi nell’apprendimento universitario.”
           </p>
 
+          <div class="metaRow">
+            <span class="badge"><span class="dot"></span> PhD Student / Researcher</span>
+            <span class="badge">📍 Pisa, IT</span>
+            <span class="badge">🏛 Università / Lab</span>
+          </div>
+
           <div class="ctaRow">
-            <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 Scarica CV</a>
-            <a class="btn" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">in LinkedIn</a>
-            <a class="btn" href="https://github.com/TUOUSERNAME" target="_blank" rel="noopener">⌘ GitHub</a>
-            <a class="btn" href="#projects">✨ Vedi progetti</a>
+            <!-- Metti un CV in assets/CV.pdf -->
+            <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
+            <a class="btn" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="btn" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
           </div>
 
-          <div class="tiny">
-            Basata a Pisa · disponibile per collaborazioni e talk ·
-            <span class="sep">email</span> <a href="mailto:tuaemail@domain.com">tuaemail@domain.com</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Profile card -->
-      <div class="card profile">
-        <div class="pad">
-          <div class="avatar" role="img" aria-label="Illustrazione astratta del profilo">
-            <div class="avatarLabel">
-              <span class="tag"><span class="pulse" aria-hidden="true"></span> currently building</span>
-              <span class="tag">AR · VR · UDL</span>
-            </div>
-          </div>
-
-          <div style="margin-top:12px" class="list">
-            <div class="item">
-              <div class="itemTop">
-                <h3>Focus</h3>
-                <span class="chip">2026</span>
-              </div>
-              <div class="meta">Inclusive learning tech · Accessible immersive environments · HCI</div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>Stack</h3>
-                <span class="chip">XR</span>
-              </div>
-              <div class="meta">Unity / WebXR · Mobile · Prototyping · User studies</div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>Now</h3>
-                <span class="chip">PhD</span>
-              </div>
-              <div class="meta">Costruendo strumenti per docenti e studenti per apprendimento universitario adattivo.</div>
-            </div>
+          <div class="chips" style="margin-top:14px">
+            <span class="chip rust">AR/VR</span>
+            <span class="chip teal">Accessibility</span>
+            <span class="chip mustard">UDL</span>
+            <span class="chip rose">HCI</span>
+            <span class="chip">User Studies</span>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Projects + Writing -->
-    <section id="projects" class="grid">
+      <!-- Right collage: richiama poster + colori -->
       <div class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Progetti selezionati</h2>
-            <div class="hint">3–6 è perfetto</div>
+            <h2>Link utili</h2>
+            <div class="hint">“poster wall” vibes</div>
+          </div>
+
+          <div class="collage">
+            <a class="tile big p3" href="mailto:tuaemail@domain.com" aria-label="Email">
+              <span class="label">✉️ tuaemail@domain.com</span>
+            </a>
+            <a class="tile p1" href="https://github.com/TUOUSERNAME" target="_blank" rel="noopener">
+              <span class="label">⌘ GitHub</span>
+            </a>
+            <a class="tile p2" href="#" target="_blank" rel="noopener">
+              <span class="label">🧾 Publications list</span>
+            </a>
+            <a class="tile p4" href="#" target="_blank" rel="noopener">
+              <span class="label">🎥 Demo / Video</span>
+            </a>
+          </div>
+
+          <div class="item" style="margin-top:10px">
+            <div class="itemTop">
+              <h3>Disponibilità</h3>
+              <span class="chip mustard">collab</span>
+            </div>
+            <div class="meta">
+              Una riga su collaborazioni: paper, progetti XR, workshop, user studies, grant, ecc.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE + EDUCATION -->
+    <section id="experience" class="grid">
+      <div class="card">
+        <div class="pad">
+          <div class="sectionTitle">
+            <h2>Esperienza</h2>
+            <div class="hint">ruoli, progetti, impact</div>
           </div>
 
           <div class="list">
-            <a class="item" href="#" target="_blank" rel="noopener">
+            <div class="item">
               <div class="itemTop">
-                <h3>AR Botanical Experience (UniPi)</h3>
-                <span class="chip">AR</span>
+                <h3>PhD Student — Dipartimento / Lab</h3>
+                <span class="chip rust">202X–Presente</span>
               </div>
               <div class="meta">
-                App marker-based per visitare l’Orto Botanico, progettata accessibile per bambini con bisogni diversi.
+                2–3 bullet in una frase: cosa fai, che sistemi sviluppi, con quali utenti/contesti.
               </div>
               <div class="chips">
-                <span class="chip">Accessibility</span><span class="chip">Mobile</span><span class="chip">User-centered</span>
+                <span class="chip teal">XR</span>
+                <span class="chip mustard">UDL</span>
+                <span class="chip rose">Inclusive design</span>
               </div>
-            </a>
+            </div>
 
-            <a class="item" href="#" target="_blank" rel="noopener">
+            <div class="item">
               <div class="itemTop">
-                <h3>Campus Companion</h3>
-                <span class="chip">App</span>
+                <h3>Research / Teaching Assistant — Corso</h3>
+                <span class="chip">202X</span>
               </div>
               <div class="meta">
-                Modulo orientamento + supporto emotivo per studenti universitari con disabilità (visuale, uditiva, motoria, autismo, DSA).
+                Una riga su attività: tutorato, laboratori, supporto a studenti, materiale didattico, ecc.
               </div>
-              <div class="chips">
-                <span class="chip">UDL</span><span class="chip">Inclusive design</span><span class="chip">Gamification</span>
-              </div>
-            </a>
+            </div>
 
-            <a class="item" href="#" target="_blank" rel="noopener">
+            <div class="item">
               <div class="itemTop">
-                <h3>XR for Inclusive Learning — Survey</h3>
-                <span class="chip">Research</span>
+                <h3>Project — AR experience (Orto Botanico)</h3>
+                <span class="chip teal">AR</span>
               </div>
               <div class="meta">
-                Review/Synthesi su XR e accessibilità, con attenzione a tecnologie immersive in contesti educativi.
+                App marker-based, accessibile, user testing, risultati principali (1 riga).
               </div>
-              <div class="chips">
-                <span class="chip">Systematic review</span><span class="chip">HCI</span><span class="chip">Accessibility</span>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -443,67 +458,114 @@
       <div class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>In breve</h2>
-            <div class="hint">chi sei + cosa cerchi</div>
+            <h2>Educazione</h2>
+            <div class="hint">titoli + focus</div>
           </div>
 
-          <div class="item">
-            <h3 style="margin:0 0 6px">Cosa porto</h3>
-            <div class="meta">
-              Prototipi rapidi e validazione con utenti reali. Mi interessa l’impatto: accessibilità misurabile, UX chiara, contenuti adattivi.
+          <div class="list">
+            <div class="item">
+              <div class="itemTop">
+                <h3>PhD in Computer Science — Università</h3>
+                <span class="chip rust">202X–Presente</span>
+              </div>
+              <div class="meta">Topic: XR, accessibilità, UDL, apprendimento universitario inclusivo.</div>
             </div>
-          </div>
 
-          <div class="item" style="margin-top:10px">
-            <h3 style="margin:0 0 6px">Cosa cerco</h3>
-            <div class="meta">
-              Collaborazioni su progetti XR/Accessibilità, paper, workshop, demo e strumenti per educazione inclusiva.
+            <div class="item">
+              <div class="itemTop">
+                <h3>MSc / Laurea Magistrale — Università</h3>
+                <span class="chip">202X</span>
+              </div>
+              <div class="meta">Tesi: titolo · keywords · link PDF se vuoi.</div>
             </div>
-            <div class="chips">
-              <span class="chip">Collab</span><span class="chip">Talk</span><span class="chip">Research</span>
-            </div>
-          </div>
 
-          <div class="item" style="margin-top:10px">
-            <h3 style="margin:0 0 6px">Link rapidi</h3>
-            <div class="chips">
-              <a class="chip" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-              <a class="chip" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-              <a class="chip" href="#" target="_blank" rel="noopener">Portfolio PDF</a>
-              <a class="chip" href="#" target="_blank" rel="noopener">Media kit</a>
+            <div class="item">
+              <div class="itemTop">
+                <h3>Certificazioni / Summer school</h3>
+                <span class="chip mustard">Extra</span>
+              </div>
+              <div class="meta">Una lista breve: 2–4 cose davvero rilevanti.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Publications + Talks -->
+    <!-- KEYWORDS -->
+    <section id="keywords" class="card">
+      <div class="pad">
+        <div class="sectionTitle">
+          <h2>Interessi di ricerca (keywords)</h2>
+          <div class="hint">usa 10–20 tag</div>
+        </div>
+
+        <div class="chips">
+          <span class="chip teal">XR Accessibility</span>
+          <span class="chip mustard">Universal Design for Learning</span>
+          <span class="chip rose">HCI</span>
+          <span class="chip rust">Augmented Reality</span>
+          <span class="chip teal">Virtual Reality</span>
+          <span class="chip">Adaptive learning</span>
+          <span class="chip">Inclusive education</span>
+          <span class="chip mustard">Assistive tech</span>
+          <span class="chip rose">User studies</span>
+          <span class="chip">Multimodal interfaces</span>
+          <span class="chip rust">Gamification</span>
+          <span class="chip teal">Wayfinding</span>
+          <span class="chip">Cognitive accessibility</span>
+          <span class="chip mustard">Autism & learning</span>
+          <span class="chip rose">Deaf accessibility</span>
+        </div>
+
+        <div class="item" style="margin-top:12px">
+          <div class="itemTop">
+            <h3>One-liner del tuo “north star”</h3>
+            <span class="chip mustard">focus</span>
+          </div>
+          <div class="meta">
+            Esempio: “Designo ambienti immersivi e strumenti didattici che si adattano ai diversi profili di apprendimento,
+            con metriche di accessibilità verificabili e test con utenti.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS + TALKS -->
     <section class="grid">
       <div id="publications" class="card">
         <div class="pad">
           <div class="sectionTitle">
             <h2>Pubblicazioni</h2>
-            <div class="hint">metti DOI / PDF</div>
+            <div class="hint">DOI · PDF · BibTeX</div>
           </div>
 
           <div class="list">
+            <!-- Copia/incolla questi blocchi -->
             <div class="item">
               <div class="itemTop">
-                <h3>Design of Immersive Environments to Enhance Learning for People with Disabilities</h3>
-                <span class="chip">2025</span>
+                <h3>Titolo paper 1</h3>
+                <span class="chip rust">2025</span>
               </div>
               <div class="meta">
-                Short paper · Intelligent Environments · <a href="#" target="_blank" rel="noopener">PDF</a> · <a href="#" target="_blank" rel="noopener">DOI</a>
+                Venue (Conference/Journal) · Autori (opzionale) ·
+                <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
+                <a class="chip mustard" href="#" target="_blank" rel="noopener">DOI</a>
+                <a class="chip rose" href="#" target="_blank" rel="noopener">BibTeX</a>
+              </div>
+              <div class="chips">
+                <span class="chip">XR</span><span class="chip">Accessibility</span><span class="chip">UDL</span>
               </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>Another paper title here</h3>
-                <span class="chip">2026</span>
+                <h3>Titolo paper 2</h3>
+                <span class="chip">2024</span>
               </div>
               <div class="meta">
-                Journal/Conference · <a href="#" target="_blank" rel="noopener">PDF</a> · <a href="#" target="_blank" rel="noopener">DOI</a>
+                Venue ·
+                <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
+                <a class="chip mustard" href="#" target="_blank" rel="noopener">DOI</a>
               </div>
             </div>
           </div>
@@ -513,92 +575,143 @@
       <div id="talks" class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Talk & Demo</h2>
-            <div class="hint">video/slides</div>
+            <h2>Eventi & Talk</h2>
+            <div class="hint">slides · video · demo</div>
           </div>
 
           <div class="list">
             <div class="item">
               <div class="itemTop">
-                <h3>My 5-minute PhD thesis</h3>
-                <span class="chip">Jun 2025</span>
+                <h3>Talk title — Event/Conference</h3>
+                <span class="chip mustard">Jun 2025</span>
               </div>
-              <div class="meta">Intelligent Environments · Darmstadt · <a href="#" target="_blank" rel="noopener">Slides</a> · <a href="#" target="_blank" rel="noopener">Video</a></div>
+              <div class="meta">
+                Location · tipo (keynote/seminar/demo) ·
+                <a class="chip teal" href="#" target="_blank" rel="noopener">Slides</a>
+                <a class="chip rose" href="#" target="_blank" rel="noopener">Video</a>
+              </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>Seminar: AI & Disability</h3>
-                <span class="chip">Talk</span>
+                <h3>Demo — Project name</h3>
+                <span class="chip teal">Demo</span>
               </div>
-              <div class="meta">Dip. Informatica UniPi · <a href="#" target="_blank" rel="noopener">Abstract</a></div>
+              <div class="meta">
+                1 riga su cosa si vede nella demo ·
+                <a class="chip mustard" href="#" target="_blank" rel="noopener">Watch</a>
+              </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>Demo: AR Campus Navigation</h3>
-                <span class="chip">Demo</span>
+                <h3>Workshop — Title</h3>
+                <span class="chip rust">Workshop</span>
               </div>
-              <div class="meta">Clip di 30s + breve descrizione · <a href="#" target="_blank" rel="noopener">Watch</a></div>
+              <div class="meta">
+                Ruolo (speaker/organizer) · link pagina evento
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="card">
       <div class="pad">
         <div class="sectionTitle">
           <h2>Contatti</h2>
-          <div class="hint">ti rispondo volentieri</div>
+          <div class="hint">scrivimi / collab / inviti</div>
         </div>
 
         <div class="grid" style="grid-template-columns: 1fr 1fr; gap:12px">
           <a class="item" href="mailto:tuaemail@domain.com">
             <div class="itemTop">
-              <h3>Email</h3><span class="chip">↗</span>
+              <h3>Email</h3><span class="chip mustard">↗</span>
             </div>
             <div class="meta">tuaemail@domain.com</div>
           </a>
 
           <a class="item" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">
             <div class="itemTop">
-              <h3>LinkedIn</h3><span class="chip">↗</span>
+              <h3>LinkedIn</h3><span class="chip teal">↗</span>
             </div>
-            <div class="meta">Profilo / contatti / collaborazioni</div>
+            <div class="meta">Messaggi e networking</div>
           </a>
 
-          <a class="item" href="https://github.com/TUOUSERNAME" target="_blank" rel="noopener">
+          <a class="item" href="https://scholar.google.com/" target="_blank" rel="noopener">
             <div class="itemTop">
-              <h3>GitHub</h3><span class="chip">↗</span>
+              <h3>Google Scholar</h3><span class="chip rose">↗</span>
             </div>
-            <div class="meta">Codice, prototipi, demo</div>
+            <div class="meta">Pubblicazioni e citazioni</div>
           </a>
 
-          <a class="item" href="assets/CV.pdf" target="_blank" rel="noopener">
+          <a class="item" href="https://orcid.org/" target="_blank" rel="noopener">
             <div class="itemTop">
-              <h3>CV</h3><span class="chip">PDF</span>
+              <h3>ORCID</h3><span class="chip rust">↗</span>
             </div>
-            <div class="meta">Scarica la versione aggiornata</div>
+            <div class="meta">Identificativo ricercatore</div>
           </a>
         </div>
 
         <footer>
           <div>© <span id="y"></span> Nome Cognome</div>
-          <div>Made with HTML · GitHub Pages</div>
+          <div>HTML · GitHub Pages · palette “home vibe”</div>
         </footer>
       </div>
     </section>
+
+    <!-- HOBBIES (light, cozy) -->
+    <section id="hobbies" class="card creamBand">
+      <div class="pad">
+        <div class="sectionTitle">
+          <h2>Oltre la ricerca</h2>
+          <div class="hint">più leggero, ma sempre “te”</div>
+        </div>
+
+        <div class="grid">
+          <div class="item">
+            <div class="itemTop">
+              <h3>Hobby</h3>
+              <span class="chip">🌿</span>
+            </div>
+            <div class="meta">
+              Esempi: trekking/natura, fotografia, ceramica, musei, letture pop-science…
+              (2–4 righe massimo).
+            </div>
+            <div class="chips">
+              <span class="chip">fotografia</span>
+              <span class="chip">natura</span>
+              <span class="chip">design</span>
+              <span class="chip">craft</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="itemTop">
+              <h3>Micro-cose che mi piacciono</h3>
+              <span class="chip">✨</span>
+            </div>
+            <div class="meta">
+              Una lista “cute” (tipo 3–6): poster colorati, piante in casa, taccuini, playlist, ecc.
+              Richiama il mood delle immagini senza diventare troppo personale.
+            </div>
+            <div class="chips">
+              <span class="chip">poster pop</span>
+              <span class="chip">piante</span>
+              <span class="chip">palette calde</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 
   <script>
-    // year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // smooth scroll (works in most modern browsers)
     document.documentElement.style.scrollBehavior = "smooth";
   </script>
 </body>
 </html>
-
