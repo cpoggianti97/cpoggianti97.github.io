@@ -1,12 +1,604 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio - Il mio nome</title>
-  </head>
-  <body>
-    <h1>Ciao! Sono [Il tuo nome]</h1>
-    <p>Questo è il mio portfolio su GitHub Pages.</p>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio - Nome Cognome. Progetti, pubblicazioni e contatti." />
+  <title>Portfolio — Nome Cognome</title>
+
+  <!-- Font (facoltativo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --card:#0D1222CC;
+      --stroke:#24304F;
+      --text:#E9EEFF;
+      --muted:#A8B3D6;
+      --accent:#7C5CFF;
+      --accent2:#00D4FF;
+      --good:#35E3A1;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,.25), transparent 55%),
+                  radial-gradient(900px 500px at 90% 20%, rgba(0,212,255,.22), transparent 55%),
+                  radial-gradient(900px 500px at 30% 90%, rgba(53,227,161,.18), transparent 55%),
+                  var(--bg);
+      overflow-x:hidden;
+    }
+
+    /* Subtle noise */
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+      opacity:.25;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(1120px, 92vw); margin:0 auto; padding:22px 0 70px}
+    .nav{
+      position:sticky; top:14px; z-index:20;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 14px;
+      backdrop-filter: blur(14px);
+      border:1px solid rgba(36,48,79,.65);
+      background: rgba(13,18,34,.60);
+      border-radius: 999px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.2px;
+    }
+    .dot{
+      width:14px; height:14px; border-radius:50%;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--good), var(--accent));
+      box-shadow: 0 0 24px rgba(124,92,255,.35);
+    }
+    .links{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:9px 12px;
+      border:1px solid rgba(36,48,79,.65);
+      background: rgba(7,10,18,.35);
+      border-radius: 999px;
+      color:var(--muted);
+      font-size:14px;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,92,255,.65);
+      color:var(--text);
+      background: rgba(124,92,255,.10);
+    }
+
+    .hero{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .links{display:none}
+    }
+
+    .card{
+      border:1px solid rgba(36,48,79,.65);
+      background: linear-gradient(180deg, rgba(13,18,34,.72), rgba(13,18,34,.45));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 250px at 20% 0%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(600px 220px at 90% 10%, rgba(0,212,255,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .pad{padding:22px}
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border:1px solid rgba(36,48,79,.65);
+      border-radius: 999px;
+      color:var(--muted);
+      background: rgba(7,10,18,.28);
+      font-size:14px;
+    }
+    .spark{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--good);
+      box-shadow: 0 0 18px rgba(53,227,161,.45);
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height:1.02;
+      letter-spacing:-.8px;
+    }
+    .grad{
+      background: linear-gradient(90deg, var(--text), rgba(233,238,255,.72), rgba(0,212,255,.85));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width: 62ch;
+    }
+
+    .ctaRow{
+      margin-top:18px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(36,48,79,.65);
+      background: rgba(7,10,18,.30);
+      color:var(--text);
+      font-weight:600;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(0,212,255,.55); background: rgba(0,212,255,.08)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.75));
+      border-color: rgba(124,92,255,.4);
+      box-shadow: 0 12px 30px rgba(124,92,255,.18);
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(124,92,255,1), rgba(0,212,255,.92))}
+    .tiny{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:12px;
+    }
+
+    /* Right column “profile” */
+    .profile{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height: 100%;
+    }
+    .avatar{
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: calc(var(--radius) - 4px);
+      border:1px solid rgba(36,48,79,.65);
+      background:
+        radial-gradient(300px 200px at 30% 20%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(240px 180px at 80% 30%, rgba(0,212,255,.25), transparent 60%),
+        linear-gradient(180deg, rgba(7,10,18,.2), rgba(7,10,18,.6));
+      display:flex;
+      align-items:flex-end;
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .avatar:after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: conic-gradient(from 120deg, rgba(124,92,255,.0), rgba(124,92,255,.25), rgba(0,212,255,.18), rgba(53,227,161,.12), rgba(124,92,255,.0));
+      animation: spin 10s linear infinite;
+      filter: blur(10px);
+      opacity:.6;
+    }
+    @keyframes spin {to{transform: rotate(360deg)}}
+    .avatarLabel{
+      position:relative;
+      z-index:1;
+      width:100%;
+      display:flex; justify-content:space-between; align-items:center;
+      gap:10px;
+    }
+    .tag{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(36,48,79,.65);
+      background: rgba(13,18,34,.55);
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .pulse{
+      width:8px;height:8px;border-radius:50%;
+      background: rgba(0,212,255,.9);
+      box-shadow: 0 0 16px rgba(0,212,255,.55);
+    }
+
+    /* Sections */
+    section{margin-top:18px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+
+    .sectionTitle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      margin:0 0 10px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .hint{color:var(--muted); font-size:13px}
+
+    .list{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .item{
+      padding:14px;
+      border-radius: 16px;
+      border:1px solid rgba(36,48,79,.65);
+      background: rgba(7,10,18,.22);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .item:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,92,255,.55);
+      background: rgba(124,92,255,.07);
+    }
+    .itemTop{
+      display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+    }
+    .item h3{margin:0; font-size:16px}
+    .meta{color:var(--muted); font-size:13px; margin-top:6px; line-height:1.5}
+    .chips{margin-top:10px; display:flex; gap:6px; flex-wrap:wrap}
+    .chip{
+      font-size:12px;
+      color: rgba(233,238,255,.86);
+      padding:6px 8px;
+      border-radius: 999px;
+      border:1px solid rgba(36,48,79,.65);
+      background: rgba(13,18,34,.35);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:22px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+      padding-bottom:16px;
+      opacity:.95;
+    }
+    .sep{opacity:.45}
+
+    /* Motion reduce */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Nome Cognome</span>
+      </div>
+      <div class="links" aria-label="Navigazione rapida">
+        <a class="pill" href="#projects">Progetti</a>
+        <a class="pill" href="#publications">Pubblicazioni</a>
+        <a class="pill" href="#talks">Talk</a>
+        <a class="pill" href="#contact">Contatti</a>
+      </div>
+      <a class="pill" href="#contact">↗ Contattami</a>
+    </div>
+
+    <div class="hero">
+      <!-- Left: Hero copy -->
+      <div class="card">
+        <div class="pad">
+          <div class="kicker"><span class="spark"></span> PhD / XR / Accessibility</div>
+          <h1><span class="grad">Progetto esperienze immersive</span><br/>inclusive e accessibili.</h1>
+          <p class="sub">
+            Ricerca e sviluppo su AR/VR e Universal Design for Learning.
+            Mi interessa trasformare ambienti e strumenti digitali in esperienze
+            che funzionano davvero per persone con bisogni diversi.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 Scarica CV</a>
+            <a class="btn" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">in LinkedIn</a>
+            <a class="btn" href="https://github.com/TUOUSERNAME" target="_blank" rel="noopener">⌘ GitHub</a>
+            <a class="btn" href="#projects">✨ Vedi progetti</a>
+          </div>
+
+          <div class="tiny">
+            Basata a Pisa · disponibile per collaborazioni e talk ·
+            <span class="sep">email</span> <a href="mailto:tuaemail@domain.com">tuaemail@domain.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Profile card -->
+      <div class="card profile">
+        <div class="pad">
+          <div class="avatar" role="img" aria-label="Illustrazione astratta del profilo">
+            <div class="avatarLabel">
+              <span class="tag"><span class="pulse" aria-hidden="true"></span> currently building</span>
+              <span class="tag">AR · VR · UDL</span>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="list">
+            <div class="item">
+              <div class="itemTop">
+                <h3>Focus</h3>
+                <span class="chip">2026</span>
+              </div>
+              <div class="meta">Inclusive learning tech · Accessible immersive environments · HCI</div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <h3>Stack</h3>
+                <span class="chip">XR</span>
+              </div>
+              <div class="meta">Unity / WebXR · Mobile · Prototyping · User studies</div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <h3>Now</h3>
+                <span class="chip">PhD</span>
+              </div>
+              <div class="meta">Costruendo strumenti per docenti e studenti per apprendimento universitario adattivo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects + Writing -->
+    <section id="projects" class="grid">
+      <div class="card">
+        <div class="pad">
+          <div class="sectionTitle">
+            <h2>Progetti selezionati</h2>
+            <div class="hint">3–6 è perfetto</div>
+          </div>
+
+          <div class="list">
+            <a class="item" href="#" target="_blank" rel="noopener">
+              <div class="itemTop">
+                <h3>AR Botanical Experience (UniPi)</h3>
+                <span class="chip">AR</span>
+              </div>
+              <div class="meta">
+                App marker-based per visitare l’Orto Botanico, progettata accessibile per bambini con bisogni diversi.
+              </div>
+              <div class="chips">
+                <span class="chip">Accessibility</span><span class="chip">Mobile</span><span class="chip">User-centered</span>
+              </div>
+            </a>
+
+            <a class="item" href="#" target="_blank" rel="noopener">
+              <div class="itemTop">
+                <h3>Campus Companion</h3>
+                <span class="chip">App</span>
+              </div>
+              <div class="meta">
+                Modulo orientamento + supporto emotivo per studenti universitari con disabilità (visuale, uditiva, motoria, autismo, DSA).
+              </div>
+              <div class="chips">
+                <span class="chip">UDL</span><span class="chip">Inclusive design</span><span class="chip">Gamification</span>
+              </div>
+            </a>
+
+            <a class="item" href="#" target="_blank" rel="noopener">
+              <div class="itemTop">
+                <h3>XR for Inclusive Learning — Survey</h3>
+                <span class="chip">Research</span>
+              </div>
+              <div class="meta">
+                Review/Synthesi su XR e accessibilità, con attenzione a tecnologie immersive in contesti educativi.
+              </div>
+              <div class="chips">
+                <span class="chip">Systematic review</span><span class="chip">HCI</span><span class="chip">Accessibility</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <div class="sectionTitle">
+            <h2>In breve</h2>
+            <div class="hint">chi sei + cosa cerchi</div>
+          </div>
+
+          <div class="item">
+            <h3 style="margin:0 0 6px">Cosa porto</h3>
+            <div class="meta">
+              Prototipi rapidi e validazione con utenti reali. Mi interessa l’impatto: accessibilità misurabile, UX chiara, contenuti adattivi.
+            </div>
+          </div>
+
+          <div class="item" style="margin-top:10px">
+            <h3 style="margin:0 0 6px">Cosa cerco</h3>
+            <div class="meta">
+              Collaborazioni su progetti XR/Accessibilità, paper, workshop, demo e strumenti per educazione inclusiva.
+            </div>
+            <div class="chips">
+              <span class="chip">Collab</span><span class="chip">Talk</span><span class="chip">Research</span>
+            </div>
+          </div>
+
+          <div class="item" style="margin-top:10px">
+            <h3 style="margin:0 0 6px">Link rapidi</h3>
+            <div class="chips">
+              <a class="chip" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="chip" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+              <a class="chip" href="#" target="_blank" rel="noopener">Portfolio PDF</a>
+              <a class="chip" href="#" target="_blank" rel="noopener">Media kit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications + Talks -->
+    <section class="grid">
+      <div id="publications" class="card">
+        <div class="pad">
+          <div class="sectionTitle">
+            <h2>Pubblicazioni</h2>
+            <div class="hint">metti DOI / PDF</div>
+          </div>
+
+          <div class="list">
+            <div class="item">
+              <div class="itemTop">
+                <h3>Design of Immersive Environments to Enhance Learning for People with Disabilities</h3>
+                <span class="chip">2025</span>
+              </div>
+              <div class="meta">
+                Short paper · Intelligent Environments · <a href="#" target="_blank" rel="noopener">PDF</a> · <a href="#" target="_blank" rel="noopener">DOI</a>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <h3>Another paper title here</h3>
+                <span class="chip">2026</span>
+              </div>
+              <div class="meta">
+                Journal/Conference · <a href="#" target="_blank" rel="noopener">PDF</a> · <a href="#" target="_blank" rel="noopener">DOI</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="talks" class="card">
+        <div class="pad">
+          <div class="sectionTitle">
+            <h2>Talk & Demo</h2>
+            <div class="hint">video/slides</div>
+          </div>
+
+          <div class="list">
+            <div class="item">
+              <div class="itemTop">
+                <h3>My 5-minute PhD thesis</h3>
+                <span class="chip">Jun 2025</span>
+              </div>
+              <div class="meta">Intelligent Environments · Darmstadt · <a href="#" target="_blank" rel="noopener">Slides</a> · <a href="#" target="_blank" rel="noopener">Video</a></div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <h3>Seminar: AI & Disability</h3>
+                <span class="chip">Talk</span>
+              </div>
+              <div class="meta">Dip. Informatica UniPi · <a href="#" target="_blank" rel="noopener">Abstract</a></div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <h3>Demo: AR Campus Navigation</h3>
+                <span class="chip">Demo</span>
+              </div>
+              <div class="meta">Clip di 30s + breve descrizione · <a href="#" target="_blank" rel="noopener">Watch</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card">
+      <div class="pad">
+        <div class="sectionTitle">
+          <h2>Contatti</h2>
+          <div class="hint">ti rispondo volentieri</div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap:12px">
+          <a class="item" href="mailto:tuaemail@domain.com">
+            <div class="itemTop">
+              <h3>Email</h3><span class="chip">↗</span>
+            </div>
+            <div class="meta">tuaemail@domain.com</div>
+          </a>
+
+          <a class="item" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">
+            <div class="itemTop">
+              <h3>LinkedIn</h3><span class="chip">↗</span>
+            </div>
+            <div class="meta">Profilo / contatti / collaborazioni</div>
+          </a>
+
+          <a class="item" href="https://github.com/TUOUSERNAME" target="_blank" rel="noopener">
+            <div class="itemTop">
+              <h3>GitHub</h3><span class="chip">↗</span>
+            </div>
+            <div class="meta">Codice, prototipi, demo</div>
+          </a>
+
+          <a class="item" href="assets/CV.pdf" target="_blank" rel="noopener">
+            <div class="itemTop">
+              <h3>CV</h3><span class="chip">PDF</span>
+            </div>
+            <div class="meta">Scarica la versione aggiornata</div>
+          </a>
+        </div>
+
+        <footer>
+          <div>© <span id="y"></span> Nome Cognome</div>
+          <div>Made with HTML · GitHub Pages</div>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // smooth scroll (works in most modern browsers)
+    document.documentElement.style.scrollBehavior = "smooth";
+  </script>
+</body>
 </html>
+
