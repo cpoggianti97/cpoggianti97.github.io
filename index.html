@@ -3,35 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio accademico - Nome Cognome. Ricerca, pubblicazioni, talk e contatti." />
-  <title>Portfolio — Nome Cognome</title>
+  <meta name="description" content="Portfolio accademico - Camilla Poggianti. Ricerca, pubblicazioni, talk, contatti e hobby." />
+  <title>Camilla Poggianti — Portfolio</title>
 
-  <!-- Font vibe “editorial + friendly” -->
+  <!-- Fonts: editorial + clean -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Palette ispirata alle foto: verde parete, terracotta divano, rosa, senape, teal */
+    /* Pastel palette inspired by your photos (light base + warm/teal accents) */
     :root{
-      --bg: #0B1A14;           /* verde scuro */
-      --bg2:#0E231B;           /* verde scuro leggermente diverso */
-      --card:#10241DCC;        /* vetro verde */
-      --paper:#F6F0E6;         /* crema (come pareti/legno chiaro) */
-      --ink:#10201A;           /* testo scuro su crema */
-      --text:#F7F1E8;          /* testo chiaro su verde */
-      --muted:#DCCFBE;         /* beige/rosa soft */
-      --stroke: rgba(246,240,230,.18);
+      --cream:#F7F1E8;     /* light walls / paper */
+      --paper:#FFF8F0;     /* cards background */
+      --mint:#DFF3EA;      /* soft mint */
+      --blush:#F6D7DE;     /* soft pink */
+      --butter:#F6E2A9;    /* soft mustard */
+      --sky:#CFEAF2;       /* soft sky */
+      --sage:#BFD6C5;      /* muted green */
 
-      --terracotta:#C85B3D;    /* divano */
-      --rust:#B44A33;
-      --rose:#E7A3B0;          /* cuscini */
-      --mustard:#E2B230;       /* vaso senape */
-      --teal:#2BB3A3;          /* struttura teal */
-      --sky:#6CCDE6;           /* accento poster */
+      --ink:#16231D;       /* main text */
+      --muted:#4C5A53;     /* secondary text */
+      --stroke: rgba(22,35,29,.12);
 
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      /* accents taken from the “home vibe” */
+      --terracotta:#C85B3D;
+      --rose:#E7A3B0;
+      --mustard:#E2B230;
+      --teal:#2BB3A3;
+      --forest:#1E3B2F;
+
       --radius: 22px;
+      --shadow: 0 18px 50px rgba(22,35,29,.12);
+      --shadow2: 0 10px 24px rgba(22,35,29,.10);
     }
 
     *{box-sizing:border-box}
@@ -39,49 +43,51 @@
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
+      color: var(--ink);
       background:
-        radial-gradient(1000px 650px at 14% 10%, rgba(200,91,61,.25), transparent 55%),
-        radial-gradient(900px 600px at 88% 18%, rgba(43,179,163,.18), transparent 55%),
-        radial-gradient(800px 560px at 50% 92%, rgba(226,178,48,.16), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(900px 520px at 10% 10%, rgba(246,226,169,.75), transparent 60%),
+        radial-gradient(900px 560px at 90% 16%, rgba(207,234,242,.90), transparent 62%),
+        radial-gradient(820px 540px at 30% 92%, rgba(246,215,222,.85), transparent 62%),
+        radial-gradient(1100px 700px at 75% 92%, rgba(223,243,234,.92), transparent 62%),
+        linear-gradient(180deg, var(--cream), #FAF6EF);
       overflow-x:hidden;
     }
 
-    /* grain / texture */
+    /* subtle paper texture */
     body:before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:.28;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+      mix-blend-mode:multiply;
+      opacity:.35;
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{width:min(1180px, 92vw); margin:0 auto; padding:18px 0 70px}
+    .wrap{width:min(1180px, 92vw); margin:0 auto; padding:18px 0 80px}
 
-    /* Top bar */
+    /* Top nav (pill style like playful decor) */
     .top{
       position:sticky; top:14px; z-index:20;
       display:flex; align-items:center; justify-content:space-between;
       gap:10px;
       padding:12px 14px;
       border:1px solid var(--stroke);
-      background: rgba(16,36,29,.65);
-      backdrop-filter: blur(14px);
+      background: rgba(255,248,240,.70);
+      backdrop-filter: blur(12px);
       border-radius: 999px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.22);
+      box-shadow: var(--shadow2);
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.2px;
+      font-weight: 800; letter-spacing:.2px;
     }
     .mark{
       width:14px; height:14px; border-radius:50%;
       background: conic-gradient(from 180deg, var(--terracotta), var(--mustard), var(--teal), var(--rose), var(--terracotta));
-      box-shadow: 0 0 22px rgba(200,91,61,.28);
+      box-shadow: 0 0 18px rgba(200,91,61,.18);
+      border:1px solid rgba(22,35,29,.10);
     }
     .nav{
       display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
@@ -89,34 +95,31 @@
     .pill{
       padding:9px 12px;
       border:1px solid var(--stroke);
-      background: rgba(11,26,20,.25);
+      background: rgba(255,255,255,.55);
       border-radius: 999px;
-      color: rgba(247,241,232,.88);
+      color: rgba(22,35,29,.86);
       font-size:14px;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .pill:hover{ transform: translateY(-1px); border-color: rgba(226,178,48,.45); background: rgba(226,178,48,.12); }
-    .pill.accent:hover{ border-color: rgba(43,179,163,.55); background: rgba(43,179,163,.12); }
-
-    @media (max-width: 940px){
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(43,179,163,.35);
+      background: rgba(43,179,163,.10);
+    }
+    .pill.accent:hover{
+      border-color: rgba(226,178,48,.35);
+      background: rgba(226,178,48,.12);
+    }
+    @media (max-width: 980px){
       .nav{display:none}
     }
 
-    /* Layout */
-    .hero{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
-
+    /* Cards */
     .card{
       position:relative;
       border:1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(16,36,29,.72), rgba(16,36,29,.45));
       border-radius: var(--radius);
+      background: rgba(255,248,240,.74);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
@@ -124,12 +127,23 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(700px 260px at 18% 0%, rgba(200,91,61,.20), transparent 60%),
-        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.18), transparent 60%),
-        radial-gradient(520px 220px at 60% 110%, rgba(226,178,48,.14), transparent 60%);
+        radial-gradient(700px 260px at 14% 0%, rgba(200,91,61,.18), transparent 60%),
+        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.14), transparent 60%),
+        radial-gradient(520px 220px at 58% 110%, rgba(226,178,48,.14), transparent 60%);
       pointer-events:none;
+      opacity:.75;
     }
     .pad{padding:22px; position:relative; z-index:1}
+
+    /* Layout */
+    .hero{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
 
     /* Typography */
     .kicker{
@@ -137,32 +151,37 @@
       padding:8px 12px;
       border:1px solid var(--stroke);
       border-radius: 999px;
-      background: rgba(11,26,20,.30);
-      color: rgba(247,241,232,.90);
+      background: rgba(255,255,255,.55);
+      color: rgba(22,35,29,.82);
       font-size:14px;
     }
-    .spark{width:10px;height:10px;border-radius:50%; background: var(--mustard); box-shadow: 0 0 18px rgba(226,178,48,.35);}
+    .spark{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--mustard);
+      box-shadow: 0 0 12px rgba(226,178,48,.22);
+      border:1px solid rgba(22,35,29,.10);
+    }
 
     h1{
       margin:14px 0 8px;
       font-family: Fraunces, serif;
       font-weight: 800;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.03;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.02;
       letter-spacing: -.6px;
     }
-    .sub{
+    .subtitle{
       margin:0;
-      color: rgba(247,241,232,.84);
+      color: rgba(22,35,29,.78);
       font-size: 16px;
       line-height: 1.65;
-      max-width: 70ch;
+      max-width: 75ch;
     }
 
     .metaRow{
       margin-top:14px;
       display:flex; gap:10px; flex-wrap:wrap;
-      color: rgba(247,241,232,.88);
+      color: rgba(22,35,29,.82);
       font-size: 14px;
     }
     .badge{
@@ -170,9 +189,13 @@
       padding:8px 10px;
       border-radius: 999px;
       border:1px solid var(--stroke);
-      background: rgba(11,26,20,.28);
+      background: rgba(255,255,255,.58);
     }
-    .dot{width:8px;height:8px;border-radius:50%; background: var(--teal); box-shadow: 0 0 14px rgba(43,179,163,.35);}
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--teal);
+      box-shadow: 0 0 10px rgba(43,179,163,.20);
+    }
 
     .ctaRow{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
     .btn{
@@ -181,23 +204,26 @@
       padding:12px 14px;
       border-radius: 16px;
       border:1px solid var(--stroke);
-      background: rgba(11,26,20,.28);
+      background: rgba(255,255,255,.65);
       font-weight: 700;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
     }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(43,179,163,.55); background: rgba(43,179,163,.12); }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(43,179,163,.35);
+      background: rgba(43,179,163,.10);
+    }
     .btn.primary{
-      border-color: rgba(200,91,61,.35);
-      background: linear-gradient(135deg, rgba(200,91,61,.92), rgba(226,178,48,.72));
-      box-shadow: 0 14px 34px rgba(200,91,61,.16);
+      border-color: rgba(200,91,61,.25);
+      background: linear-gradient(135deg, rgba(200,91,61,.25), rgba(226,178,48,.18));
     }
     .btn.primary:hover{
-      border-color: rgba(226,178,48,.45);
-      background: linear-gradient(135deg, rgba(200,91,61,1), rgba(226,178,48,.90));
+      border-color: rgba(226,178,48,.30);
+      background: linear-gradient(135deg, rgba(200,91,61,.28), rgba(226,178,48,.22));
     }
 
-    /* Right “poster wall” vibe */
+    /* Poster wall / collage tiles */
     .collage{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -206,28 +232,46 @@
     .tile{
       border-radius: 18px;
       border:1px solid var(--stroke);
-      background: rgba(11,26,20,.22);
+      background: rgba(255,255,255,.60);
       overflow:hidden;
       min-height: 110px;
       position:relative;
+      box-shadow: 0 10px 22px rgba(22,35,29,.08);
+      transition: transform .15s ease, border-color .15s ease;
     }
+    .tile:hover{ transform: translateY(-1px); border-color: rgba(200,91,61,.22); }
     .tile.big{ grid-column: 1 / -1; min-height: 170px; }
+
     .tile .label{
       position:absolute; left:12px; bottom:12px;
       padding:8px 10px;
       border-radius: 999px;
-      border:1px solid var(--stroke);
-      background: rgba(16,36,29,.65);
+      border:1px solid rgba(22,35,29,.12);
+      background: rgba(255,248,240,.72);
       font-size: 13px;
-      color: rgba(247,241,232,.92);
+      color: rgba(22,35,29,.86);
+      box-shadow: 0 8px 18px rgba(22,35,29,.08);
     }
-    /* “Poster” gradients */
-    .p1{ background: linear-gradient(135deg, rgba(43,179,163,.55), rgba(11,26,20,.25)), radial-gradient(240px 160px at 20% 20%, rgba(226,178,48,.45), transparent 60%); }
-    .p2{ background: linear-gradient(135deg, rgba(231,163,176,.50), rgba(11,26,20,.25)), radial-gradient(260px 160px at 80% 30%, rgba(108,205,230,.35), transparent 60%); }
-    .p3{ background: linear-gradient(135deg, rgba(200,91,61,.55), rgba(11,26,20,.25)), radial-gradient(240px 160px at 30% 70%, rgba(226,178,48,.30), transparent 60%); }
-    .p4{ background: linear-gradient(135deg, rgba(108,205,230,.45), rgba(11,26,20,.25)), radial-gradient(240px 160px at 70% 60%, rgba(43,179,163,.30), transparent 60%); }
 
-    /* Sections grid */
+    /* Tile gradients (playful, pastel) */
+    .p1{ background:
+        radial-gradient(220px 140px at 20% 20%, rgba(226,178,48,.45), transparent 60%),
+        linear-gradient(135deg, rgba(223,243,234,.90), rgba(255,255,255,.55));
+    }
+    .p2{ background:
+        radial-gradient(240px 160px at 80% 30%, rgba(108,205,230,.45), transparent 62%),
+        linear-gradient(135deg, rgba(246,215,222,.92), rgba(255,255,255,.55));
+    }
+    .p3{ background:
+        radial-gradient(240px 160px at 25% 65%, rgba(200,91,61,.32), transparent 62%),
+        linear-gradient(135deg, rgba(246,226,169,.92), rgba(255,255,255,.55));
+    }
+    .p4{ background:
+        radial-gradient(240px 160px at 70% 60%, rgba(43,179,163,.30), transparent 62%),
+        linear-gradient(135deg, rgba(207,234,242,.92), rgba(255,255,255,.55));
+    }
+
+    /* Sections */
     section{margin-top:16px}
     .grid{
       display:grid;
@@ -246,61 +290,43 @@
       font-size: 20px;
       letter-spacing: -.2px;
     }
-    .hint{color: rgba(247,241,232,.72); font-size: 13px}
+    .hint{color: rgba(22,35,29,.60); font-size: 13px}
 
     .list{display:flex; flex-direction:column; gap:10px}
     .item{
       padding:14px;
       border-radius: 18px;
       border:1px solid var(--stroke);
-      background: rgba(11,26,20,.20);
+      background: rgba(255,255,255,.62);
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
     .item:hover{
       transform: translateY(-1px);
-      border-color: rgba(231,163,176,.40);
-      background: rgba(231,163,176,.08);
+      border-color: rgba(43,179,163,.28);
+      background: rgba(43,179,163,.06);
     }
     .itemTop{display:flex; justify-content:space-between; gap:12px; align-items:flex-start}
     .item h3{margin:0; font-size:16px}
-    .meta{margin-top:6px; color: rgba(247,241,232,.80); font-size:13px; line-height:1.55}
+    .meta{margin-top:6px; color: rgba(22,35,29,.72); font-size:13px; line-height:1.55}
 
     .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:6px}
     .chip{
       font-size:12px;
       padding:6px 9px;
       border-radius: 999px;
-      border:1px solid var(--stroke);
-      background: rgba(16,36,29,.45);
-      color: rgba(247,241,232,.90);
+      border:1px solid rgba(22,35,29,.12);
+      background: rgba(255,248,240,.75);
+      color: rgba(22,35,29,.86);
     }
-    .chip.teal{ border-color: rgba(43,179,163,.40); background: rgba(43,179,163,.12); }
-    .chip.mustard{ border-color: rgba(226,178,48,.40); background: rgba(226,178,48,.12); }
-    .chip.rose{ border-color: rgba(231,163,176,.40); background: rgba(231,163,176,.10); }
-    .chip.rust{ border-color: rgba(200,91,61,.40); background: rgba(200,91,61,.10); }
-
-    /* Full-width “cream” band for hobbies (light + cozy like la seconda foto) */
-    .creamBand{
-      background: linear-gradient(180deg, rgba(246,240,230,.96), rgba(246,240,230,.90));
-      color: var(--ink);
-      border: 1px solid rgba(16,32,26,.10);
-    }
-    .creamBand:before{
-      background:
-        radial-gradient(700px 260px at 14% 0%, rgba(200,91,61,.18), transparent 60%),
-        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.14), transparent 60%),
-        radial-gradient(520px 220px at 58% 110%, rgba(226,178,48,.12), transparent 60%);
-    }
-    .creamBand .hint{color: rgba(16,32,26,.65)}
-    .creamBand .item{ border-color: rgba(16,32,26,.12); background: rgba(255,255,255,.55); }
-    .creamBand .item:hover{ border-color: rgba(200,91,61,.28); background: rgba(200,91,61,.06); }
-    .creamBand .meta{color: rgba(16,32,26,.72)}
-    .creamBand .chip{ border-color: rgba(16,32,26,.18); background: rgba(255,255,255,.65); color: rgba(16,32,26,.86) }
+    .chip.teal{ border-color: rgba(43,179,163,.28); background: rgba(43,179,163,.10); }
+    .chip.mustard{ border-color: rgba(226,178,48,.30); background: rgba(226,178,48,.12); }
+    .chip.rose{ border-color: rgba(231,163,176,.30); background: rgba(231,163,176,.12); }
+    .chip.rust{ border-color: rgba(200,91,61,.28); background: rgba(200,91,61,.10); }
 
     footer{
       margin-top:16px;
       display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      color: rgba(247,241,232,.72);
+      color: rgba(22,35,29,.62);
       font-size: 13px;
       padding-bottom: 6px;
     }
@@ -318,45 +344,49 @@
     <div class="top">
       <div class="brand">
         <span class="mark" aria-hidden="true"></span>
-        <span>Nome Cognome</span>
+        <span>Camilla Poggianti</span>
       </div>
 
       <nav class="nav" aria-label="Sezioni">
         <a class="pill" href="#about">About</a>
-        <a class="pill accent" href="#experience">Esperienza</a>
-        <a class="pill" href="#keywords">Keywords</a>
-        <a class="pill accent" href="#publications">Pubblicazioni</a>
-        <a class="pill" href="#talks">Talk</a>
-        <a class="pill accent" href="#contact">Contatti</a>
-        <a class="pill" href="#hobbies">Hobby</a>
+        <a class="pill accent" href="#experience">Experience</a>
+        <a class="pill" href="#education">Education</a>
+        <a class="pill accent" href="#keywords">Keywords</a>
+        <a class="pill" href="#publications">Publications</a>
+        <a class="pill accent" href="#talks">Talks</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="pill accent" href="#hobbies">Hobbies</a>
       </nav>
 
-      <a class="pill accent" href="#contact">↗ Contattami</a>
+      <a class="pill accent" href="#contact">↗ Contact</a>
     </div>
 
     <!-- HERO -->
     <div class="hero">
       <div class="card">
         <div class="pad">
-          <div class="kicker"><span class="spark"></span> Ruolo · Affiliazione · Area</div>
-          <h1>Nome Cognome<br><span style="opacity:.88">XR & Inclusive Learning</span></h1>
+          <div class="kicker"><span class="spark"></span> Academic portfolio</div>
 
-          <p class="sub" id="about">
-            Breve presentazione (3–5 righe): di cosa ti occupi, perché è importante e cosa stai costruendo adesso.
-            Esempio: “PhD student in Computer Science (Università di Pisa). Progetto esperienze immersive accessibili
-            e strumenti UDL per supportare studenti con bisogni diversi nell’apprendimento universitario.”
+          <h1>Camilla Poggianti</h1>
+
+          <p class="subtitle" id="about">
+            <strong>PhD student in Computer Science</strong>, Department of Computer Science — University of Pisa.
+            <!-- Personalizza questo paragrafo -->
+            <br><br>
+            Add here a short bio (3–5 lines): your research focus, the kind of problems you tackle,
+            and what you are currently working on.
           </p>
 
           <div class="metaRow">
             <span class="badge"><span class="dot"></span> PhD Student / Researcher</span>
-            <span class="badge">📍 Pisa, IT</span>
-            <span class="badge">🏛 Università / Lab</span>
+            <span class="badge">🏛 University of Pisa</span>
+            <span class="badge">📍 Pisa, Italy</span>
           </div>
 
           <div class="ctaRow">
-            <!-- Metti un CV in assets/CV.pdf -->
+            <!-- Put a CV in assets/CV.pdf -->
             <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
-            <a class="btn" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://www.linkedin.com/in/INSERISCI" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
             <a class="btn" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
           </div>
@@ -366,41 +396,41 @@
             <span class="chip teal">Accessibility</span>
             <span class="chip mustard">UDL</span>
             <span class="chip rose">HCI</span>
-            <span class="chip">User Studies</span>
+            <span class="chip">Inclusive Learning</span>
           </div>
         </div>
       </div>
 
-      <!-- Right collage: richiama poster + colori -->
+      <!-- Poster wall -->
       <div class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Link utili</h2>
-            <div class="hint">“poster wall” vibes</div>
+            <h2>Quick links</h2>
+            <div class="hint">poster-wall vibe</div>
           </div>
 
           <div class="collage">
-            <a class="tile big p3" href="mailto:tuaemail@domain.com" aria-label="Email">
-              <span class="label">✉️ tuaemail@domain.com</span>
+            <a class="tile big p3" href="mailto:INSERISCI@EMAIL.COM" aria-label="Email">
+              <span class="label">✉️ INSERISCI@EMAIL.COM</span>
             </a>
-            <a class="tile p1" href="https://github.com/TUOUSERNAME" target="_blank" rel="noopener">
+            <a class="tile p1" href="https://github.com/INSERISCI" target="_blank" rel="noopener">
               <span class="label">⌘ GitHub</span>
             </a>
-            <a class="tile p2" href="#" target="_blank" rel="noopener">
-              <span class="label">🧾 Publications list</span>
+            <a class="tile p2" href="#publications">
+              <span class="label">🧾 Publications</span>
             </a>
-            <a class="tile p4" href="#" target="_blank" rel="noopener">
-              <span class="label">🎥 Demo / Video</span>
+            <a class="tile p4" href="#talks">
+              <span class="label">🎤 Talks</span>
             </a>
           </div>
 
           <div class="item" style="margin-top:10px">
             <div class="itemTop">
-              <h3>Disponibilità</h3>
+              <h3>Open to</h3>
               <span class="chip mustard">collab</span>
             </div>
             <div class="meta">
-              Una riga su collaborazioni: paper, progetti XR, workshop, user studies, grant, ecc.
+              Add 1–2 lines: collaborations (papers, XR projects, workshops, demos, user studies, etc.).
             </div>
           </div>
         </div>
@@ -408,22 +438,22 @@
     </div>
 
     <!-- EXPERIENCE + EDUCATION -->
-    <section id="experience" class="grid">
-      <div class="card">
+    <section class="grid">
+      <div id="experience" class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Esperienza</h2>
-            <div class="hint">ruoli, progetti, impact</div>
+            <h2>Experience</h2>
+            <div class="hint">roles · projects · impact</div>
           </div>
 
           <div class="list">
             <div class="item">
               <div class="itemTop">
-                <h3>PhD Student — Dipartimento / Lab</h3>
-                <span class="chip rust">202X–Presente</span>
+                <h3>PhD Student — University of Pisa</h3>
+                <span class="chip rust">202X–Present</span>
               </div>
               <div class="meta">
-                2–3 bullet in una frase: cosa fai, che sistemi sviluppi, con quali utenti/contesti.
+                Add 1–3 lines about your PhD work (systems you build, methods, user groups, outcomes).
               </div>
               <div class="chips">
                 <span class="chip teal">XR</span>
@@ -434,57 +464,63 @@
 
             <div class="item">
               <div class="itemTop">
-                <h3>Research / Teaching Assistant — Corso</h3>
+                <h3>Research / Teaching Assistant — Course</h3>
                 <span class="chip">202X</span>
               </div>
               <div class="meta">
-                Una riga su attività: tutorato, laboratori, supporto a studenti, materiale didattico, ecc.
+                Add 1–2 lines: teaching, labs, mentoring, materials, etc.
               </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>Project — AR experience (Orto Botanico)</h3>
-                <span class="chip teal">AR</span>
+                <h3>Project — (Title)</h3>
+                <span class="chip teal">AR/VR</span>
               </div>
               <div class="meta">
-                App marker-based, accessibile, user testing, risultati principali (1 riga).
+                Add 1 line: what it is + one measurable outcome (users, tests, features).
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="card">
+      <div id="education" class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Educazione</h2>
-            <div class="hint">titoli + focus</div>
+            <h2>Education</h2>
+            <div class="hint">degrees · thesis</div>
           </div>
 
           <div class="list">
             <div class="item">
               <div class="itemTop">
-                <h3>PhD in Computer Science — Università</h3>
-                <span class="chip rust">202X–Presente</span>
+                <h3>PhD in Computer Science — University of Pisa</h3>
+                <span class="chip rust">202X–Present</span>
               </div>
-              <div class="meta">Topic: XR, accessibilità, UDL, apprendimento universitario inclusivo.</div>
+              <div class="meta">
+                Topic: XR, accessibility, inclusive learning, UDL (customize).
+              </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>MSc / Laurea Magistrale — Università</h3>
+                <h3>MSc / Laurea Magistrale — University</h3>
                 <span class="chip">202X</span>
               </div>
-              <div class="meta">Tesi: titolo · keywords · link PDF se vuoi.</div>
+              <div class="meta">
+                Thesis title · keywords · (optional link to PDF).
+              </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>Certificazioni / Summer school</h3>
-                <span class="chip mustard">Extra</span>
+                <h3>Other (summer school / certificates)</h3>
+                <span class="chip mustard">extra</span>
               </div>
-              <div class="meta">Una lista breve: 2–4 cose davvero rilevanti.</div>
+              <div class="meta">
+                Add 2–4 relevant items.
+              </div>
             </div>
           </div>
         </div>
@@ -495,8 +531,8 @@
     <section id="keywords" class="card">
       <div class="pad">
         <div class="sectionTitle">
-          <h2>Interessi di ricerca (keywords)</h2>
-          <div class="hint">usa 10–20 tag</div>
+          <h2>Research interests (keywords)</h2>
+          <div class="hint">10–20 tags</div>
         </div>
 
         <div class="chips">
@@ -513,18 +549,15 @@
           <span class="chip rust">Gamification</span>
           <span class="chip teal">Wayfinding</span>
           <span class="chip">Cognitive accessibility</span>
-          <span class="chip mustard">Autism & learning</span>
-          <span class="chip rose">Deaf accessibility</span>
         </div>
 
         <div class="item" style="margin-top:12px">
           <div class="itemTop">
-            <h3>One-liner del tuo “north star”</h3>
+            <h3>Your “north star”</h3>
             <span class="chip mustard">focus</span>
           </div>
           <div class="meta">
-            Esempio: “Designo ambienti immersivi e strumenti didattici che si adattano ai diversi profili di apprendimento,
-            con metriche di accessibilità verificabili e test con utenti.”
+            Write 1–2 lines describing the main goal of your research.
           </div>
         </div>
       </div>
@@ -535,37 +568,51 @@
       <div id="publications" class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Pubblicazioni</h2>
+            <h2>Publications</h2>
             <div class="hint">DOI · PDF · BibTeX</div>
           </div>
 
           <div class="list">
-            <!-- Copia/incolla questi blocchi -->
             <div class="item">
               <div class="itemTop">
-                <h3>Titolo paper 1</h3>
+                <h3>Paper title 1</h3>
                 <span class="chip rust">2025</span>
               </div>
               <div class="meta">
-                Venue (Conference/Journal) · Autori (opzionale) ·
-                <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
-                <a class="chip mustard" href="#" target="_blank" rel="noopener">DOI</a>
-                <a class="chip rose" href="#" target="_blank" rel="noopener">BibTeX</a>
-              </div>
-              <div class="chips">
-                <span class="chip">XR</span><span class="chip">Accessibility</span><span class="chip">UDL</span>
+                Venue · Authors (optional)
+                <div class="chips">
+                  <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
+                  <a class="chip mustard" href="#" target="_blank" rel="noopener">DOI</a>
+                  <a class="chip rose" href="#" target="_blank" rel="noopener">BibTeX</a>
+                </div>
               </div>
             </div>
 
             <div class="item">
               <div class="itemTop">
-                <h3>Titolo paper 2</h3>
+                <h3>Paper title 2</h3>
                 <span class="chip">2024</span>
               </div>
               <div class="meta">
-                Venue ·
-                <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
-                <a class="chip mustard" href="#" target="_blank" rel="noopener">DOI</a>
+                Venue
+                <div class="chips">
+                  <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
+                  <a class="chip mustard" href="#" target="_blank" rel="noopener">DOI</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="itemTop">
+                <h3>Paper title 3</h3>
+                <span class="chip mustard">2023</span>
+              </div>
+              <div class="meta">
+                Venue
+                <div class="chips">
+                  <a class="chip teal" href="#" target="_blank" rel="noopener">PDF</a>
+                  <a class="chip rose" href="#" target="_blank" rel="noopener">BibTeX</a>
+                </div>
               </div>
             </div>
           </div>
@@ -575,20 +622,22 @@
       <div id="talks" class="card">
         <div class="pad">
           <div class="sectionTitle">
-            <h2>Eventi & Talk</h2>
+            <h2>Events & talks</h2>
             <div class="hint">slides · video · demo</div>
           </div>
 
           <div class="list">
             <div class="item">
               <div class="itemTop">
-                <h3>Talk title — Event/Conference</h3>
+                <h3>Talk title — Event / Conference</h3>
                 <span class="chip mustard">Jun 2025</span>
               </div>
               <div class="meta">
-                Location · tipo (keynote/seminar/demo) ·
-                <a class="chip teal" href="#" target="_blank" rel="noopener">Slides</a>
-                <a class="chip rose" href="#" target="_blank" rel="noopener">Video</a>
+                Location · type (talk/demo/workshop)
+                <div class="chips">
+                  <a class="chip teal" href="#" target="_blank" rel="noopener">Slides</a>
+                  <a class="chip rose" href="#" target="_blank" rel="noopener">Video</a>
+                </div>
               </div>
             </div>
 
@@ -598,8 +647,10 @@
                 <span class="chip teal">Demo</span>
               </div>
               <div class="meta">
-                1 riga su cosa si vede nella demo ·
-                <a class="chip mustard" href="#" target="_blank" rel="noopener">Watch</a>
+                1 line describing the demo.
+                <div class="chips">
+                  <a class="chip mustard" href="#" target="_blank" rel="noopener">Watch</a>
+                </div>
               </div>
             </div>
 
@@ -609,7 +660,7 @@
                 <span class="chip rust">Workshop</span>
               </div>
               <div class="meta">
-                Ruolo (speaker/organizer) · link pagina evento
+                Role (speaker/organizer) · event link
               </div>
             </div>
           </div>
@@ -621,86 +672,83 @@
     <section id="contact" class="card">
       <div class="pad">
         <div class="sectionTitle">
-          <h2>Contatti</h2>
-          <div class="hint">scrivimi / collab / inviti</div>
+          <h2>Contact</h2>
+          <div class="hint">feel free to reach out</div>
         </div>
 
         <div class="grid" style="grid-template-columns: 1fr 1fr; gap:12px">
-          <a class="item" href="mailto:tuaemail@domain.com">
+          <a class="item" href="mailto:INSERISCI@EMAIL.COM">
             <div class="itemTop">
               <h3>Email</h3><span class="chip mustard">↗</span>
             </div>
-            <div class="meta">tuaemail@domain.com</div>
+            <div class="meta">INSERISCI@EMAIL.COM</div>
           </a>
 
-          <a class="item" href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">
+          <a class="item" href="https://www.linkedin.com/in/INSERISCI" target="_blank" rel="noopener">
             <div class="itemTop">
               <h3>LinkedIn</h3><span class="chip teal">↗</span>
             </div>
-            <div class="meta">Messaggi e networking</div>
+            <div class="meta">DMs and collaborations</div>
           </a>
 
           <a class="item" href="https://scholar.google.com/" target="_blank" rel="noopener">
             <div class="itemTop">
               <h3>Google Scholar</h3><span class="chip rose">↗</span>
             </div>
-            <div class="meta">Pubblicazioni e citazioni</div>
+            <div class="meta">Publications & citations</div>
           </a>
 
           <a class="item" href="https://orcid.org/" target="_blank" rel="noopener">
             <div class="itemTop">
               <h3>ORCID</h3><span class="chip rust">↗</span>
             </div>
-            <div class="meta">Identificativo ricercatore</div>
+            <div class="meta">Researcher ID</div>
           </a>
         </div>
 
         <footer>
-          <div>© <span id="y"></span> Nome Cognome</div>
-          <div>HTML · GitHub Pages · palette “home vibe”</div>
+          <div>© <span id="y"></span> Camilla Poggianti</div>
+          <div>HTML · GitHub Pages</div>
         </footer>
       </div>
     </section>
 
-    <!-- HOBBIES (light, cozy) -->
-    <section id="hobbies" class="card creamBand">
+    <!-- HOBBIES -->
+    <section id="hobbies" class="card">
       <div class="pad">
         <div class="sectionTitle">
-          <h2>Oltre la ricerca</h2>
-          <div class="hint">più leggero, ma sempre “te”</div>
+          <h2>Hobbies</h2>
+          <div class="hint">a lighter side</div>
         </div>
 
         <div class="grid">
           <div class="item">
             <div class="itemTop">
-              <h3>Hobby</h3>
+              <h3>Outside the lab</h3>
               <span class="chip">🌿</span>
             </div>
             <div class="meta">
-              Esempi: trekking/natura, fotografia, ceramica, musei, letture pop-science…
-              (2–4 righe massimo).
+              Add 2–4 lines about your hobbies (e.g., nature, photography, ceramics, books, etc.).
             </div>
             <div class="chips">
-              <span class="chip">fotografia</span>
-              <span class="chip">natura</span>
+              <span class="chip">photography</span>
+              <span class="chip">nature</span>
               <span class="chip">design</span>
-              <span class="chip">craft</span>
             </div>
           </div>
 
           <div class="item">
             <div class="itemTop">
-              <h3>Micro-cose che mi piacciono</h3>
+              <h3>Little favorites</h3>
               <span class="chip">✨</span>
             </div>
             <div class="meta">
-              Una lista “cute” (tipo 3–6): poster colorati, piante in casa, taccuini, playlist, ecc.
-              Richiama il mood delle immagini senza diventare troppo personale.
+              A short “cute list” (3–6 items): posters, plants, notebooks, playlists…
             </div>
             <div class="chips">
-              <span class="chip">poster pop</span>
-              <span class="chip">piante</span>
-              <span class="chip">palette calde</span>
+              <span class="chip">poster wall</span>
+              <span class="chip">plants</span>
+              <span class="chip">warm palettes</span>
             </div>
           </div>
         </div>
