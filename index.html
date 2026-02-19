@@ -393,6 +393,113 @@
     @media (prefers-reduced-motion: reduce){
       *{transition:none!important; scroll-behavior:auto!important}
     }
+
+    /* --- Research interests card improvements --- */
+.split{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:12px;
+  align-items:start;
+}
+@media (max-width: 980px){
+  .split{grid-template-columns:1fr}
+}
+
+.panel{
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.58);
+  border-radius: 18px;
+  padding:14px;
+  box-shadow: 0 10px 22px rgba(22,35,29,.06);
+}
+
+.panelTitle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:0 0 10px;
+}
+
+.pillTag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(22,35,29,.12);
+  background: rgba(226,178,48,.18);
+  color: rgba(22,35,29,.86);
+  font-size:13px;
+  font-weight:600;
+}
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.event{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:12px;
+  border-radius: 16px;
+  border:1px dashed rgba(22,35,29,.18);
+  background: rgba(255,248,240,.70);
+}
+
+.eventIcon{
+  width:34px;
+  height:34px;
+  border-radius: 12px;
+  border:1px solid rgba(22,35,29,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg, rgba(43,179,163,.16), rgba(207,234,242,.25));
+  flex: 0 0 auto;
+}
+
+.eventMain{
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.eventTitle{
+  margin:0;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.25;
+}
+
+.eventMeta{
+  margin-top:4px;
+  color: rgba(22,35,29,.70);
+  font-size:13px;
+  line-height:1.35;
+}
+
+.eventMeta .mini{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-right:10px;
+  white-space:nowrap;
+}
+
+.miniDot{
+  width:7px; height:7px; border-radius:50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px rgba(43,179,163,.20);
+}
+
+.softNote{
+  margin-top:10px;
+  color: rgba(22,35,29,.70);
+  font-size:13px;
+}
   </style>
 </head>
 
@@ -456,56 +563,81 @@
       <!-- Poster wall -->
       <div class="card">
         <div class="pad">
-          <div class="sectionTitle">
-            <h2>Research interests</h2>
-            <div class="hint"></div>
-          </div>
+  <div class="sectionTitle">
+    <h2>Research interests</h2>
+    <div class="hint">what I’m into & what’s next</div>
+  </div>
 
-          <div class="chips">
-          <span class="chip teal">Accessibility</span>
-          <span class="chip mustard">Assistive Technologies</span>
-          <span class="chip rose">Human-Computer Interaction</span>
-          <span class="chip rust">Immersive Technologies</span>
-          <span class="chip teal">AR</span>
-          <span class="chip">VR</span>
-          <span class="chip mustard">Artificial Intelligence</span>
-          <span class="chip">Inclusive Education</span>
-          <span class="chip rose">Universal Design for Learning</span>
-        </div>
+  <div class="split">
+    <!-- Left: chips -->
+    <div class="panel">
+      <div class="panelTitle">
+        <h3 style="margin:0; font-size:16px;">Keywords</h3>
+        <span class="pillTag">✨ focus</span>
+      </div>
 
+      <div class="chips" style="margin-top:0;">
+        <span class="chip teal">Accessibility</span>
+        <span class="chip mustard">Assistive Technologies</span>
+        <span class="chip rose">Human-Computer Interaction</span>
+        <span class="chip rust">Immersive Technologies</span>
+        <span class="chip teal">AR</span>
+        <span class="chip">VR</span>
+        <span class="chip mustard">Artificial Intelligence</span>
+        <span class="chip">Inclusive Education</span>
+        <span class="chip rose">Universal Design for Learning</span>
+      </div>
 
-          <!--<div class="collage">
-            <a class="tile big p3" href="mailto:camilla.poggianti@phd.unipi.it" aria-label="Email">
-              <span class="label">✉️ camilla.poggianti@phd.unipi.it</span>
-            </a>
-            <a class="tile p1" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Poggianti,%20Camilla%22" target="_blank" rel="noopener">
-              <span class="label">⌘ Zenodo</span>
-            </a>
-            <a class="tile p2" href="#publications">
-              <span class="label">🧾 Publications</span>
-            </a>
-            <a class="tile p4" href="#talks">
-              <span class="label">🎤 Talks</span>
-            </a>
-          </div>-->
+      <div class="softNote">
+        I design inclusive XR learning experiences combining HCI, UDL and adaptive tools.
+      </div>
+    </div>
 
-          <div class="item" style="margin-top:10px">
-            <div class="itemTop">
-              <h3>Coming soon</h3>
-              <!--<span class="chip mustard">collab</span>-->
-            </div>
-            <div class="meta">
-              🚀<strong> Visiting PhD Student</strong> at Universidad Autónoma de Madrid (UAM)
-              <br>
-              <br>
-              🎤​<strong> International Conference on Intelligent Environments</strong> in Lisbon
-              <br>
-              <br>
-              🎤​<strong> Symposium on Computers and Communications</strong> in Algarve
-              
+    <!-- Right: upcoming -->
+    <div class="panel">
+      <div class="panelTitle">
+        <h3 style="margin:0; font-size:16px;">Upcoming</h3>
+        <span class="pillTag">🗓️ soon</span>
+      </div>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="eventIcon">🚀</div>
+          <div class="eventMain">
+            <p class="eventTitle">Visiting PhD Student — Universidad Autónoma de Madrid (UAM)</p>
+            <div class="eventMeta">
+              <span class="mini"><span class="miniDot"></span> Mobility</span>
+              <span class="mini">📍 Madrid</span>
             </div>
           </div>
         </div>
+
+        <div class="event">
+          <div class="eventIcon">🎤</div>
+          <div class="eventMain">
+            <p class="eventTitle">International Conference on Intelligent Environments</p>
+            <div class="eventMeta">
+              <span class="mini"><span class="miniDot"></span> Conference</span>
+              <span class="mini">📍 Lisbon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="eventIcon">🎤</div>
+          <div class="eventMain">
+            <p class="eventTitle">Symposium on Computers and Communications</p>
+            <div class="eventMeta">
+              <span class="mini"><span class="miniDot"></span> Conference</span>
+              <span class="mini">📍 Algarve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
 
