@@ -395,15 +395,25 @@
     }
 
     /* --- Research interests card improvements --- */
+/* Stack panels vertically (Focus above, Upcoming below) */
 .split{
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr;
   gap:12px;
   align-items:start;
 }
+.panel{ padding:16px; }
+.timeline{ gap:8px; }
+.event{ padding:10px; }
+
 @media (max-width: 980px){
   .split{grid-template-columns:1fr}
 }
+
+    /* Nicer chips spacing */
+.chips{ gap: 8px; }
+.chip{ padding: 7px 10px; }
+
 
 .panel{
   border:1px solid var(--stroke);
@@ -412,6 +422,13 @@
   padding:14px;
   box-shadow: 0 10px 22px rgba(22,35,29,.06);
 }
+
+    /* Soft divider between the two panels */
+.split .panel + .panel{
+  border-top: 1px dashed rgba(200,91,61,.22);
+  padding-top: 18px;
+}
+
 
 .panelTitle{
   display:flex;
@@ -546,13 +563,14 @@
           </p>
           <div class="chips" style="margin-top:14px">
               <a class="chip teal" href="mailto:camilla.poggianti@phd.unipi.it" target="_blank" rel="noopener">✉️​ camilla.poggianti@phd.unipi.it</a>
+              <a class="chip mustard" href="http://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">✉️​ camillapoggianti</a>
+              <a class="chip rose" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID</a>
+          
           </div>
 
           <div class="ctaRow">
             <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
-            <a class="btn" href="http://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ&hl=it&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="btn" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID</a>
+           <a class="btn" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ&hl=it&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
             <a class="btn" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Poggianti,%20Camilla%22" target="_blank" rel="noopener">Zenodo</a>
           </div>
 
