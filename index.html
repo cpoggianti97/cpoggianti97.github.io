@@ -517,6 +517,45 @@
   color: rgba(22,35,29,.70);
   font-size:13px;
 }
+
+    /* Date badge for talks/events */
+.itemTop{
+  align-items: flex-start;
+}
+
+.datePill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(22,35,29,.14);
+  background: rgba(255,248,240,.75);
+  color: rgba(22,35,29,.86);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* calendar dot */
+.dateDot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background: var(--mustard);
+  box-shadow: 0 0 10px rgba(226,178,48,.22);
+}
+
+/* Dark band variant */
+.forestBand .datePill{
+  border-color: rgba(255,248,240,.18);
+  background: rgba(255,248,240,.10);
+  color: rgba(255,248,240,.92);
+}
+.forestBand .dateDot{
+  border: 1px solid rgba(255,248,240,.18);
+}
+
   </style>
 </head>
 
@@ -898,13 +937,13 @@
         </svg>
       </div>
 
-      <div id="talks" class="card forestBand">
+<!--<div id="talks" class="card forestBand">
         <div class="pad">
           <div class="kicker"><span class="spark"></span> Third mission</div>
 
           <div class="sectionTitle" style="margin-top:12px">
             <h2>Events & talks</h2>
-            <div class="hint">website · slides</div>
+            <div class="hint">details · website · slides</div>
           </div>
 
           <div class="list">
@@ -963,7 +1002,81 @@
             <div>Se vuoi, qui ci sta benissimo anche un link a “Press / Media kit”.</div>
             <div>—</div>
           </footer>
+        </div>-->
+<div id="talks" class="card forestBand">
+  <div class="pad">
+    <div class="kicker"><span class="spark"></span> Third mission</div>
+
+    <div class="sectionTitle" style="margin-top:12px">
+      <h2>Events & talks</h2>
+      <div class="hint">details · website · slides</div>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <div class="itemTop">
+          <div>
+            <h3>Un giardino per tutti</h3>
+          </div>
+
+          <span class="datePill"><span class="dateDot"></span>10 Dec 2025</span>
+          <span class="chip teal">Talk</span>
         </div>
+
+        <div class="meta">
+          🎤 Speaker <br>
+          Seminar and live demonstration of OBA 2.0 to raise awareness of mental health and autism <br>
+          📍 Orto e Museo Botanico di Pisa - Sistema Museale di Ateneo
+          <div class="chips">
+            <a class="chip mustard" href="https://www.unipi.it/eventi/un-giardino-per-tutti/" target="_blank" rel="noopener">Event details</a>
+            <a class="chip rose" href="https://www.unipi.it/eventi/un-giardino-per-tutti/" target="_blank" rel="noopener">Slides</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="itemTop">
+          <div>
+            <h3>The STEM Challenge</h3>
+          </div>
+
+          <span class="datePill"><span class="dateDot"></span>26 Sep 2025</span>
+          <span class="chip teal">Event</span>
+        </div>
+
+        <div class="meta">
+          💁‍♀️ Organizer (with colleagues)<br>
+          Engagement and interactive activities with schools as part of BRIGHT 2025 <br>
+          📍 Department of Computer Science - University of Pisa
+          <div class="chips">
+            <a class="chip mustard" href="https://stemma.di.unipi.it/?p=259" target="_blank" rel="noopener">Event details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="itemTop">
+          <div>
+            <h3>Shaped By Technology</h3>
+          </div>
+
+          <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
+          <span class="chip teal">Event</span>
+        </div>
+
+        <div class="meta">
+          💁‍♀️ Organizer (with colleagues)<br>
+          Informative event dedicated to artificial intelligence, explainability, network medicine, and robotics <br>
+          📍 Department of Computer Science - University of Pisa
+          <div class="chips">
+            <a class="chip mustard" href="https://old.unipi.it/index.php/unipieventi/event/8392?tmpl=component&print=1" target="_blank" rel="noopener">Event details</a>
+            <a class="chip rust" href="https://shapedbytechnology.github.io/" target="_blank" rel="noopener">Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!-- teal wave decoration -->
         <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
