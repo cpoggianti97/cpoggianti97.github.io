@@ -6,7 +6,6 @@
   <meta name="description" content="Portfolio accademico - Camilla Poggianti. Ricerca, pubblicazioni, talk, contatti e hobby." />
   <title>Camilla Poggianti — Portfolio</title>
 
-  <!-- Fonts: editorial + clean -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,16 +19,13 @@
       --butter:#F6E2A9;
       --sky:#CFEAF2;
       --sage:#BFD6C5;
-
       --ink:#16231D;
       --muted:#4C5A53;
       --stroke: rgba(22,35,29,.12);
-
       --terracotta:#C85B3D;
       --rose:#E7A3B0;
       --mustard:#E2B230;
       --teal:#2BB3A3;
-
       --radius: 22px;
       --shadow: 0 18px 50px rgba(22,35,29,.12);
       --shadow2: 0 10px 24px rgba(22,35,29,.10);
@@ -51,7 +47,6 @@
       overflow-x:hidden;
     }
 
-    /* subtle paper texture */
     body:before{
       content:"";
       position:fixed;
@@ -65,7 +60,6 @@
     a{color:inherit; text-decoration:none}
     .wrap{width:min(1180px, 92vw); margin:0 auto; padding:18px 0 80px}
 
-    /* Top nav */
     .top{
       position:sticky; top:14px; z-index:20;
       display:flex; align-items:center; justify-content:space-between;
@@ -110,7 +104,6 @@
       .nav{display:none}
     }
 
-    /* Base cards */
     .card{
       position:relative;
       border:1px solid var(--stroke);
@@ -131,7 +124,6 @@
     }
     .pad{padding:22px; position:relative; z-index:1}
 
-    /* Forest band sections */
     .forestBand{
       background: linear-gradient(180deg, rgba(22,51,38,.98), rgba(22,51,38,.92));
       color: rgba(255,248,240,.95);
@@ -165,7 +157,6 @@
     .forestBand .chip.rose{ border-color: rgba(231,163,176,.46); background: rgba(231,163,176,.14); }
     .forestBand .chip.rust{ border-color: rgba(200,91,61,.46); background: rgba(200,91,61,.14); }
 
-    /* Teal waves decoration */
     .waves{
       position:absolute;
       inset:auto -30px -40px -30px;
@@ -175,7 +166,6 @@
     }
     .forestBand .waves{ opacity: .35; }
 
-    /* Layout */
     .hero{
       margin-top:16px;
       display:grid;
@@ -185,7 +175,6 @@
     }
     @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
 
-    /* Typography */
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding:8px 12px;
@@ -211,9 +200,9 @@
       margin:10px 0 6px;
       font-family: Fraunces, serif;
       font-weight: 800;
-      font-size: clamp(28px, 5vw, 56px);
-      line-height: 1.02;
-      letter-spacing: -.6px;
+      font-size: clamp(26px, 4.3vw, 48px);
+      line-height: 1.04;
+      letter-spacing: -.55px;
     }
     .subtitle{
       margin:0;
@@ -223,7 +212,6 @@
       max-width: 80ch;
     }
 
-    /* Buttons */
     .ctaRow{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -250,7 +238,6 @@
       background: linear-gradient(135deg, rgba(200,91,61,.28), rgba(226,178,48,.22));
     }
 
-    /* Sections */
     section{margin-top:16px}
     .grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
     @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
@@ -284,7 +271,6 @@
     .item h3{margin:0; font-size:16px}
     .meta{margin-top:6px; color: rgba(22,35,29,.72); font-size:13px; line-height:1.55}
 
-    /* Chips */
     .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px}
     .chip{
       font-size:12px;
@@ -311,7 +297,6 @@
       *{transition:none!important; scroll-behavior:auto!important}
     }
 
-    /* --- HERO: photo big near the first lines; bio full width under it --- */
     .heroHead{
       display:grid;
       grid-template-columns: 250px 1fr;
@@ -319,16 +304,24 @@
       align-items:start;
       margin-top: 12px;
     }
-    @media (max-width: 720px){
+    @media (max-width: 900px){
       .heroHead{
-        grid-template-columns: 120px 1fr;
-        gap:12px;
+        grid-template-columns: 200px 1fr;
+        gap:14px;
       }
     }
-    @media (max-width: 520px){
+    @media (max-width: 700px){
       .heroHead{
         grid-template-columns: 1fr;
+        gap:12px;
+        text-align:center;
       }
+      .heroPhoto{
+        max-width: 240px;
+        margin: 0 auto;
+      }
+      .ctaRow{justify-content:center}
+      .heroBio{border-top: 1px dashed rgba(22,35,29,.14)}
     }
 
     .heroPhoto{
@@ -369,14 +362,12 @@
       color: rgba(22,35,29,.70);
     }
 
-    /* Full-width bio paragraph */
     .heroBio{
       margin-top: 12px;
       padding-top: 10px;
       border-top: 1px dashed rgba(22,35,29,.14);
     }
 
-    /* --- Highlights panel --- */
     .split{
       display:grid;
       grid-template-columns: 1fr;
@@ -438,17 +429,16 @@
     .eventMeta .mini{display:inline-flex; align-items:center; gap:6px; margin-right:10px; white-space:nowrap;}
     .miniDot{width:7px; height:7px; border-radius:50%; background: var(--teal); box-shadow: 0 0 8px rgba(43,179,163,.20);}
 
-    /* Date badge for talks/events */
     .datePill{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:7px 10px;
+      padding:6px 9px;
       border-radius: 999px;
       border:1px solid rgba(22,35,29,.14);
       background: rgba(255,248,240,.75);
       color: rgba(22,35,29,.86);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -465,7 +455,6 @@
     }
     .forestBand .dateDot{ border: 1px solid rgba(255,248,240,.18); }
 
-    /* --- Full-width “bridge” section (2 columns inside) --- */
     .bridge{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -476,7 +465,6 @@
       .bridge{grid-template-columns:1fr}
     }
 
-    /* --- Hobbies with cat photo --- */
     .catCard{
       display:grid;
       grid-template-columns: 1fr 260px;
@@ -513,13 +501,20 @@
       text-align:center;
       backdrop-filter: blur(10px);
     }
+
+    .forestBand .pad{padding:18px}
+    .forestBand .sectionTitle{margin:0 0 8px}
+    .forestBand .list{gap:8px}
+    .forestBand .item{padding:12px; border-radius:16px}
+    .forestBand .item h3{font-size:15px}
+    .forestBand .meta{font-size:12.5px; line-height:1.45}
+    .forestBand .chips{margin-top:8px}
+    .metaTopRow{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin: 8px 0 6px}
   </style>
 </head>
 
 <body>
   <div class="wrap">
-
-    <!-- TOP BAR -->
     <div class="top">
       <div class="brand">
         <span class="mark" aria-hidden="true"></span>
@@ -534,22 +529,17 @@
         <a class="pill" href="#publications">Publications</a>
         <a class="pill accent" href="#talks">Talks</a>
         <a class="pill" href="#supervision">Supervision</a>
-        <a class="pill accent" href="#contact">Contact</a>
         <a class="pill" href="#hobbies">Hobbies</a>
       </nav>
 
-      <a class="pill accent" href="#contact">↗ Contact</a>
+      <a class="pill accent" href="mailto:camilla.poggianti@phd.unipi.it">↗ Email</a>
     </div>
 
-    <!-- HERO -->
     <div class="hero">
-
-      <!-- BIO -->
       <div class="card" id="about">
         <div class="pad">
           <div class="kicker"><span class="spark"></span> Academic portfolio</div>
 
-          <!-- Header row: photo + (name + role + affiliation) -->
           <div class="heroHead">
             <figure class="heroPhoto" aria-label="Portrait">
               <img src="me.jpg" alt="Portrait photo of Camilla Poggianti">
@@ -562,7 +552,6 @@
             </div>
           </div>
 
-          <!-- Bio full width -->
           <div class="heroBio">
             <p class="subtitle">
               👋 Hi there, I'm Camilla!<br>
@@ -586,7 +575,6 @@
         </div>
       </div>
 
-      <!-- HIGHLIGHTS -->
       <div class="card">
         <div class="pad">
           <div class="sectionTitle">
@@ -656,13 +644,12 @@
               </div>
 
             </div>
-          </div><!-- /split -->
+          </div>
         </div>
       </div>
 
-    </div><!-- /hero -->
+    </div>
 
-    <!-- EXPERIENCE + EDUCATION -->
     <section class="grid">
       <div id="education" class="card">
         <div class="pad">
@@ -764,7 +751,6 @@
       </div>
     </section>
 
-    <!-- OVERVIEW BRIDGE -->
     <section id="bridge" class="card">
       <div class="pad">
         <div class="sectionTitle">
@@ -816,7 +802,6 @@
       </svg>
     </section>
 
-    <!-- PUBLICATIONS + TALKS -->
     <section class="grid">
       <div id="publications" class="card forestBand">
         <div class="pad">
@@ -916,10 +901,12 @@
             <div class="item">
               <div class="itemTop">
                 <div><h3>Tecnologia per l’inclusione: presentazione dell’App ‘Orto Botanico Accessibile’</h3></div>
-                <span class="datePill"><span class="dateDot"></span>10 Dec 2025</span>
                 <span class="chip teal">Talk</span>
               </div>
               <div class="meta">
+                <div class="metaTopRow">
+                  <span class="datePill"><span class="dateDot"></span>10 Dec 2025</span>
+                </div>
                 🎤 Speaker <br>
                 Un giardino per tutti - Seminario sull'inclusione e presentazione dell'app <br>
                 📍 Orto e Museo Botanico di Pisa - Sistema Museale di Ateneo
@@ -933,10 +920,12 @@
             <div class="item">
               <div class="itemTop">
                 <div><h3>The STEM Challenge</h3></div>
-                <span class="datePill"><span class="dateDot"></span>26 Sep 2025</span>
                 <span class="chip teal">Event</span>
               </div>
               <div class="meta">
+                <div class="metaTopRow">
+                  <span class="datePill"><span class="dateDot"></span>26 Sep 2025</span>
+                </div>
                 💁‍♀️ Organizer (with colleagues)<br>
                 Engagement and interactive activities with schools as part of BRIGHT 2025 <br>
                 📍 Department of Computer Science - University of Pisa
@@ -949,10 +938,12 @@
             <div class="item">
               <div class="itemTop">
                 <div><h3>Shaped By Technology</h3></div>
-                <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
                 <span class="chip teal">Event</span>
               </div>
               <div class="meta">
+                <div class="metaTopRow">
+                  <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
+                </div>
                 💁‍♀️ Organizer (with colleagues)<br>
                 Informative event dedicated to artificial intelligence, explainability, network medicine, and robotics <br>
                 📍 Department of Computer Science - University of Pisa
@@ -963,13 +954,15 @@
               </div>
             </div>
 
-             <div class="item">
+            <div class="item">
               <div class="itemTop">
                 <div><h3>Tecnologie nella vita reale: analisi di casi di studio</h3></div>
-                <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
                 <span class="chip teal">Webinar</span>
               </div>
               <div class="meta">
+                <div class="metaTopRow">
+                  <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
+                </div>
                 🎤 Speaker <br>
                 Webinar Autismo e Tecnologia: strumenti, esempi pratici, esperienze <br>
                 📍 Online
@@ -989,7 +982,6 @@
       </div>
     </section>
 
-    <!-- SUPERVISION -->
     <section id="supervision" class="card">
       <div class="pad">
         <div class="sectionTitle">
@@ -1027,57 +1019,6 @@
       </svg>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="card">
-      <div class="pad">
-        <div class="sectionTitle">
-          <h2>Contact</h2>
-          <div class="hint">feel free to reach out</div>
-        </div>
-
-        <div class="grid" style="grid-template-columns: 1fr 1fr; gap:12px">
-          <a class="item" href="mailto:camilla.poggianti@phd.unipi.it">
-            <div class="itemTop">
-              <h3>Email</h3><span class="chip mustard">↗</span>
-            </div>
-            <div class="meta">camilla.poggianti@phd.unipi.it</div>
-          </a>
-
-          <a class="item" href="http://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">
-            <div class="itemTop">
-              <h3>LinkedIn</h3><span class="chip teal">↗</span>
-            </div>
-            <div class="meta">DMs and collaborations</div>
-          </a>
-
-          <a class="item" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ&hl=it&oi=ao" target="_blank" rel="noopener">
-            <div class="itemTop">
-              <h3>Google Scholar</h3><span class="chip rose">↗</span>
-            </div>
-            <div class="meta">Publications & citations</div>
-          </a>
-
-          <a class="item" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">
-            <div class="itemTop">
-              <h3>ORCID</h3><span class="chip rust">↗</span>
-            </div>
-            <div class="meta">Researcher ID</div>
-          </a>
-        </div>
-
-        <footer>
-          <div>© <span id="y"></span> Camilla Poggianti</div>
-          <div>HTML · GitHub Pages</div>
-        </footer>
-      </div>
-
-      <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.14)"></path>
-        <path d="M0,208 C220,150 360,255 620,165 C880,75 960,240 1180,155 L1200,150 L1200,240 L0,240 Z" fill="rgba(43,179,163,.08)"></path>
-      </svg>
-    </section>
-
-    <!-- HOBBIES -->
     <section id="hobbies" class="card">
       <div class="pad">
         <div class="sectionTitle">
@@ -1128,6 +1069,11 @@
         <path d="M0,210 C220,155 370,255 640,165 C910,75 980,235 1200,150 L1200,240 L0,240 Z" fill="rgba(43,179,163,.09)"></path>
       </svg>
     </section>
+
+    <footer>
+      <div>© <span id="y"></span> Camilla Poggianti</div>
+      <div>HTML · GitHub Pages</div>
+    </footer>
 
   </div>
 
