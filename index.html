@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Pastel palette inspired by your photos (light base + warm/teal accents) */
     :root{
       --cream:#F7F1E8;
       --paper:#FFF8F0;
@@ -30,7 +29,6 @@
       --rose:#E7A3B0;
       --mustard:#E2B230;
       --teal:#2BB3A3;
-      --forest:#163326;
 
       --radius: 22px;
       --shadow: 0 18px 50px rgba(22,35,29,.12);
@@ -39,6 +37,7 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -88,9 +87,7 @@
       box-shadow: 0 0 18px rgba(200,91,61,.18);
       border:1px solid rgba(22,35,29,.10);
     }
-    .nav{
-      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
-    }
+    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
     .pill{
       padding:9px 12px;
       border:1px solid var(--stroke);
@@ -209,10 +206,9 @@
       box-shadow: 0 0 12px rgba(226,178,48,.22);
       border:1px solid rgba(22,35,29,.10);
     }
-    .forestBand .spark{ border-color: rgba(255,248,240,.18); box-shadow: 0 0 14px rgba(226,178,48,.24); }
 
     h1{
-      margin:14px 0 8px;
+      margin:10px 0 6px;
       font-family: Fraunces, serif;
       font-weight: 800;
       font-size: clamp(34px, 5vw, 56px);
@@ -224,9 +220,8 @@
       color: rgba(22,35,29,.78);
       font-size: 16px;
       line-height: 1.65;
-      max-width: 75ch;
+      max-width: 80ch;
     }
-    .forestBand .subtitle{ color: rgba(255,248,240,.86); }
 
     /* Buttons */
     .ctaRow{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
@@ -257,11 +252,7 @@
 
     /* Sections */
     section{margin-top:16px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
+    .grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
     @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
 
     .sectionTitle{
@@ -275,7 +266,6 @@
       letter-spacing: -.2px;
     }
     .hint{color: rgba(22,35,29,.60); font-size: 13px}
-    .forestBand .hint{ color: rgba(255,248,240,.70); }
 
     .list{display:flex; flex-direction:column; gap:10px}
     .item{
@@ -293,7 +283,6 @@
     .itemTop{display:flex; justify-content:space-between; gap:12px; align-items:flex-start}
     .item h3{margin:0; font-size:16px}
     .meta{margin-top:6px; color: rgba(22,35,29,.72); font-size:13px; line-height:1.55}
-    .forestBand .meta{ color: rgba(255,248,240,.82); }
 
     /* Chips */
     .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px}
@@ -317,10 +306,74 @@
       font-size: 13px;
       padding-bottom: 6px;
     }
-    .forestBand footer{ color: rgba(255,248,240,.70); }
 
     @media (prefers-reduced-motion: reduce){
       *{transition:none!important; scroll-behavior:auto!important}
+    }
+
+    /* --- HERO: photo big near the first lines; bio full width under it --- */
+    .heroHead{
+      display:grid;
+      grid-template-columns: 168px 1fr;
+      gap:16px;
+      align-items:start;
+      margin-top: 12px;
+    }
+    @media (max-width: 720px){
+      .heroHead{
+        grid-template-columns: 120px 1fr;
+        gap:12px;
+      }
+    }
+    @media (max-width: 520px){
+      .heroHead{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .heroPhoto{
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 12px 26px rgba(22,35,29,.10);
+      position:relative;
+      transform: rotate(-1deg);
+    }
+    .heroPhoto img{
+      width:100%;
+      display:block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .heroPhoto:after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius: 24px;
+      pointer-events:none;
+      background:
+        radial-gradient(220px 140px at 20% 20%, rgba(226,178,48,.18), transparent 60%),
+        radial-gradient(240px 160px at 80% 30%, rgba(43,179,163,.14), transparent 62%),
+        radial-gradient(240px 160px at 30% 80%, rgba(231,163,176,.14), transparent 62%);
+      opacity:.9;
+    }
+
+    .heroInfo .role{
+      margin: 4px 0 0;
+      font-weight: 800;
+      color: rgba(22,35,29,.84);
+    }
+    .heroInfo .affil{
+      margin: 3px 0 0;
+      color: rgba(22,35,29,.70);
+    }
+
+    /* Full-width bio paragraph */
+    .heroBio{
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(22,35,29,.14);
     }
 
     /* --- Highlights panel --- */
@@ -361,12 +414,7 @@
       font-weight:600;
       white-space:nowrap;
     }
-
-    .timeline{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
+    .timeline{display:flex; flex-direction:column; gap:10px;}
     .event{
       display:flex;
       gap:10px;
@@ -377,31 +425,18 @@
       background: rgba(255,248,240,.70);
     }
     .eventIcon{
-      width:34px;
-      height:34px;
+      width:34px; height:34px;
       border-radius: 12px;
       border:1px solid rgba(22,35,29,.12);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
       background: linear-gradient(135deg, rgba(43,179,163,.16), rgba(207,234,242,.25));
       flex: 0 0 auto;
     }
     .eventMain{flex: 1 1 auto; min-width: 0;}
     .eventTitle{margin:0; font-size:14px; font-weight:700; line-height:1.25;}
     .eventMeta{margin-top:4px; color: rgba(22,35,29,.70); font-size:13px; line-height:1.35;}
-    .eventMeta .mini{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      margin-right:10px;
-      white-space:nowrap;
-    }
-    .miniDot{
-      width:7px; height:7px; border-radius:50%;
-      background: var(--teal);
-      box-shadow: 0 0 8px rgba(43,179,163,.20);
-    }
+    .eventMeta .mini{display:inline-flex; align-items:center; gap:6px; margin-right:10px; white-space:nowrap;}
+    .miniDot{width:7px; height:7px; border-radius:50%; background: var(--teal); box-shadow: 0 0 8px rgba(43,179,163,.20);}
 
     /* Date badge for talks/events */
     .datePill{
@@ -418,8 +453,7 @@
       white-space: nowrap;
     }
     .dateDot{
-      width:9px;
-      height:9px;
+      width:9px; height:9px;
       border-radius:50%;
       background: var(--mustard);
       box-shadow: 0 0 10px rgba(226,178,48,.22);
@@ -430,44 +464,6 @@
       color: rgba(255,248,240,.92);
     }
     .forestBand .dateDot{ border: 1px solid rgba(255,248,240,.18); }
-
-    /* --- Bio with photo --- */
-    .bioGrid{
-      display:grid;
-      grid-template-columns: 1fr 220px;
-      gap:16px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .bioGrid{grid-template-columns:1fr}
-    }
-    .portrait{
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
-      box-shadow: 0 12px 26px rgba(22,35,29,.10);
-      position:relative;
-    }
-    .portrait img{
-      width:100%;
-      height:auto;
-      display:block;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-    }
-    .portrait .cap{
-      position:absolute;
-      left:10px; right:10px; bottom:10px;
-      padding:8px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(22,35,29,.12);
-      background: rgba(255,248,240,.78);
-      font-size: 12px;
-      color: rgba(22,35,29,.84);
-      text-align:center;
-      backdrop-filter: blur(10px);
-    }
 
     /* --- Full-width “bridge” section (2 columns inside) --- */
     .bridge{
@@ -480,7 +476,7 @@
       .bridge{grid-template-columns:1fr}
     }
 
-    /* --- Cat photo --- */
+    /* --- Hobbies with cat photo --- */
     .catCard{
       display:grid;
       grid-template-columns: 1fr 260px;
@@ -517,62 +513,6 @@
       text-align:center;
       backdrop-filter: blur(10px);
     }
-
-    /* --- Profile header with square portrait --- */
-.profileHead{
-  display:grid;
-  grid-template-columns: 120px 1fr;
-  gap:16px;
-  align-items:start;
-  margin-top: 10px;
-}
-
-@media (max-width: 620px){
-  .profileHead{
-    grid-template-columns: 88px 1fr;
-    gap:12px;
-  }
-}
-
-.portraitSquare{
-  border-radius: 22px;
-  overflow:hidden;
-  border:1px solid var(--stroke);
-  background: rgba(255,255,255,.55);
-  box-shadow: 0 12px 26px rgba(22,35,29,.10);
-  position:relative;
-  transform: rotate(-1deg);
-}
-
-.portraitSquare img{
-  width:100%;
-  height:100%;
-  display:block;
-  aspect-ratio: 1 / 1;   /* square */
-  object-fit: cover;
-}
-
-.portraitSquare:after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius: 24px;
-  pointer-events:none;
-  background:
-    radial-gradient(220px 140px at 20% 20%, rgba(226,178,48,.18), transparent 60%),
-    radial-gradient(240px 160px at 80% 30%, rgba(43,179,163,.14), transparent 62%),
-    radial-gradient(240px 160px at 30% 80%, rgba(231,163,176,.14), transparent 62%);
-  opacity:.9;
-}
-
-.profileText h1{ margin-top: 6px; }
-
-/* Optional: make the subtitle a bit tighter in the header */
-.profileText .subtitle{
-  margin-top: 6px;
-  max-width: 70ch;
-}
-
   </style>
 </head>
 
@@ -603,47 +543,50 @@
 
     <!-- HERO -->
     <div class="hero">
-      <!-- Bio -->
-      <div class="card">
+
+      <!-- BIO -->
+      <div class="card" id="about">
         <div class="pad">
           <div class="kicker"><span class="spark"></span> Academic portfolio</div>
 
-<div class="profileHead" id="about">
-  <figure class="portraitSquare" aria-label="Portrait">
-    <img src="me.jpg" alt="Portrait photo of Camilla Poggianti">
-  </figure>
+          <!-- Header row: photo + (name + role + affiliation) -->
+          <div class="heroHead">
+            <figure class="heroPhoto" aria-label="Portrait">
+              <img src="me.jpg" alt="Portrait photo of Camilla Poggianti">
+            </figure>
 
-  <div class="profileText">
-    <h1>Camilla Poggianti</h1>
+            <div class="heroInfo">
+              <h1>Camilla Poggianti</h1>
+              <p class="role">PhD student in Computer Science</p>
+              <p class="affil">Dept. of Computer Science — University of Pisa.</p>
+            </div>
+          </div>
 
-    <p class="subtitle">
-      <strong>PhD student in Computer Science</strong><br>
-      Dept. of Computer Science — University of Pisa.
-      <br><br>
-      👋 Hi there, I'm Camilla!<br>
-      Yes, I’ve got a degree in Digital Humanities 📚 — and yep, you can still sneak into a PhD in Computer Science 💻! 😜 <br>
-      Born in Livorno, but—alas—I ended up in Pisa. <br>
-      Now I’m a PhD student making XR learning more inclusive! I mix HCI, Universal Design for Learning, and adaptive tech to help learners of all abilities 🌈✨
-    </p>
-  </div>
-</div>
+          <!-- Bio full width -->
+          <div class="heroBio">
+            <p class="subtitle">
+              👋 Hi there, I'm Camilla!<br>
+              Yes, I’ve got a degree in Digital Humanities 📚 — and yep, you can still sneak into a PhD in Computer Science 💻! 😜<br>
+              Born in Livorno, but—alas—I ended up in Pisa.<br>
+              Now I’m a PhD student making XR learning more inclusive! I mix HCI, Universal Design for Learning, and adaptive tech to help learners of all abilities 🌈✨
+            </p>
 
-<div class="chips" style="margin-top:14px">
-  <a class="chip teal" href="mailto:camilla.poggianti@phd.unipi.it">✉️ camilla.poggianti@phd.unipi.it</a>
-  <a class="chip mustard" href="http://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="chip rose" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID</a>
-</div>
+            <div class="chips" style="margin-top:14px">
+              <a class="chip teal" href="mailto:camilla.poggianti@phd.unipi.it">✉️ camilla.poggianti@phd.unipi.it</a>
+              <a class="chip mustard" href="http://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="chip rose" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID</a>
+            </div>
 
-<div class="ctaRow">
-  <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
-  <a class="btn" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ&hl=it&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
-  <a class="btn" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Poggianti,%20Camilla%22" target="_blank" rel="noopener">Zenodo</a>
-</div>
-
+            <div class="ctaRow">
+              <a class="btn primary" href="assets/CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
+              <a class="btn" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ&hl=it&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="btn" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Poggianti,%20Camilla%22" target="_blank" rel="noopener">Zenodo</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Highlights -->
+      <!-- HIGHLIGHTS -->
       <div class="card">
         <div class="pad">
           <div class="sectionTitle">
@@ -657,7 +600,6 @@
                 <h3 style="margin:0; font-size:16px;">Research interests</h3>
                 <span class="pillTag">✨ focus</span>
               </div>
-
               <div class="chips" style="margin-top:0;">
                 <span class="chip teal">Accessibility</span>
                 <span class="chip mustard">Assistive Technologies</span>
@@ -712,10 +654,12 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div><!-- /split -->
         </div>
       </div>
+
     </div><!-- /hero -->
 
     <!-- EXPERIENCE + EDUCATION -->
@@ -766,10 +710,8 @@
         </div>
 
         <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,160 C160,80 320,220 480,140 C640,60 800,210 960,120 C1080,55 1160,110 1200,130 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.22)"></path>
-          <path d="M0,190 C180,120 320,240 520,150 C720,60 840,230 1040,140 C1120,100 1180,130 1200,140 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.14)"></path>
+          <path d="M0,160 C160,80 320,220 480,140 C640,60 800,210 960,120 C1080,55 1160,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.22)"></path>
+          <path d="M0,190 C180,120 320,240 520,150 C720,60 840,230 1040,140 C1120,100 1180,130 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.14)"></path>
         </svg>
       </div>
 
@@ -816,15 +758,13 @@
         </div>
 
         <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.20)"></path>
-          <path d="M0,200 C200,140 320,250 560,160 C800,70 880,240 1120,150 C1160,130 1185,135 1200,140 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.12)"></path>
+          <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.20)"></path>
+          <path d="M0,200 C200,140 320,250 560,160 C800,70 880,240 1120,150 C1160,130 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.12)"></path>
         </svg>
       </div>
     </section>
 
-    <!-- FULL-WIDTH BRIDGE (replaces duplicated keywords) -->
+    <!-- OVERVIEW BRIDGE -->
     <section id="bridge" class="card">
       <div class="pad">
         <div class="sectionTitle">
@@ -839,7 +779,6 @@
               <span class="chip mustard">current</span>
             </div>
             <div class="meta">
-              A short, concrete description of your current PhD work (2–4 bullets works great):
               <ul style="margin:10px 0 0; padding-left:18px; color: inherit;">
                 <li>Inclusive XR learning experiences for diverse learners</li>
                 <li>Methods inspired by UDL + HCI evaluation</li>
@@ -872,14 +811,12 @@
       </div>
 
       <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,165 C160,85 320,225 490,145 C660,65 820,215 980,125 C1100,60 1165,110 1200,130 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.18)"></path>
-        <path d="M0,198 C170,130 320,245 540,155 C760,65 890,230 1100,145 C1160,125 1185,135 1200,140 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.10)"></path>
+        <path d="M0,165 C160,85 320,225 490,145 C660,65 820,215 980,125 C1100,60 1165,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.18)"></path>
+        <path d="M0,198 C170,130 320,245 540,155 C760,65 890,230 1100,145 C1160,125 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.10)"></path>
       </svg>
     </section>
 
-    <!-- PUBLICATIONS + TALKS (FOREST BANDS) -->
+    <!-- PUBLICATIONS + TALKS -->
     <section class="grid">
       <div id="publications" class="card forestBand">
         <div class="pad">
@@ -961,10 +898,8 @@
         </div>
 
         <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,160 C160,80 320,220 480,140 C640,60 800,210 960,120 C1080,55 1160,110 1200,130 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.22)"></path>
-          <path d="M0,200 C200,140 320,250 560,160 C800,70 880,240 1120,150 C1160,130 1185,135 1200,140 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.14)"></path>
+          <path d="M0,160 C160,80 320,220 480,140 C640,60 800,210 960,120 C1080,55 1160,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.22)"></path>
+          <path d="M0,200 C200,140 320,250 560,160 C800,70 880,240 1120,150 C1160,130 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.14)"></path>
         </svg>
       </div>
 
@@ -1028,18 +963,17 @@
               </div>
             </div>
           </div>
+
         </div>
 
         <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.20)"></path>
-          <path d="M0,205 C210,150 340,255 600,165 C860,75 940,240 1160,155 C1185,145 1195,142 1200,140 L1200,240 L0,240 Z"
-                fill="rgba(43,179,163,.12)"></path>
+          <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.20)"></path>
+          <path d="M0,205 C210,150 340,255 600,165 C860,75 940,240 1160,155 C1185,145 1195,142 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.12)"></path>
         </svg>
       </div>
     </section>
 
-    <!-- SUPERVISION (after publications & events) -->
+    <!-- SUPERVISION -->
     <section id="supervision" class="card">
       <div class="pad">
         <div class="sectionTitle">
@@ -1055,7 +989,7 @@
             </div>
             <div class="meta">
               <strong>Thesis:</strong> “Title of the thesis goes here” <br>
-              Role: co-supervisor / supervisor (edit) · University of Pisa
+              Role: co-supervisor / supervisor · University of Pisa
             </div>
           </div>
 
@@ -1068,24 +1002,12 @@
               <strong>Thesis:</strong> “Title of the thesis goes here”
             </div>
           </div>
-
-          <div class="item">
-            <div class="itemTop">
-              <h3>Student Name — BSc/MSc thesis</h3>
-              <span class="chip mustard">2023</span>
-            </div>
-            <div class="meta">
-              <strong>Thesis:</strong> “Title of the thesis goes here”
-            </div>
-          </div>
         </div>
       </div>
 
       <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,165 C160,85 320,225 490,145 C660,65 820,215 980,125 C1100,60 1165,110 1200,130 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.16)"></path>
-        <path d="M0,198 C170,130 320,245 540,155 C760,65 890,230 1100,145 C1160,125 1185,135 1200,140 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.08)"></path>
+        <path d="M0,165 C160,85 320,225 490,145 C660,65 820,215 980,125 C1100,60 1165,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.16)"></path>
+        <path d="M0,198 C170,130 320,245 540,155 C760,65 890,230 1100,145 C1160,125 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.08)"></path>
       </svg>
     </section>
 
@@ -1134,14 +1056,12 @@
       </div>
 
       <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.14)"></path>
-        <path d="M0,208 C220,150 360,255 620,165 C880,75 960,240 1180,155 L1200,150 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.08)"></path>
+        <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.14)"></path>
+        <path d="M0,208 C220,150 360,255 620,165 C880,75 960,240 1180,155 L1200,150 L1200,240 L0,240 Z" fill="rgba(43,179,163,.08)"></path>
       </svg>
     </section>
 
-    <!-- HOBBIES (with cat photo) -->
+    <!-- HOBBIES -->
     <section id="hobbies" class="card">
       <div class="pad">
         <div class="sectionTitle">
@@ -1188,14 +1108,12 @@
       </div>
 
       <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,175 C180,95 330,240 560,155 C790,70 910,235 1120,145 C1170,123 1190,132 1200,140 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.16)"></path>
-        <path d="M0,210 C220,155 370,255 640,165 C910,75 980,235 1200,150 L1200,240 L0,240 Z"
-              fill="rgba(43,179,163,.09)"></path>
+        <path d="M0,175 C180,95 330,240 560,155 C790,70 910,235 1120,145 C1170,123 1190,132 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.16)"></path>
+        <path d="M0,210 C220,155 370,255 640,165 C910,75 980,235 1200,150 L1200,240 L0,240 Z" fill="rgba(43,179,163,.09)"></path>
       </svg>
     </section>
 
-  </div><!-- /wrap -->
+  </div>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
