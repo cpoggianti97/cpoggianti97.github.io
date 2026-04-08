@@ -34,6 +34,15 @@
     *{box-sizing:border-box}
     html,body{height:100%}
 
+    html {
+    scroll-behavior: smooth;
+    }
+
+section,
+.card[id] {
+  scroll-margin-top: 90px;
+}
+    
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -683,7 +692,7 @@
           <p class="eventTitle">International Conference on Intelligent Environments</p>
           <div class="eventMeta">
             <span class="mini"><span class="miniDot"></span> Conference</span>
-            <span class="mini">📍 Lisbon</span>
+            <span class="mini">📍 Lisbon, Portugal</span>
           </div>
         </div>
       </div>
@@ -694,7 +703,7 @@
           <p class="eventTitle">Symposium on Computers and Communications</p>
           <div class="eventMeta">
             <span class="mini"><span class="miniDot"></span> Conference</span>
-            <span class="mini">📍 Algarve</span>
+            <span class="mini">📍 Algarve, Portugal</span>
           </div>
         </div>
       </div>
@@ -1021,6 +1030,7 @@
             <div class="meta">
               <strong>Thesis:</strong> “Orienta: una app per gestire le emozioni negative in università”
             </div>
+            </div>
 
           <div class="item">
             <div class="itemTop">
@@ -1109,7 +1119,6 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    document.documentElement.style.scrollBehavior = "smooth";
   </script>
 </body>
 </html>
