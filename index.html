@@ -575,9 +575,8 @@ section,
   border:1px solid var(--stroke);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(39,33,119,.94), rgba(92,74,214,.86)),
+    linear-gradient(135deg, rgba(255,248,240,.92), rgba(247,241,232,.92)),
     linear-gradient(180deg, var(--cream), #FAF6EF);
-  color: rgba(255,248,240,.96);
   box-shadow: var(--shadow);
   overflow:hidden;
 }
@@ -587,9 +586,10 @@ section,
   position:absolute;
   inset:-2px;
   background:
-    radial-gradient(720px 260px at 15% 0%, rgba(255,255,255,.12), transparent 60%),
-    radial-gradient(620px 260px at 100% 20%, rgba(231,163,176,.14), transparent 60%),
-    radial-gradient(700px 280px at 50% 100%, rgba(43,179,163,.12), transparent 60%);
+    radial-gradient(760px 280px at 10% 0%, rgba(200,91,61,.12), transparent 60%),
+    radial-gradient(700px 320px at 100% 15%, rgba(43,179,163,.10), transparent 62%),
+    radial-gradient(680px 260px at 55% 100%, rgba(226,178,48,.10), transparent 62%),
+    radial-gradient(520px 220px at 85% 80%, rgba(231,163,176,.10), transparent 62%);
   pointer-events:none;
   opacity:.95;
 }
@@ -614,11 +614,11 @@ section,
   font-family: Fraunces, serif;
   font-size: 22px;
   letter-spacing: -.2px;
-  color: #fff;
+  color: var(--ink);
 }
 
 .newsHint{
-  color: rgba(255,255,255,.78);
+  color: rgba(22,35,29,.62);
   font-size:13px;
 }
 
@@ -634,11 +634,12 @@ section,
 }
 
 .newsCopy{
-  border:1px solid rgba(255,255,255,.14);
+  border:1px solid rgba(22,35,29,.10);
   border-radius: 20px;
-  background: rgba(8,12,44,.22);
+  background: rgba(255,255,255,.52);
   padding:18px;
   backdrop-filter: blur(10px);
+  box-shadow: 0 10px 22px rgba(22,35,29,.05);
 }
 
 .newsKicker{
@@ -647,9 +648,9 @@ section,
   gap:8px;
   padding:7px 10px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.10);
-  color: rgba(255,255,255,.95);
+  border:1px solid rgba(200,91,61,.20);
+  background: rgba(200,91,61,.10);
+  color: rgba(22,35,29,.88);
   font-size:13px;
   font-weight:700;
 }
@@ -660,12 +661,12 @@ section,
   font-size: clamp(24px, 3vw, 34px);
   line-height:1.08;
   letter-spacing:-.4px;
-  color:#fff;
+  color: var(--ink);
 }
 
 .newsText{
   margin:0;
-  color: rgba(255,255,255,.88);
+  color: rgba(22,35,29,.78);
   font-size:15px;
   line-height:1.65;
 }
@@ -683,17 +684,17 @@ section,
   gap:8px;
   padding:8px 11px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.10);
-  color: rgba(255,255,255,.95);
+  border:1px solid rgba(22,35,29,.12);
+  background: rgba(255,255,255,.60);
+  color: rgba(22,35,29,.88);
   font-size:13px;
   font-weight:600;
 }
 
 .newsPill.deadline{
-  background: rgba(226,178,48,.18);
-  border-color: rgba(226,178,48,.34);
-  color: #fff2b8;
+  background: rgba(226,178,48,.16);
+  border-color: rgba(226,178,48,.28);
+  color: rgba(22,35,29,.92);
 }
 
 .newsTopics{
@@ -707,9 +708,9 @@ section,
   font-size:12px;
   padding:7px 10px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.92);
+  border:1px solid rgba(22,35,29,.10);
+  background: rgba(255,248,240,.78);
+  color: rgba(22,35,29,.84);
 }
 
 .newsActions{
@@ -726,30 +727,35 @@ section,
   gap:8px;
   padding:11px 14px;
   border-radius: 14px;
-  border:1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.12);
-  color:#fff;
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.68);
+  color: var(--ink);
   font-weight:700;
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
 
 .newsBtn:hover{
   transform: translateY(-1px);
-  background: rgba(255,255,255,.16);
-  border-color: rgba(255,255,255,.28);
+  border-color: rgba(43,179,163,.35);
+  background: rgba(43,179,163,.10);
 }
 
 .newsBtn.primary{
-  background: linear-gradient(135deg, rgba(226,178,48,.26), rgba(231,163,176,.18));
-  border-color: rgba(226,178,48,.34);
+  border-color: rgba(200,91,61,.25);
+  background: linear-gradient(135deg, rgba(200,91,61,.18), rgba(226,178,48,.16));
+}
+
+.newsBtn.primary:hover{
+  border-color: rgba(226,178,48,.30);
+  background: linear-gradient(135deg, rgba(200,91,61,.22), rgba(226,178,48,.20));
 }
 
 .newsVisual{
-  border:1px solid rgba(255,255,255,.14);
+  border:1px solid rgba(22,35,29,.10);
   border-radius: 20px;
   overflow:hidden;
-  background: rgba(255,255,255,.08);
-  box-shadow: 0 14px 28px rgba(22,35,29,.18);
+  background: rgba(255,255,255,.55);
+  box-shadow: 0 12px 26px rgba(22,35,29,.08);
 }
 
 .newsVisual img{
@@ -761,9 +767,9 @@ section,
 
 .newsVisual figcaption{
   padding:10px 12px;
-  background: rgba(8,12,44,.30);
-  border-top:1px solid rgba(255,255,255,.10);
-  color: rgba(255,255,255,.80);
+  background: rgba(255,248,240,.82);
+  border-top:1px solid rgba(22,35,29,.08);
+  color: rgba(22,35,29,.72);
   font-size:12px;
 }
   </style>
@@ -779,6 +785,7 @@ section,
 
       <nav class="nav" aria-label="Sezioni">
         <a class="pill" href="#about">About</a>
+        <a class="pill accent" href="#news">News</a>
         <a class="pill" href="#education">Education</a>
         <a class="pill accent" href="#experience">Experience</a>
         <a class="pill" href="#publications">Publications</a>
