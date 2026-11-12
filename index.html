@@ -1,1441 +1,313 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio accademico - Camilla Poggianti. Ricerca, pubblicazioni, talk, contatti e hobby." />
-  <title>Camilla Poggianti — Portfolio</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15343b">
+  <meta name="description" content="Camilla Poggianti is a PhD candidate in Computer Science at the University of Pisa, researching accessible XR, multimodal interaction, inclusive education, and audio-tactile technologies.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Camilla Poggianti · Research & Accessibility">
+  <meta property="og:description" content="Designing accessible digital experiences at the intersection of XR, HCI, AI, and inclusive education.">
+  <meta property="og:url" content="https://cpoggianti97.github.io/">
+  <title>Camilla Poggianti — Research & Accessibility</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --cream:#F7F1E8;
-      --paper:#FFF8F0;
-      --mint:#DFF3EA;
-      --blush:#F6D7DE;
-      --butter:#F6E2A9;
-      --sky:#CFEAF2;
-      --sage:#BFD6C5;
-      --ink:#16231D;
-      --muted:#4C5A53;
-      --stroke: rgba(22,35,29,.12);
-      --terracotta:#C85B3D;
-      --rose:#E7A3B0;
-      --mustard:#E2B230;
-      --teal:#2BB3A3;
-      --radius: 22px;
-      --shadow: 0 18px 50px rgba(22,35,29,.12);
-      --shadow2: 0 10px 24px rgba(22,35,29,.10);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-
-    html {
-    scroll-behavior: smooth;
-    }
-
-section,
-.card[id] {
-  scroll-margin-top: 90px;
-}
-    
-    body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--ink);
-  background: var(--cream);
-  overflow-x:hidden;
-  position: relative;
-  isolation: isolate;
-}
-
-    body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  background:
-    radial-gradient(900px 520px at 10% 10%, rgba(246,226,169,.75), transparent 60%),
-    radial-gradient(900px 560px at 90% 16%, rgba(207,234,242,.90), transparent 62%),
-    radial-gradient(820px 540px at 30% 92%, rgba(246,215,222,.85), transparent 62%),
-    radial-gradient(1100px 700px at 75% 92%, rgba(223,243,234,.92), transparent 62%),
-    linear-gradient(180deg, var(--cream), #FAF6EF);
-  background-repeat:no-repeat;
-  background-size:cover;
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
-  mix-blend-mode:multiply;
-  opacity:.35;
-}
-
-    a{color:inherit; text-decoration:none}
-    .wrap{width:min(1180px, 92vw); margin:0 auto; padding:18px 0 80px}
-
-    .top{
-      position:sticky; top:14px; z-index:20;
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      padding:12px 14px;
-      border:1px solid var(--stroke);
-      background: rgba(255,248,240,.70);
-      backdrop-filter: blur(12px);
-      border-radius: 999px;
-      box-shadow: var(--shadow2);
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight: 800; letter-spacing:.2px;
-    }
-    .mark{
-      width:14px; height:14px; border-radius:50%;
-      background: conic-gradient(from 180deg, var(--terracotta), var(--mustard), var(--teal), var(--rose), var(--terracotta));
-      box-shadow: 0 0 18px rgba(200,91,61,.18);
-      border:1px solid rgba(22,35,29,.10);
-    }
-    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
-    .pill{
-      padding:9px 12px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
-      border-radius: 999px;
-      color: rgba(22,35,29,.86);
-      font-size:14px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .pill:hover{
-      transform: translateY(-1px);
-      border-color: rgba(43,179,163,.35);
-      background: rgba(43,179,163,.10);
-    }
-    .pill.accent:hover{
-      border-color: rgba(226,178,48,.35);
-      background: rgba(226,178,48,.12);
-    }
-    @media (max-width: 980px){
-      .nav{display:none}
-    }
-
-    .card{
-      position:relative;
-      border:1px solid var(--stroke);
-      border-radius: var(--radius);
-      background: rgba(255,248,240,.74);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .card:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(700px 260px at 14% 0%, rgba(200,91,61,.18), transparent 60%),
-        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.14), transparent 60%),
-        radial-gradient(520px 220px at 58% 110%, rgba(226,178,48,.14), transparent 60%);
-      pointer-events:none;
-      opacity:.75;
-    }
-    .pad{padding:22px; position:relative; z-index:1}
-
-    .forestBand{
-      background: linear-gradient(180deg, rgba(22,51,38,.98), rgba(22,51,38,.92));
-      color: rgba(255,248,240,.95);
-      border-color: rgba(255,248,240,.16);
-      box-shadow: 0 20px 60px rgba(22,35,29,.18);
-    }
-    .forestBand:before{
-      opacity: 1;
-      background:
-        radial-gradient(700px 260px at 14% 0%, rgba(226,178,48,.16), transparent 60%),
-        radial-gradient(560px 240px at 92% 12%, rgba(43,179,163,.18), transparent 60%),
-        radial-gradient(520px 220px at 58% 110%, rgba(231,163,176,.14), transparent 60%);
-    }
-    .forestBand .hint{ color: rgba(255,248,240,.70); }
-    .forestBand .item{
-      border-color: rgba(255,248,240,.16);
-      background: rgba(11,26,20,.22);
-    }
-    .forestBand .item:hover{
-      border-color: rgba(43,179,163,.35);
-      background: rgba(43,179,163,.10);
-    }
-    .forestBand .meta{ color: rgba(255,248,240,.82); }
-    .forestBand .chip{
-      border-color: rgba(255,248,240,.18);
-      background: rgba(255,248,240,.10);
-      color: rgba(255,248,240,.92);
-    }
-    .forestBand .chip.teal{ border-color: rgba(43,179,163,.42); background: rgba(43,179,163,.14); }
-    .forestBand .chip.mustard{ border-color: rgba(226,178,48,.46); background: rgba(226,178,48,.14); }
-    .forestBand .chip.rose{ border-color: rgba(231,163,176,.46); background: rgba(231,163,176,.14); }
-    .forestBand .chip.rust{ border-color: rgba(200,91,61,.46); background: rgba(200,91,61,.14); }
-
-    .waves{
-      position:absolute;
-      inset:auto -30px -40px -30px;
-      height: 160px;
-      pointer-events:none;
-      opacity: .55;
-    }
-    .forestBand .waves{ opacity: .35; }
-
-    .hero{
-      margin-top:16px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
-
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border:1px solid var(--stroke);
-      border-radius: 999px;
-      background: rgba(255,255,255,.55);
-      color: rgba(22,35,29,.82);
-      font-size:14px;
-    }
-    .forestBand .kicker{
-      border-color: rgba(255,248,240,.18);
-      background: rgba(255,248,240,.08);
-      color: rgba(255,248,240,.92);
-    }
-    .spark{
-      width:10px;height:10px;border-radius:50%;
-      background: var(--mustard);
-      box-shadow: 0 0 12px rgba(226,178,48,.22);
-      border:1px solid rgba(22,35,29,.10);
-    }
-
-    h1{
-      margin:10px 0 6px;
-      font-family: Fraunces, serif;
-      font-weight: 800;
-      font-size: clamp(32px, 4.3vw, 48px);
-      line-height: 1.04;
-      letter-spacing: -.55px;
-    }
-    .subtitle{
-      margin:0;
-      color: rgba(22,35,29,.78);
-      font-size: 16px;
-      line-height: 1.65;
-      max-width: 80ch;
-    }
-
-    .ctaRow{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius: 16px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.65);
-      font-weight: 700;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      user-select:none;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(43,179,163,.35);
-      background: rgba(43,179,163,.10);
-    }
-    .btn.primary{
-      border-color: rgba(200,91,61,.25);
-      background: linear-gradient(135deg, rgba(200,91,61,.25), rgba(226,178,48,.18));
-    }
-    .btn.primary:hover{
-      border-color: rgba(226,178,48,.30);
-      background: linear-gradient(135deg, rgba(200,91,61,.28), rgba(226,178,48,.22));
-    }
-
-    section{margin-top:16px}
-    .grid{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
-
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
-      margin:0 0 10px;
-    }
-    .sectionTitle h2{
-      margin:0;
-      font-family: Fraunces, serif;
-      font-size: 20px;
-      letter-spacing: -.2px;
-    }
-    .hint{color: rgba(22,35,29,.60); font-size: 13px}
-
-    .list{display:flex; flex-direction:column; gap:10px}
-    .item{
-      padding:14px;
-      border-radius: 18px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.62);
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-    }
-    .item:hover{
-      transform: translateY(-1px);
-      border-color: rgba(43,179,163,.28);
-      background: rgba(43,179,163,.06);
-    }
-    .itemTop{display:flex; justify-content:space-between; gap:12px; align-items:flex-start}
-    .item h3{margin:0; font-size:16px}
-    .meta{margin-top:6px; color: rgba(22,35,29,.72); font-size:13px; line-height:1.55}
-
-    .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px}
-    .chip{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(22,35,29,.12);
-      background: rgba(255,248,240,.75);
-      color: rgba(22,35,29,.86);
-    }
-    .chip.teal{ border-color: rgba(43,179,163,.28); background: rgba(43,179,163,.10); }
-    .chip.mustard{ border-color: rgba(226,178,48,.30); background: rgba(226,178,48,.12); }
-    .chip.rose{ border-color: rgba(231,163,176,.30); background: rgba(231,163,176,.12); }
-    .chip.rust{ border-color: rgba(200,91,61,.28); background: rgba(200,91,61,.10); }
-
-    footer{
-      margin-top:16px;
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      color: rgba(22,35,29,.62);
-      font-size: 13px;
-      padding-bottom: 6px;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none!important; scroll-behavior:auto!important}
-    }
-
-    .heroHead{
-      display:grid;
-      grid-template-columns: 250px 1fr;
-      gap:16px;
-      align-items:start;
-      margin-top: 12px;
-    }
-    @media (max-width: 900px){
-      .heroHead{
-        grid-template-columns: 200px 1fr;
-        gap:14px;
-      }
-    }
-    @media (max-width: 700px){
-      .heroHead{
-        grid-template-columns: 1fr;
-        gap:12px;
-        text-align:center;
-      }
-      .heroPhoto{
-        max-width: 240px;
-        margin: 0 auto;
-      }
-      .ctaRow{justify-content:center}
-      .heroBio{border-top: 1px dashed rgba(22,35,29,.14)}
-    }
-
-    .heroPhoto{
-      border-radius: 22px;
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
-      box-shadow: 0 12px 26px rgba(22,35,29,.10);
-      position:relative;
-      transform: rotate(-1deg);
-    }
-    .heroPhoto img{
-      width:100%;
-      display:block;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-    .heroPhoto:after{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      border-radius: 24px;
-      pointer-events:none;
-      background:
-        radial-gradient(220px 140px at 20% 20%, rgba(226,178,48,.18), transparent 60%),
-        radial-gradient(240px 160px at 80% 30%, rgba(43,179,163,.14), transparent 62%),
-        radial-gradient(240px 160px at 30% 80%, rgba(231,163,176,.14), transparent 62%);
-      opacity:.9;
-    }
-
-    .heroInfo .role{
-      margin: 4px 0 0;
-      font-weight: 800;
-      color: rgba(22,35,29,.84);
-    }
-    .heroInfo .affil{
-      margin: 3px 0 0;
-      color: rgba(22,35,29,.70);
-    }
-
-    .heroBio{
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px dashed rgba(22,35,29,.14);
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-      align-items:start;
-    }
-    .panel{
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.58);
-      border-radius: 18px;
-      padding:16px;
-      box-shadow: 0 10px 22px rgba(22,35,29,.06);
-    }
-    .split .panel + .panel{
-      border-top: 1px dashed rgba(200,91,61,.22);
-      padding-top: 18px;
-    }
-    .panelTitle{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin:0 0 10px;
-    }
-    .pillTag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(22,35,29,.12);
-      background: rgba(226,178,48,.18);
-      color: rgba(22,35,29,.86);
-      font-size:13px;
-      font-weight:600;
-      white-space:nowrap;
-    }
-    .timeline{display:flex; flex-direction:column; gap:10px;}
-    .event{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding:12px;
-      border-radius: 16px;
-      border:1px dashed rgba(22,35,29,.18);
-      background: rgba(255,248,240,.70);
-    }
-    .eventIcon{
-      width:34px; height:34px;
-      border-radius: 12px;
-      border:1px solid rgba(22,35,29,.12);
-      display:flex; align-items:center; justify-content:center;
-      background: linear-gradient(135deg, rgba(43,179,163,.16), rgba(207,234,242,.25));
-      flex: 0 0 auto;
-    }
-    .eventMain{flex: 1 1 auto; min-width: 0;}
-    .eventTitle{margin:0; font-size:14px; font-weight:700; line-height:1.25;}
-    .eventMeta{margin-top:4px; color: rgba(22,35,29,.70); font-size:13px; line-height:1.35;}
-    .eventMeta .mini{display:inline-flex; align-items:center; gap:6px; margin-right:10px; white-space:nowrap;}
-    .miniDot{width:7px; height:7px; border-radius:50%; background: var(--teal); box-shadow: 0 0 8px rgba(43,179,163,.20);}
-
-    .datePill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 9px;
-      border-radius: 999px;
-      border:1px solid rgba(22,35,29,.14);
-      background: rgba(255,248,240,.75);
-      color: rgba(22,35,29,.86);
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .dateDot{
-      width:9px; height:9px;
-      border-radius:50%;
-      background: var(--mustard);
-      box-shadow: 0 0 10px rgba(226,178,48,.22);
-    }
-    .forestBand .datePill{
-      border-color: rgba(255,248,240,.18);
-      background: rgba(255,248,240,.10);
-      color: rgba(255,248,240,.92);
-    }
-    .forestBand .dateDot{ border: 1px solid rgba(255,248,240,.18); }
-
-    .catCard{
-      display:grid;
-      grid-template-columns: 1fr 260px;
-      gap:12px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .catCard{grid-template-columns:1fr}
-    }
-
-    .petShot{
-      margin:0;
-      border-radius: 18px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
-      box-shadow: 0 12px 26px rgba(22,35,29,.10);
-      overflow:hidden;
-    }
-    .petShot img{
-      width:100%;
-      height:auto;
-      display:block;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
-    .petShot figcaption{
-      padding:10px 12px;
-      border-top:1px solid rgba(22,35,29,.10);
-      background: rgba(255,248,240,.72);
-      font-size: 12px;
-      color: rgba(22,35,29,.84);
-      text-align:center;
-      backdrop-filter: blur(10px);
-    }
-
-    .forestBand .pad{padding:18px}
-    .forestBand .sectionTitle{margin:0 0 8px}
-    .forestBand .list{gap:8px}
-    .forestBand .item{padding:12px; border-radius:16px}
-    .forestBand .item h3{font-size:15px}
-    .forestBand .meta{font-size:12.5px; line-height:1.45}
-    .forestBand .chips{margin-top:8px}
-    .metaTopRow{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin: 8px 0 6px}
-
-    .quoteBand{
-      position:relative;
-      border:1px solid var(--stroke);
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(207,234,242,.55), rgba(223,243,234,.55), rgba(246,226,169,.40));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .quoteBand:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(820px 280px at 12% 0%, rgba(43,179,163,.14), transparent 62%),
-        radial-gradient(760px 320px at 92% 25%, rgba(200,91,61,.14), transparent 62%),
-        radial-gradient(680px 280px at 55% 110%, rgba(226,178,48,.12), transparent 62%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .quoteInner{
-      position:relative;
-      z-index:1;
-      padding:18px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .quoteMark{
-      width:42px;height:42px;
-      border-radius: 16px;
-      border:1px solid rgba(22,35,29,.12);
-      background: rgba(255,255,255,.55);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 10px 22px rgba(22,35,29,.06);
-      flex:0 0 auto;
-    }
-    .quoteText{
-      margin:0;
-      font-family: Fraunces, serif;
-      font-weight: 800;
-      letter-spacing: -.25px;
-      font-size: clamp(16px, 2.1vw, 22px);
-      line-height:1.25;
-      color: rgba(22,35,29,.92);
-      flex:1 1 420px;
-    }
-    .quoteTag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(22,35,29,.12);
-      background: rgba(255,255,255,.55);
-      font-size: 13px;
-      color: rgba(22,35,29,.84);
-      white-space:nowrap;
-    }
-
-    .newsBand{
-  position:relative;
-  border:1px solid var(--stroke);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(255,248,240,.92), rgba(247,241,232,.92)),
-    linear-gradient(180deg, var(--cream), #FAF6EF);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-}
-
-.newsBand:before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:
-    radial-gradient(760px 280px at 10% 0%, rgba(200,91,61,.12), transparent 60%),
-    radial-gradient(700px 320px at 100% 15%, rgba(43,179,163,.10), transparent 62%),
-    radial-gradient(680px 260px at 55% 100%, rgba(226,178,48,.10), transparent 62%),
-    radial-gradient(520px 220px at 85% 80%, rgba(231,163,176,.10), transparent 62%);
-  pointer-events:none;
-  opacity:.95;
-}
-
-.newsInner{
-  position:relative;
-  z-index:1;
-  padding:22px;
-}
-
-.newsHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:14px;
-}
-
-.newsHead h2{
-  margin:0;
-  font-family: Fraunces, serif;
-  font-size: 22px;
-  letter-spacing: -.2px;
-  color: var(--ink);
-}
-
-.newsHint{
-  color: rgba(22,35,29,.62);
-  font-size:13px;
-}
-
-.newsGrid{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap:16px;
-  align-items:stretch;
-}
-
-@media (max-width: 980px){
-  .newsGrid{grid-template-columns:1fr}
-}
-
-.newsCopy{
-  border:1px solid rgba(22,35,29,.10);
-  border-radius: 20px;
-  background: rgba(255,255,255,.52);
-  padding:18px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 22px rgba(22,35,29,.05);
-}
-
-.newsKicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(200,91,61,.20);
-  background: rgba(200,91,61,.10);
-  color: rgba(22,35,29,.88);
-  font-size:13px;
-  font-weight:700;
-}
-
-.newsTitle{
-  margin:12px 0 8px;
-  font-family: Fraunces, serif;
-  font-size: clamp(24px, 3vw, 34px);
-  line-height:1.08;
-  letter-spacing:-.4px;
-  color: var(--ink);
-}
-
-.newsText{
-  margin:0;
-  color: rgba(22,35,29,.78);
-  font-size:15px;
-  line-height:1.65;
-}
-
-.newsMeta{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.newsPill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 11px;
-  border-radius:999px;
-  border:1px solid rgba(22,35,29,.12);
-  background: rgba(255,255,255,.60);
-  color: rgba(22,35,29,.88);
-  font-size:13px;
-  font-weight:600;
-}
-
-.newsPill.deadline{
-  background: rgba(226,178,48,.16);
-  border-color: rgba(226,178,48,.28);
-  color: rgba(22,35,29,.92);
-}
-
-.newsTopics{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.newsChip{
-  font-size:12px;
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(22,35,29,.10);
-  background: rgba(255,248,240,.78);
-  color: rgba(22,35,29,.84);
-}
-
-.newsActions{
-  margin-top:16px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.newsBtn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:11px 14px;
-  border-radius: 14px;
-  border:1px solid var(--stroke);
-  background: rgba(255,255,255,.68);
-  color: var(--ink);
-  font-weight:700;
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-
-.newsBtn:hover{
-  transform: translateY(-1px);
-  border-color: rgba(43,179,163,.35);
-  background: rgba(43,179,163,.10);
-}
-
-.newsBtn.primary{
-  border-color: rgba(200,91,61,.25);
-  background: linear-gradient(135deg, rgba(200,91,61,.18), rgba(226,178,48,.16));
-}
-
-.newsBtn.primary:hover{
-  border-color: rgba(226,178,48,.30);
-  background: linear-gradient(135deg, rgba(200,91,61,.22), rgba(226,178,48,.20));
-}
-
-.newsVisual{
-  border:1px solid rgba(22,35,29,.10);
-  border-radius: 20px;
-  overflow:hidden;
-  background: rgba(255,255,255,.55);
-  box-shadow: 0 12px 26px rgba(22,35,29,.08);
-}
-
-.newsVisual img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-
-.newsVisual figcaption{
-  padding:10px 12px;
-  background: rgba(255,248,240,.82);
-  border-top:1px solid rgba(22,35,29,.08);
-  color: rgba(22,35,29,.72);
-  font-size:12px;
-}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500,0,0;9..144,600,0,0;9..144,700,0,0&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <noscript><style>@media(max-width:920px){.header-inner{flex-wrap:wrap}.site-nav{display:flex;position:static;flex:1 1 100%;box-shadow:none;border:0;padding:0 0 14px;flex-flow:row wrap;gap:8px}.site-nav a{padding:5px}.menu-toggle{display:none}}</style></noscript>
 </head>
-
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div class="brand">
-        <span class="mark" aria-hidden="true"></span>
-        <span>Camilla Poggianti</span>
-      </div>
-
-      <nav class="nav" aria-label="Sezioni">
-        <a class="pill" href="#about">About</a>
-        <a class="pill accent" href="#news">News</a>
-        <a class="pill" href="#education">Education</a>
-        <a class="pill accent" href="#experience">Experience</a>
-        <a class="pill" href="#publications">Publications</a>
-        <a class="pill accent" href="#talks">Talks</a>
-        <a class="pill" href="#supervision">Supervision</a>
-        <a class="pill" href="#hobbies">Hobbies</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="site-logo" href="#top" aria-label="Camilla Poggianti — back to top"><span class="logo-mark" aria-hidden="true"><span>c<span>.</span>p</span></span><span class="logo-name">Camilla Poggianti <small>Academic portfolio</small></span></a>
+      <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#background">Background</a><a href="#academic-service">Academic life</a><a href="#contact" class="nav-contact">Contact <span aria-hidden="true">↗</span></a>
       </nav>
-
-      <a class="pill accent" href="mailto:camilla.poggianti@phd.unipi.it">↗ Email</a>
     </div>
+  </header>
 
-    <div class="hero">
-      <div class="card" id="about">
-        <div class="pad">
-          <div class="kicker"><span class="spark"></span> Academic portfolio</div>
-
-          <div class="heroHead">
-            <figure class="heroPhoto" aria-label="Portrait">
-              <img src="foto2.jpg" alt="Portrait photo of Camilla Poggianti">
-            </figure>
-
-            <div class="heroInfo">
-              <h1>Camilla Poggianti</h1>
-              <p class="role" style="padding-top:20px">PhD student in Computer Science</p>
-              <p class="affil">Dept. of Computer Science <br>— University of Pisa</p>
-            </div>
-          </div>
-
-          <div class="heroBio">
-            <p class="subtitle">
-              👋 Hi there, I'm Camilla!<br>
-              I’ve got a degree in Digital Humanities 📚 — and currently I'm PhD student in Computer Science 💻!<br>
-              My research focuses on the design of inclusive and accessible learning environments, with particular attention to extended reality (XR), 
-              human-computer interaction, Universal Design for Learning, and adaptive technologies. With an interdisciplinary background, 
-              I work on developing innovative solutions to support learners with diverse abilities and needs 🌈✨
-            </p>
-
-            <div class="chips" style="margin-top:14px">
-              <a class="chip teal" href="mailto:camilla.poggianti@phd.unipi.it">✉️ camilla.poggianti@phd.unipi.it</a>
-              <a class="chip mustard" href="http://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="chip rose" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID</a>
-            </div>
-
-            <div class="ctaRow">
-              <a class="btn primary" href="Camilla_Poggianti_CV.pdf" target="_blank" rel="noopener">📄 CV (PDF)</a>
-              <a class="btn" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ&hl=it&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
-              <a class="btn" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name:%22Poggianti,%20Camilla%22" target="_blank" rel="noopener">Zenodo</a>
-            </div>
-          </div>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero-shell container" aria-labelledby="hero-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow eyebrow-light"><span class="status-dot" aria-hidden="true"></span> Research · Human-centred technology · Inclusion</div>
+          <h1 id="hero-title">Camilla <em>Poggianti.</em></h1>
+          <p class="hero-role">PhD Candidate in Computer Science <span aria-hidden="true">/</span> University of Pisa</p>
+          <p class="hero-lead">Designing accessible digital experiences that bring people, technology, and learning closer together.</p>
+          <p class="hero-detail">My research lies at the intersection of extended reality, human–computer interaction, multimodal accessibility, and AI-assisted systems.</p>
+          <div class="hero-actions"><a class="button button-light" href="#research">Explore my research <span aria-hidden="true">↗</span></a><a class="button button-outline-light" href="assets/Camilla_Poggianti_CV.pdf" target="_blank" rel="noopener">Download CV <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-status"><span class="tiny-icon" aria-hidden="true">✳</span><span>PhD thesis submitted for external review <strong>· 31 October 2026</strong></span></div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="pad">
-          <div class="sectionTitle">
-            <h2>Highlights</h2>
-            <div class="hint">what I’m into & what’s next</div>
-          </div>
-          <div class="split">
-  <div class="panel">
-    <div class="panelTitle">
-      <h3 style="margin:0; font-size:16px;">Research interests</h3>
-      <span class="pillTag">✨ focus</span>
-    </div>
-    <div class="chips" style="margin-top:0;">
-      <span class="chip teal">Accessibility</span>
-      <span class="chip mustard">Assistive Technologies</span>
-      <span class="chip rose">Human-Computer Interaction</span>
-      <span class="chip rust">Immersive Technologies</span>
-      <span class="chip teal">AR</span>
-      <span class="chip">VR</span>
-      <span class="chip rust">3D printing</span>
-      <span class="chip mustard">Artificial Intelligence</span>
-      <span class="chip">Inclusive Education</span>
-      <span class="chip rose">Universal Design for Learning</span>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="panelTitle">
-      <h3 style="margin:0; font-size:16px;">Currently</h3>
-      <span class="pillTag">📍 now</span>
-    </div>
-
-    <div class="timeline">
-      <div class="event">
-        <div class="eventIcon">🌍</div>
-        <div class="eventMain">
-          <p class="eventTitle">Visiting PhD Student — Universidad Autónoma de Madrid (UAM)</p>
-          <div class="eventMeta">
-            <span class="mini"><span class="miniDot"></span> Research mobility</span>
-            <span class="mini">📍 Madrid, Spain</span>
-          </div>
+        <div class="hero-visual">
+          <div class="photo-orbit orbit-one" aria-hidden="true"></div><div class="photo-orbit orbit-two" aria-hidden="true"></div>
+          <div class="portrait-frame"><img src="assets/portrait-placeholder.svg" alt="Illustrated portrait placeholder" width="700" height="850" data-portrait="foto2.jpg"></div>
+          <div class="photo-label"><span class="label-spark" aria-hidden="true">✦</span> ACCESSIBILITY <span>BY DESIGN</span></div>
+          <div class="coordinate" aria-hidden="true">43°43′ N / PISA, IT</div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="panelTitle">
-      <h3 style="margin:0; font-size:16px;">Upcoming</h3>
-      <span class="pillTag">🗓️ soon</span>
-    </div>
-
-    <div class="timeline">
-      <div class="event">
-        <div class="eventIcon">🎤</div>
-        <div class="eventMain">
-          <p class="eventTitle">International Conference on Intelligent Environments</p>
-          <div class="eventMeta">
-            <span class="mini"><span class="miniDot"></span> Conference</span>
-            <span class="mini">📍 Lisbon, Portugal</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="eventIcon">🎤</div>
-        <div class="eventMain">
-          <p class="eventTitle">Symposium on Computers and Communications</p>
-          <div class="eventMeta">
-            <span class="mini"><span class="miniDot"></span> Conference</span>
-            <span class="mini">📍 Algarve, Portugal</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<!--<section id="news" class="newsBand">
-  <div class="newsInner">
-    <div class="newsHead">
-      <h2>Latest news</h2>
-      <div class="newsHint">Keep an eye on</div>
-    </div>
-
-    <div class="newsGrid">
-      <div class="newsCopy">
-        <span class="newsKicker">🚀 call for papers open</span>
-
-        <h3 class="newsTitle">
-         Incl-Int Workshop @ ICANN 2026
-        </h3>
-
-        <p class="newsText">
-          In September I’ll be in Padua as one of the organizers of
-          <strong>Incl-Int — Inclusive Intelligence</strong>, a workshop at
-          <strong>ICANN 2026</strong> focused on neural architectures and generative models
-          for next-generation accessible and assistive technologies.
-        </p>
-
-        <div class="newsMeta">
-          <span class="newsPill deadline">⏰ Deadline: 6 June 2026</span>
-          <span class="newsPill">📍 Padua, Italy</span>
-          <span class="newsPill">🗓️ 14–17 September 2026</span>
-        </div>
-
-        <div class="newsTopics">
-          <span class="newsChip">Multimodal LLMs</span>
-          <span class="newsChip">Generative AI for accessibility</span>
-          <span class="newsChip">Assistive technologies</span>
-          <span class="newsChip">Adaptive XR</span>
-          <span class="newsChip">Digital health</span>
-          <span class="newsChip">Haptic & multimodal feedback</span>
-          <span class="newsChip">Fairness, privacy & governance</span>
-        </div>
-
-        <div class="newsActions">
-          <a class="newsBtn primary" href="https://cardiamc.github.io/Incl-Int/" target="_blank" rel="noopener">
-            🌐 Workshop details & CFP
-          </a>
-        </div>
-      </div>
-
-      <figure class="newsVisual" aria-label="Incl-Int workshop banner">
-        <img src="Inclint2.png" alt="Banner of the Incl-Int workshop at ICANN 2026">
-        <figcaption>Inclusive Intelligence @ ICANN 2026</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>-->
-    
-    <section class="grid">
-      <div id="education" class="card">
-        <div class="pad">
-          <div class="sectionTitle">
-            <h2>Education</h2>
-            <div class="hint">degrees · thesis</div>
-          </div>
-
-          <div class="list">
-            <div class="item">
-              <div class="itemTop">
-                <h3>🔍 PhD Student in Computer Science</h3>
-                <span class="chip rust">2023–Present</span>
-              </div>
-              <div class="meta">
-                📍 University of Pisa <br>
-                <strong>Supervisors</strong>:
-                <a href="https://www.unipi.it/ateneo/organizzazione/persone/stefano-chessa-5853/" target="_blank" rel="noopener">Stefano Chessa</a>
-                and
-                <a href="https://pages.di.unipi.it/pelagatti/" target="_blank" rel="noopener">Susanna Pelagatti</a>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>🎓 M.Sc. in Digital Humanities</h3>
-                <span class="chip">2020–2023</span>
-              </div>
-              <div class="meta">
-                📍 University of Pisa
-                <div class="chips" style="margin-top:10px">
-                  <a class="chip teal" href="https://etd.adm.unipi.it/t/etd-02282023-101454/" target="_blank" rel="noopener">Thesis</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>🎓 B.Sc. in Digital Humanities</h3>
-                <span class="chip">2016–2020</span>
-              </div>
-              <div class="meta">📍 University of Pisa</div>
-            </div>
-          </div>
-        </div>
-
-        <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,160 C160,80 320,220 480,140 C640,60 800,210 960,120 C1080,55 1160,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.22)"></path>
-          <path d="M0,190 C180,120 320,240 520,150 C720,60 840,230 1040,140 C1120,100 1180,130 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.14)"></path>
-        </svg>
-      </div>
-
-      <div id="experience" class="card">
-        <div class="pad">
-          <div class="sectionTitle">
-            <h2>Experience</h2>
-            <div class="hint">roles · projects</div>
-          </div>
-
-          <div class="list">
-            <div class="item">
-              <div class="itemTop">
-                <h3>🏖️ ACM Summer School on Accessible and Inclusive Technologies</h3>
-                <span class="chip rust">06/2025</span>
-              </div>
-              <div class="meta">📍 University of Borås — Borås (Sweden)</div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>🏖️ XR&AI Summer School</h3>
-                <span class="chip rust">06/2024</span>
-              </div>
-              <div class="meta">📍 Casa delle Tecnologie Emergenti — Matera (Italy)</div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>👜 Research Fellow</h3>
-                <span class="chip rust">01/2023–10/2023</span>
-              </div>
-              <div class="meta">📍 University of Pisa — CIDIC</div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>👜 Junior Developer</h3>
-                <span class="chip">02/2023–07/2023</span>
-              </div>
-              <div class="meta">📍 LA JETÉE — Firenze (FI)</div>
-            </div>
-          </div>
-        </div>
-
-        <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.20)"></path>
-          <path d="M0,200 C200,140 320,250 560,160 C800,70 880,240 1120,150 C1160,130 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.12)"></path>
-        </svg>
       </div>
     </section>
+    <div class="container ribbon-wrap" aria-label="Research interests"><div class="research-ribbon"><span>Extended Reality</span><i aria-hidden="true"></i><span>Inclusive Education</span><i aria-hidden="true"></i><span>Human–Computer Interaction</span><i aria-hidden="true"></i><span>Assistive Technologies</span><i aria-hidden="true"></i><span>Multimodal AI</span></div></div>
 
-    <section id="quote" class="quoteBand">
-      <div class="quoteInner">
-        <div class="quoteMark" aria-hidden="true">❝</div>
-        <p class="quoteText">Accessibility is not a problem to be solved. It is a culture to be built.</p>
-        <span class="quoteTag">🌿 inclusive by design</span>
-      </div>
+    <!-- About -->
+    <section class="section container about-grid" id="about" aria-labelledby="about-title">
+      <div class="section-intro"><span class="section-number">01 / ABOUT ME</span><h2 id="about-title">Research with <em>people</em> at its centre.</h2></div>
+      <div class="about-text"><p class="lead-paragraph">I investigate how technology can make education and everyday learning environments more accessible to people with diverse abilities and needs.</p><p>I am a PhD candidate at the <a href="https://di.unipi.it/" target="_blank" rel="noopener">Department of Computer Science, University of Pisa</a>. My work combines design science research, participatory and human-centred design, prototyping, and empirical evaluation.</p><p>From augmented reality for inclusive campus experiences to interactive 3D-printed tactile learning materials, I design systems that make information easier to find, understand, and interact with—while keeping people in control.</p><div class="about-link-row"><a class="text-link" href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID <span aria-hidden="true">↗</span></a><a class="text-link" href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/cpoggianti97" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div></div>
     </section>
 
-    <section class="grid">
-      <div id="publications" class="card forestBand">
-        <div class="pad">
-          <div class="kicker"><span class="spark"></span> Selected work</div>
-
-          <div class="sectionTitle" style="margin-top:12px">
-            <h2>Publications</h2>
-            <div class="hint">PDF · DOI · BibTeX</div>
-          </div>
-
-          <div class="list">
-            <div class="item">
-              <div class="itemTop">
-                <h3>Well-Being and Autonomy in University Life for Students with Disabilities Through LLM and BPM</h3>
-                <span class="chip rust">2026</span>
-              </div>
-              <div class="meta">
-                Mattia Macrì, Camilla Poggianti, Francesca de Luzi, Flavia Monti, Francesco Leotta, Susanna Pelagatti, Stefano Chessa, Massimo Mecella <br>
-                📍 International Conference on Intelligent Environments
-                <div class="chips">
-                  <a class="chip mustard" href="https://doi.org/10.3233/AISE260011" target="_blank" rel="noopener">DOI</a>
-                </div>
-              </div>
-            </div>
-
-          
-            <div class="item">
-              <div class="itemTop">
-                <h3>Human vs LLM-Generated Alt Text for STEM Image Accessibility: A Comparative Study</h3>
-                <span class="chip rust">2026</span>
-              </div>
-              <div class="meta">
-                Marco Cardia, Letizia Angileri, Camilla Poggianti, Barbara Leporini <br>
-                📍 23rd International Web for All Conference
-                <div class="chips">
-                  <a class="chip teal" href="https://dl.acm.org/doi/pdf/10.1145/3800424.3800457" target="_blank" rel="noopener">PDF</a>
-                  <a class="chip mustard" href="https://doi.org/10.1145/3800424.3800457" target="_blank" rel="noopener">DOI</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="item">
-              <div class="itemTop">
-                <h3>Immersive technologies for inclusive digital education: A systematic survey</h3>
-                <span class="chip rust">2025</span>
-              </div>
-              <div class="meta">
-                Camilla Poggianti, Stefano Chessa, Susanna Pelagatti, Alexander Kocian <br>
-                📰 Human Behavior and Emerging Technologies (Wiley)
-                <div class="chips">
-                  <a class="chip teal" href="https://onlinelibrary.wiley.com/doi/pdf/10.1155/hbe2/8888303" target="_blank" rel="noopener">PDF</a>
-                  <a class="chip mustard" href="https://doi.org/10.1155/hbe2/8888303" target="_blank" rel="noopener">DOI</a>
-                  <a class="chip rose" href="https://scholar.googleusercontent.com/scholar.bib?q=info:UlULTAiuUx8J:scholar.google.com/&output=citation&hl=it" target="_blank" rel="noopener">BibTeX</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>Design of Immersive Environments to Enhance Learning for People with Disabilities</h3>
-                <span class="chip rust">2025</span>
-              </div>
-              <div class="meta">
-                Camilla Poggianti, Stefano Chessa, Susanna Pelagatti <br>
-                📍 International Conference on Intelligent Environments
-                <div class="chips">
-                  <a class="chip teal" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11129985" target="_blank" rel="noopener">PDF</a>
-                  <a class="chip mustard" href="https://doi.org/10.1109/IE64880.2025.11129985" target="_blank" rel="noopener">DOI</a>
-                  <a class="chip rose" href="https://scholar.googleusercontent.com/scholar.bib?q=info:g1zfq1FSSN0J:scholar.google.com/&output=citation&hl=it" target="_blank" rel="noopener">BibTeX</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>XR for Academic Accessibility: Designing Services for University Students with Disabilities</h3>
-                <span class="chip rust">2025</span>
-              </div>
-              <div class="meta">
-                Camilla Poggianti, Stefano Chessa, Susanna Pelagatti <br>
-                📍 Italian Conference on ICT for Smart Cities and Communities
-                <div class="chips">
-                  <a class="chip teal" href="https://icities25.centroictbc.unisa.it/papers/3.pdf" target="_blank" rel="noopener">PDF</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <h3>OBA: an inclusive botanical garden for children with ASD</h3>
-                <span class="chip rust">2023</span>
-              </div>
-              <div class="meta">
-                Susanna Pelagatti, Camilla Poggianti <br>
-                📍 International Conference on Human-Computer Interaction
-                <div class="chips">
-                  <a class="chip teal" href="https://www.researchgate.net/publication/372225580_OBA_An_Inclusive_Botanical_Garden_for_Children_with_ASD" target="_blank" rel="noopener">PDF</a>
-                  <a class="chip mustard" href="https://doi.org/10.1007/978-3-031-35681-0_41" target="_blank" rel="noopener">DOI</a>
-                  <a class="chip rose" href="https://scholar.googleusercontent.com/scholar.bib?q=info:62YaUryLh1sJ:scholar.google.com/&output=citation&hl=it" target="_blank" rel="noopener">BibTeX</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <footer>
-            <div class="meta">Other contributions on
-                  <a class="chip" href="https://scholar.google.com/scholar?hl=it&as_sdt=0%2C5&q=camilla+poggianti&oq=" target="_blank" rel="noopener">Scholar</a>
-              </div>
-            <div>—</div>
-          </footer>
-        </div>
-
-        <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,160 C160,80 320,220 480,140 C640,60 800,210 960,120 C1080,55 1160,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.22)"></path>
-          <path d="M0,200 C200,140 320,250 560,160 C800,70 880,240 1120,150 C1160,130 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.14)"></path>
-        </svg>
+    <!-- Research -->
+    <section class="section section-tinted" id="research" aria-labelledby="research-title"><div class="container">
+      <div class="section-heading"><div><span class="section-number">02 / RESEARCH</span><h2 id="research-title">Ideas made <em>tangible.</em></h2></div><p>Three interconnected lines of work, united by a single question: how can digital systems better respond to human needs?</p></div>
+      <div class="project-grid">
+        <article class="project-card project-feature">
+          <div class="project-copy"><div class="project-overline">01 <span aria-hidden="true">—</span> ACCESSIBLE CAMPUS EXPERIENCES</div><h3>Orienta</h3><p class="project-subtitle">An inclusive digital companion for university life.</p><p>A mobile system combining contextual campus information, augmented reality, activity planning, and AI-assisted access to university procedures. Developed to support students with disabilities and diverse accessibility needs.</p><div class="tag-row"><span>Mobile applications</span><span>AR</span><span>AI-assisted support</span><span>Accessibility</span></div><a href="#pub-j4" class="project-link">Related manuscript <span aria-hidden="true">↗</span></a></div>
+          <div class="project-visual visual-orienta" aria-hidden="true"><div class="phone-device"><div class="phone-top"></div><div class="phone-header"><span>Campus overview</span><span>◌</span></div><div class="phone-map"><div class="map-street s1"></div><div class="map-street s2"></div><div class="map-street s3"></div><div class="map-building b1"></div><div class="map-building b2"></div><div class="map-building b3"></div><div class="map-pin">✦</div></div><div class="phone-panel"><span class="small-dash"></span><strong>Find your way</strong><small>Information that meets you where you are.</small><div class="phone-pills"><i></i><i></i><i></i></div></div></div><div class="floating-note"><span aria-hidden="true">✳</span> Human-centred<br>navigation</div></div>
+        </article>
+        <article class="project-card project-secondary">
+          <div class="project-visual visual-tactile" aria-hidden="true"><svg viewBox="0 0 540 290" role="presentation" preserveAspectRatio="xMidYMid meet"><defs><pattern id="pDots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#2e5b5b" opacity=".22"/></pattern></defs><rect width="540" height="290" fill="url(#pDots)"/><path d="M90 206L202 89 318 200 448 80" stroke="#1a484a" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M90 206L202 89 318 200 448 80" stroke="#f8e8d6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="90" cy="206" r="25" fill="#d48468" stroke="#fff3e5" stroke-width="6"/><circle cx="202" cy="89" r="25" fill="#d48468" stroke="#fff3e5" stroke-width="6"/><circle cx="318" cy="200" r="25" fill="#d48468" stroke="#fff3e5" stroke-width="6"/><circle cx="448" cy="80" r="25" fill="#d48468" stroke="#fff3e5" stroke-width="6"/><circle cx="90" cy="206" r="7" fill="#203f43"/><circle cx="202" cy="89" r="7" fill="#203f43"/><circle cx="318" cy="200" r="7" fill="#203f43"/><circle cx="448" cy="80" r="7" fill="#203f43"/></svg><span class="visual-caption">From a visual graph to an accessible physical representation</span></div>
+          <div class="project-copy"><div class="project-overline">02 <span aria-hidden="true">—</span> ACCESSIBLE STEM REPRESENTATIONS</div><h3>Audio-tactile learning</h3><p>AI-assisted, human-in-the-loop workflows for creating 3D-printed tactile graphs and interactive audio-tactile systems for blind and low-vision learners.</p><div class="tag-row"><span>3D printing</span><span>Tactile graphics</span><span>Multimodal interaction</span></div><a href="#pub-c1" class="project-link">Related publication <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <article class="project-card project-secondary">
+          <div class="project-visual visual-botanical" aria-hidden="true"><svg viewBox="0 0 540 290" preserveAspectRatio="xMidYMid meet"><circle cx="370" cy="135" r="108" fill="#d8e8cb"/><path d="M102 250c104-5 151-52 155-133 65 2 92 49 113 100" fill="none" stroke="#1d5b55" stroke-width="9" stroke-linecap="round"/><path d="M251 131c-4-53-26-76-87-85-2 46 30 78 87 85ZM262 156c40-62 90-73 133-54-22 49-72 67-133 54ZM306 204c-22-43-61-52-99-42 18 39 50 58 99 42" fill="#72a187" stroke="#1d5b55" stroke-width="5"/><rect x="78" y="193" width="103" height="62" rx="14" fill="#fff9ed" stroke="#27625d" stroke-width="4"/><circle cx="111" cy="224" r="11" fill="#de8b6a"/><path d="M135 213h26M135 227h18" stroke="#296660" stroke-width="5" stroke-linecap="round"/><path d="M414 53v43m-21-21h42" stroke="#de8b6a" stroke-width="6" stroke-linecap="round"/></svg><span class="visual-caption">Immersive technologies for inclusive cultural heritage</span></div>
+          <div class="project-copy"><div class="project-overline">03 <span aria-hidden="true">—</span> INCLUSIVE CULTURAL HERITAGE</div><h3>OBA / OBA 2.0</h3><p>Accessible botanical garden experiences that combine augmented reality, multimodal content, and participatory design to support inclusive learning and exploration.</p><div class="tag-row"><span>AR</span><span>Participatory design</span><span>Museum accessibility</span></div><a href="#pub-c12" class="project-link">Related publication <span aria-hidden="true">↗</span></a></div>
+        </article>
       </div>
+      <div class="research-methods"><p class="method-label">RESEARCH APPROACH</p><div><span>Design Science Research</span><span>Participatory Design</span><span>Universal Design for Learning</span><span>Usability Evaluation</span></div></div>
+    </div></section>
 
-      <div id="talks" class="card forestBand">
-        <div class="pad">
-          <div class="kicker"><span class="spark"></span> Third mission</div>
-
-          <div class="sectionTitle" style="margin-top:12px">
-            <h2>Events & talks</h2>
-            <div class="hint">details · website · slides</div>
-          </div>
-
-          <div class="list">
-            <div class="item">
-              <div class="itemTop">
-                <div><h3>Accessibility Is Not a Feature: Designing Inclusive University Ecosystems</h3></div>
-                <span class="chip teal">Seminar</span>
-              </div>
-              <div class="meta">
-                <div class="metaTopRow">
-                  <span class="datePill"><span class="dateDot"></span>28 May 2026</span>
-                </div>
-                🎤 Speaker <br>
-                Research seminar in Computer and Telecommunications Engineering <br>
-                📍 Escuela Politécnica Superior, Universidad Autónoma de Madrid (UAM) - Madrid, Spain
-              </div>
-            </div>
-            
-            <div class="item">
-              <div class="itemTop">
-                <div><h3>Tecnologia per l’inclusione: presentazione dell’App ‘Orto Botanico Accessibile’</h3></div>
-                <span class="chip teal">Talk</span>
-              </div>
-              <div class="meta">
-                <div class="metaTopRow">
-                  <span class="datePill"><span class="dateDot"></span>10 Dec 2025</span>
-                </div>
-                🎤 Speaker <br>
-                Un giardino per tutti - Seminario sull'inclusione e presentazione dell'app <br>
-                📍 Orto e Museo Botanico di Pisa - Sistema Museale di Ateneo
-                <div class="chips">
-                  <a class="chip mustard" href="https://www.unipi.it/eventi/un-giardino-per-tutti/" target="_blank" rel="noopener">Event details</a>
-                  <a class="chip rose" href="https://www.unipi.it/eventi/un-giardino-per-tutti/" target="_blank" rel="noopener">Slides</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <div><h3>The STEM Challenge</h3></div>
-                <span class="chip teal">Event</span>
-              </div>
-              <div class="meta">
-                <div class="metaTopRow">
-                  <span class="datePill"><span class="dateDot"></span>26 Sep 2025</span>
-                </div>
-                💁‍♀️ Organizer (with colleagues)<br>
-                Engagement and interactive activities with schools as part of BRIGHT 2025 <br>
-                📍 Department of Computer Science - University of Pisa
-                <div class="chips">
-                  <a class="chip mustard" href="https://stemma.di.unipi.it/?p=259" target="_blank" rel="noopener">Event details</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <div><h3>Shaped By Technology</h3></div>
-                <span class="chip teal">Event</span>
-              </div>
-              <div class="meta">
-                <div class="metaTopRow">
-                  <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
-                </div>
-                💁‍♀️ Organizer (with colleagues)<br>
-                Informative event dedicated to artificial intelligence, explainability, network medicine, and robotics <br>
-                📍 Department of Computer Science - University of Pisa
-                <div class="chips">
-                  <a class="chip mustard" href="https://old.unipi.it/index.php/unipieventi/event/8392?tmpl=component&print=1" target="_blank" rel="noopener">Event details</a>
-                  <a class="chip rust" href="https://shapedbytechnology.github.io/" target="_blank" rel="noopener">Website</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item">
-              <div class="itemTop">
-                <div><h3>Tecnologie nella vita reale: analisi di casi di studio</h3></div>
-                <span class="chip teal">Webinar</span>
-              </div>
-              <div class="meta">
-                <div class="metaTopRow">
-                  <span class="datePill"><span class="dateDot"></span>3 Dec 2024</span>
-                </div>
-                🎤 Speaker <br>
-                Webinar Autismo e Tecnologia: strumenti, esempi pratici, esperienze <br>
-                📍 Online
-                <div class="chips">
-                  <a class="chip mustard" href="https://tartablu.it/webinar/" target="_blank" rel="noopener">Video</a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Publications: populated as static HTML so content remains accessible without JavaScript. -->
+    <section class="section container" id="publications" aria-labelledby="publications-title">
+      <div class="section-heading"><div><span class="section-number">03 / SCHOLARLY OUTPUT</span><h2 id="publications-title">Selected work, <em>full record.</em></h2></div><p>Journal publications, conference papers, and manuscripts under review, drawn from my November 2026 academic CV.</p></div>
+      <div class="publication-toolbar"><div class="filter-group" role="group" aria-label="Filter publications"><button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All <span>16</span></button><button type="button" class="filter-button" data-filter="journal" aria-pressed="false">Journals <span>1</span></button><button type="button" class="filter-button" data-filter="conference" aria-pressed="false">Conferences <span>12</span></button><button type="button" class="filter-button" data-filter="review" aria-pressed="false">Under review <span>3</span></button></div><label class="search-field"><span class="sr-only">Search publications</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m16.5 16.5 5 5"/></svg><input id="publication-search" type="search" placeholder="Search by title, author, year…" autocomplete="off"></label></div>
+      <p class="publication-count" id="publication-count" role="status" aria-live="polite">Showing publications</p>
+      <div class="publication-list" id="publication-list">
+      <article class="publication" id="pub-c1" data-kind="conference" data-search="audio tactile for accessible teaching in stem disciplines: a comparison of two low-cost production chains c. poggianti, d. fantasia, s. pea, l. tinfena, d. brizi, b. leporini, s. pelagatti, g. prencipe, c. priami, s. chessa 12th italian conference on ict for smart cities and communities (i-cities), brescia 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Audio Tactile for Accessible Teaching in STEM Disciplines: a Comparison of Two Low-Cost Production Chains</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, D. Fantasia, S. Pea, L. Tinfena, D. Brizi, B. Leporini, S. Pelagatti, G. Prencipe, C. Priami, S. Chessa</p>
+          <p class="pub-venue">12th Italian Conference on ICT for Smart Cities and Communities (I-Cities), Brescia</p>
         </div>
-
-        <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,170 C170,90 310,240 510,150 C710,60 860,230 1040,130 C1120,90 1180,120 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.20)"></path>
-          <path d="M0,205 C210,150 340,255 600,165 C860,75 940,240 1160,155 C1185,145 1195,142 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.12)"></path>
-        </svg>
+        <div class="pub-actions">
+          <span class="pub-status">DOI forthcoming</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c2" data-kind="conference" data-search="accessible alt-text generation of 2d graphs with multimodal llms: comparison and evaluation m. cardia, c. poggianti, b. leporini, s. pelagatti, s. chessa 35th international conference on artificial neural networks (icann), padova 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Accessible Alt-Text Generation of 2D Graphs with Multimodal LLMs: Comparison and Evaluation</h3>
+          <p class="pub-authors">M. Cardia, <strong>C. Poggianti</strong>, B. Leporini, S. Pelagatti, S. Chessa</p>
+          <p class="pub-venue">35th International Conference on Artificial Neural Networks (ICANN), Padova</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1007/978-3-032-38407-2_59" target="_blank" rel="noopener" aria-label="View DOI for Accessible Alt-Text Generation of 2D Graphs with Multimodal LLMs: Comparison and Evaluation">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="publication" id="pub-c3" data-kind="conference" data-search="low-cost semi-automatic design of tactile iot for accessible education c. poggianti, d. brizi, s. pelagatti, s. chessa 31st ieee symposium on computers and communications (iscc), vilamoura 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Low-cost Semi-automatic Design of Tactile IoT for Accessible Education</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, D. Brizi, S. Pelagatti, S. Chessa</p>
+          <p class="pub-venue">31st IEEE Symposium on Computers and Communications (ISCC), Vilamoura</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status">DOI forthcoming</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c4" data-kind="conference" data-search="low-cost semi-automatic design of tactile iot for blind students c. poggianti, d. brizi, l. foschini, s. pelagatti, s. chessa european wireless 2026, rimini 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Low-Cost Semi-Automatic Design of Tactile IoT for Blind Students</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, D. Brizi, L. Foschini, S. Pelagatti, S. Chessa</p>
+          <p class="pub-venue">European Wireless 2026, Rimini</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status">DOI forthcoming</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c5" data-kind="conference" data-search="well-being and autonomy in university life for students with disabilities through llm and bpm m. macrì, c. poggianti, f. de luzi, f. monti, f. leotta, s. pelagatti, s. chessa, m. mecella wishwell workshop at the 22nd international conference on intelligent environments (ie), lisbon 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Well-Being and Autonomy in University Life for Students with Disabilities through LLM and BPM</h3>
+          <p class="pub-authors">M. Macrì, <strong>C. Poggianti</strong>, F. De Luzi, F. Monti, F. Leotta, S. Pelagatti, S. Chessa, M. Mecella</p>
+          <p class="pub-venue">WISHWELL Workshop at the 22nd International Conference on Intelligent Environments (IE), Lisbon</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.3233/AISE260011" target="_blank" rel="noopener" aria-label="View DOI for Well-Being and Autonomy in University Life for Students with Disabilities through LLM and BPM">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="publication" id="pub-c6" data-kind="conference" data-search="human vs llm-generated alt text for stem image accessibility: a comparative study m. cardia, l. angileri, c. poggianti, b. leporini 23rd international web for all conference (w4a), dubai 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Human vs LLM-Generated Alt Text for STEM Image Accessibility: A Comparative Study</h3>
+          <p class="pub-authors">M. Cardia, L. Angileri, <strong>C. Poggianti</strong>, B. Leporini</p>
+          <p class="pub-venue">23rd International Web for All Conference (W4A), Dubai</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1145/3800424.3800457" target="_blank" rel="noopener" aria-label="View DOI for Human vs LLM-Generated Alt Text for STEM Image Accessibility: A Comparative Study">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="publication" id="pub-j4" data-kind="review" data-search="designing cyber-physical accessibility for inclusive academic routine: the orienta case study c. poggianti, s. pelagatti, s. chessa technology, knowledge and learning 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-review">Journal manuscript</span></div>
+        <div class="pub-content">
+          <h3>Designing Cyber-Physical Accessibility for Inclusive Academic Routine: the Orienta Case Study</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, S. Pelagatti, S. Chessa</p>
+          <p class="pub-venue">Technology, Knowledge and Learning</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status status-review">Under review</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-j2" data-kind="review" data-search="a novel semi-automated process for the creation of accessible tactile graphs for blind students c. poggianti, f. polperio, s. pelagatti, s. chessa international journal of human-computer studies 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-review">Journal manuscript</span></div>
+        <div class="pub-content">
+          <h3>A Novel Semi-automated Process for the Creation of Accessible Tactile Graphs for Blind Students</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, F. Polperio, S. Pelagatti, S. Chessa</p>
+          <p class="pub-venue">International Journal of Human-Computer Studies</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status status-review">Under review</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-j3" data-kind="review" data-search="inclusion in botanical gardens through augmented reality: lessons learned and new perspective c. poggianti, s. chessa, s. pelagatti, m. magrini universal access in the information society 2026">
+        <div class="pub-index"><span class="pub-year">2026</span><span class="pub-type pub-type-review">Journal manuscript</span></div>
+        <div class="pub-content">
+          <h3>Inclusion in Botanical Gardens through Augmented Reality: Lessons Learned and new Perspective</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, S. Chessa, S. Pelagatti, M. Magrini</p>
+          <p class="pub-venue">Universal Access in the Information Society</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status status-review">Under review</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c7" data-kind="conference" data-search="xr for academic accessibility: designing services for university students with disabilities c. poggianti, s. chessa, s. pelagatti 11th italian conference on ict for smart cities and communities (i-cities), gaeta 2025">
+        <div class="pub-index"><span class="pub-year">2025</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>XR for Academic Accessibility: Designing Services for University Students with Disabilities</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, S. Chessa, S. Pelagatti</p>
+          <p class="pub-venue">11th Italian Conference on ICT for Smart Cities and Communities (I-Cities), Gaeta</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status">DOI forthcoming</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c8" data-kind="conference" data-search="accessibility to clinical care for people with asd: design and integration of the access technological tools e. salatti, s. pelagatti, s. chessa, f. forli, r. nicastro, a. kocian, c. poggianti, f. cena, n. mauro, l. ardissono, l. bonamico, f. salice, s. comai, m. bianchi, m. buzzi, m. c. buzzi 11th italian conference on ict for smart cities and communities (i-cities), gaeta 2025">
+        <div class="pub-index"><span class="pub-year">2025</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Accessibility to Clinical Care for People with ASD: Design and Integration of the ACCESS Technological Tools</h3>
+          <p class="pub-authors">E. Salatti, S. Pelagatti, S. Chessa, F. Forli, R. Nicastro, A. Kocian, <strong>C. Poggianti</strong>, F. Cena, N. Mauro, L. Ardissono, L. Bonamico, F. Salice, S. Comai, M. Bianchi, M. Buzzi, M. C. Buzzi</p>
+          <p class="pub-venue">11th Italian Conference on ICT for Smart Cities and Communities (I-Cities), Gaeta</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status">DOI forthcoming</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c9" data-kind="conference" data-search="access: a nonintrusive stress detection system to improve healthcare for individuals with asd s. comai, l. ardissono, m. bianchi, m. c. buzzi, m. buzzi, f. cena, s. chessa, n. mauro, s. pelagatti, c. poggianti, e. salatti, f. salice 5th international conference on electrical, computer and energy technologies (icecet), paris 2025">
+        <div class="pub-index"><span class="pub-year">2025</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>ACCESS: A Nonintrusive Stress Detection System to Improve Healthcare for Individuals with ASD</h3>
+          <p class="pub-authors">S. Comai, L. Ardissono, M. Bianchi, M. C. Buzzi, M. Buzzi, F. Cena, S. Chessa, N. Mauro, S. Pelagatti, <strong>C. Poggianti</strong>, E. Salatti, F. Salice</p>
+          <p class="pub-venue">5th International Conference on Electrical, Computer and Energy Technologies (ICECET), Paris</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1109/ICECET63943.2025.11472333" target="_blank" rel="noopener" aria-label="View DOI for ACCESS: A Nonintrusive Stress Detection System to Improve Healthcare for Individuals with ASD">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="publication" id="pub-c10" data-kind="conference" data-search="design of immersive environments to enhance learning for people with disabilities c. poggianti, s. pelagatti, s. chessa 21st international conference on intelligent environments (ie), darmstadt 2025">
+        <div class="pub-index"><span class="pub-year">2025</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>Design of Immersive Environments to Enhance Learning for People with Disabilities</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, S. Pelagatti, S. Chessa</p>
+          <p class="pub-venue">21st International Conference on Intelligent Environments (IE), Darmstadt</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1109/IE64880.2025.11129985" target="_blank" rel="noopener" aria-label="View DOI for Design of Immersive Environments to Enhance Learning for People with Disabilities">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="publication" id="pub-j1" data-kind="journal" data-search="immersive technologies for inclusive digital education: a systematic survey c. poggianti, s. chessa, s. pelagatti, a. kocian human behavior and emerging technologies (wiley) 2025">
+        <div class="pub-index"><span class="pub-year">2025</span><span class="pub-type pub-type-journal">Journal article</span></div>
+        <div class="pub-content">
+          <h3>Immersive technologies for inclusive digital education: A systematic survey</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, S. Chessa, S. Pelagatti, A. Kocian</p>
+          <p class="pub-venue">Human Behavior and Emerging Technologies (Wiley)</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1155/hbe2/8888303" target="_blank" rel="noopener" aria-label="View DOI for Immersive technologies for inclusive digital education: A systematic survey">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <article class="publication" id="pub-c11" data-kind="conference" data-search="oba 2.0: using ar to design an inclusive mobile companion for a botanical garden c. poggianti, s. pelagatti, m. magrini 9th italian conference on ict for smart cities and communities (i-cities), salerno 2023">
+        <div class="pub-index"><span class="pub-year">2023</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>OBA 2.0: using AR to design an inclusive mobile companion for a botanical garden</h3>
+          <p class="pub-authors"><strong>C. Poggianti</strong>, S. Pelagatti, M. Magrini</p>
+          <p class="pub-venue">9th Italian Conference on ICT for Smart Cities and Communities (I-Cities), Salerno</p>
+        </div>
+        <div class="pub-actions">
+          <span class="pub-status">DOI forthcoming</span>
+        </div>
+      </article>
+      <article class="publication" id="pub-c12" data-kind="conference" data-search="oba: an inclusive botanical garden for children with asd s. pelagatti, c. poggianti 25th international conference on human-computer interaction, copenhagen 2023">
+        <div class="pub-index"><span class="pub-year">2023</span><span class="pub-type pub-type-conference">Conference paper</span></div>
+        <div class="pub-content">
+          <h3>OBA: An Inclusive Botanical Garden for Children with ASD</h3>
+          <p class="pub-authors">S. Pelagatti, <strong>C. Poggianti</strong></p>
+          <p class="pub-venue">25th International Conference on Human-Computer Interaction, Copenhagen</p>
+        </div>
+        <div class="pub-actions">
+          <a href="https://doi.org/10.1007/978-3-031-35681-0_41" target="_blank" rel="noopener" aria-label="View DOI for OBA: An Inclusive Botanical Garden for Children with ASD">DOI <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
       </div>
+      <div class="pub-bottom"><p id="publication-empty" class="empty-state" hidden>No publications match your search. Try another keyword or filter.</p><button type="button" class="button button-dark show-more" id="show-more-publications" aria-controls="publication-list" hidden>Show all publications <span aria-hidden="true">↓</span></button></div>
+      <p class="footnote">Publication status and bibliographic details reflect the CV dated November 2026. “In press” indicates that a DOI was not available in that CV.</p>
     </section>
 
-    <section id="supervision" class="card">
-      <div class="pad">
-        <div class="sectionTitle">
-          <h2>Supervised theses</h2>
-          <div class="hint">students · thesis titles</div>
-        </div>
-        <div class="list">
-          <div class="item">
-            <div class="itemTop">
-              <h3>Michele Tabarrani — MSc thesis in Digital Humanities</h3>
-              <span class="chip mustard">04/2026</span>
-            </div>
-            <div class="meta">
-              <strong>Thesis:</strong> “Orienta: supporto all’orientamento nel campus universitario”
-            </div>
-          </div>
-          
-          <div class="item">
-            <div class="itemTop">
-              <h3>Michaela Tognoni — MSc thesis in Digital Humanities</h3>
-              <span class="chip mustard">02/2026</span>
-            </div>
-            <div class="meta">
-              <strong>Thesis:</strong> “Orienta: una app per gestire le emozioni negative in università”
-            </div>
-            </div>
-
-          <div class="item">
-            <div class="itemTop">
-              <h3>Francesco Polperio — BSc thesis in Computer Science</h3>
-              <span class="chip mustard">10/2025</span>
-            </div>
-            <div class="meta">
-              <strong>Thesis:</strong> “AI generativa per la stampa 3D di grafi per la didattica con studenti non vedenti: un processo di produzione semi-automatica”
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="itemTop">
-              <h3>Elena Fantozzi — MSc thesis in Digital Humanities</h3>
-              <span class="chip mustard">04/2024</span>
-            </div>
-            <div class="meta">
-              <strong>Thesis:</strong> “Progettazione e sviluppo di un'applicazione per Piazza dei Miracoli rivolta a visitatori con autismo”
-            </div>
-          </div>
+    <!-- Experience / Education -->
+    <section class="section section-tinted" id="background" aria-labelledby="background-title"><div class="container">
+      <div class="section-heading"><div><span class="section-number">04 / BACKGROUND</span><h2 id="background-title">A path across <em>disciplines.</em></h2></div><p>From digital humanities and inclusive cultural heritage to computer science, immersive interfaces, and human-centred research.</p></div>
+      <div class="timeline-columns">
+        <div><h3 class="column-title"><span class="number-swatch">A</span> Research experience</h3><div class="timeline">
+          <article class="timeline-item"><span class="timeline-time">2026 · MAR–JUL</span><h4>Visiting Researcher</h4><p class="timeline-location">Universidad Autónoma de Madrid · Madrid, Spain</p><p>Collaborative research on accessible XR technologies in higher education and HCI, hosted by Prof. Javier Gómez Escribano (GHIA research group).</p></article>
+          <article class="timeline-item"><span class="timeline-time">2023 · JAN–OCT</span><h4>Research Fellow</h4><p class="timeline-location">CIDIC, University of Pisa · Pisa, Italy</p><p>Research on accessible digital systems and assistive technologies in university environments.</p></article>
+          <article class="timeline-item"><span class="timeline-time">PROFESSIONAL EXPERIENCE</span><h4>Junior Developer</h4><p class="timeline-location">LA JETÉE · Florence, Italy</p><p>Development of an Android augmented-reality experience for a territorial museum. <a href="https://www.lajetee.it/-/museodiriccionexr/" target="_blank" rel="noopener">Project details ↗</a></p></article>
+        </div></div>
+        <div><h3 class="column-title"><span class="number-swatch">B</span> Education</h3><div class="timeline">
+          <article class="timeline-item"><span class="timeline-time">2023–PRESENT</span><h4>PhD in Computer Science <span class="muted-inline">· candidate</span></h4><p class="timeline-location">University of Pisa</p><p><strong>Thesis:</strong> Design of Extended Reality Environments to Enhance Education for Students with Disabilities</p><p class="timeline-meta">Supervisors: Stefano Chessa and Susanna Pelagatti · Submitted for external review, 31 Oct 2026</p></article>
+          <article class="timeline-item"><span class="timeline-time">2020–2023</span><h4>MSc in Digital Humanities</h4><p class="timeline-location">University of Pisa · 110/110 cum laude</p><p>OBA 2.0: assistive technologies and AR for inclusive museum experiences.</p><a class="timeline-link" href="https://etd.adm.unipi.it/t/etd-02282023-101454/" target="_blank" rel="noopener">View thesis ↗</a></article>
+          <article class="timeline-item"><span class="timeline-time">2016–2020</span><h4>BSc in Digital Humanities</h4><p class="timeline-location">University of Pisa · 110/110 cum laude</p><p>Assistive technologies and inclusive experiences for autistic visitors in botanical gardens.</p></article>
+        </div></div>
       </div>
+      <div class="extra-education"><span class="section-number">ADDITIONAL TRAINING</span><p><strong>ACM Summer School on Accessible and Inclusive Technologies</strong> · Borås, Sweden (2025) <span aria-hidden="true">/</span> <strong>XR & Artificial Intelligence International Summer School</strong> · Matera, Italy (2024)</p></div>
+    </div></section>
 
-      <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,165 C160,85 320,225 490,145 C660,65 820,215 980,125 C1100,60 1165,110 1200,130 L1200,240 L0,240 Z" fill="rgba(43,179,163,.16)"></path>
-        <path d="M0,198 C170,130 320,245 540,155 C760,65 890,230 1100,145 C1160,125 1185,135 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.08)"></path>
-      </svg>
-    </section>
-
-    <section id="hobbies" class="card">
-      <div class="pad">
-        <div class="sectionTitle">
-          <h2>Hobbies</h2>
-          <!--<div class="hint">outside of the lab</div>-->
-        </div>
-
-        <div class="catCard">
-          <div class="item">
-            <div class="itemTop">
-              <h3>Outside the lab</h3>
-              <span class="chip">🌿</span>
-            </div>
-            <div class="chips">
-              <span class="chip teal">🏔️ Trekking</span>
-              <span class="chip rust">🏋️ Gym</span>
-              <span class="chip mustard">🧱 LEGO bricks</span>
-              <span class="chip">📚 Reading</span>
-            </div>
-
-            <div class="item" style="margin-top:12px">
-              <div class="itemTop">
-                <h3>Little favorites</h3>
-                <span class="chip">✨</span>
-              </div>
-              <div class="meta">
-                🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛🐈‍⬛
-              </div>
-              <div class="chips">
-                <span class="chip">cats</span>
-                <span class="chip">black cats</span>
-                <span class="chip">my cat</span>
-                <span class="chip">my cat’s paws</span>
-                <span class="chip">my cat’s smell</span>
-                <span class="chip">Kiwi (i.e., my cat)</span>
-              </div>
-            </div>
-          </div>
-
-          <figure class="petShot" aria-label="Cat photo">
-            <img src="kiwi.jpg" alt="Photo of Camilla's cat">
-            <figcaption>My fav co-researcher 🐾</figcaption>
-          </figure>
+    <!-- Teaching, community, academic service -->
+    <section class="section container" id="academic-service" aria-labelledby="academic-title">
+      <div class="section-heading"><div><span class="section-number">05 / ACADEMIC LIFE</span><h2 id="academic-title">Beyond the <em>research lab.</em></h2></div><p>Mentoring students, communicating research, and contributing to academic and public communities.</p></div>
+      <div class="academic-grid">
+        <section class="academic-panel" aria-labelledby="mentoring-title"><div class="panel-heading"><span class="panel-kicker">TEACHING & MENTORING</span><h3 id="mentoring-title">Thesis co-supervision <span class="panel-count">06</span></h3></div><div class="stack-list">
+          <div class="stack-item"><span class="stack-date">2026 · ongoing</span><h4>Daniele Macchiarini</h4><p>MSc · Digital Humanities · AR and AI features for Orienta</p></div>
+          <div class="stack-item"><span class="stack-date">2026 · OCT</span><h4>Stefano Pea</h4><p>MSc · Computer Science · Accessible interactive representations with open vision-language models</p></div>
+          <div class="stack-item"><span class="stack-date">2026 · APR</span><h4>Michele Tabarrani</h4><p>MSc · Digital Humanities · Orienta campus navigation</p></div>
+          <div class="stack-item"><span class="stack-date">2026 · FEB</span><h4>Michaela Tognoni</h4><p>MSc · Digital Humanities · Emotional support in Orienta</p></div>
+          <div class="stack-item"><span class="stack-date">2025 · OCT</span><h4>Francesco Polperio</h4><p>BSc · Computer Science · Generative AI for tactile graph production</p></div>
+          <div class="stack-item"><span class="stack-date">2024 · APR</span><h4>Elena Fantozzi</h4><p>MSc · Digital Humanities · Inclusive experience at Piazza dei Miracoli</p></div>
+        </div></section>
+        <div class="academic-side">
+          <section class="academic-panel" aria-labelledby="community-title"><div class="panel-heading"><span class="panel-kicker">COMMUNITY & SERVICE</span><h3 id="community-title">Academic contributions</h3></div><ul class="service-list"><li><strong>Session Chair</strong><span>I-Cities 2026 · Brescia and I-Cities 2025 · Gaeta</span></li><li><strong>Publicity & Social Media Chair</strong><span>EAI TSCM 2026 · Lisbon</span></li><li><strong>Peer reviewer</strong><span>Computing, Cogent Education, Universal Access in the Information Society; ACM CHI and EAI INTSYS</span></li></ul></section>
+          <section class="academic-panel" aria-labelledby="speaking-title"><div class="panel-heading"><span class="panel-kicker">SELECTED TALKS</span><h3 id="speaking-title">Sharing the work</h3></div><ul class="talk-list"><li><time datetime="2026-05-28">May 2026</time><span>Accessibility Is Not a Feature: Designing Inclusive University Ecosystems <small>Universidad Autónoma de Madrid</small></span></li><li><time datetime="2025-12-10">Dec 2025</time><span>Tecnologia per l’inclusione: l’App Orto Botanico Accessibile <small>Orto e Museo Botanico di Pisa</small></span></li><li><time datetime="2025-10-11">Oct 2025</time><span>eXtended Reality e stampa 3D per l’educazione accessibile <small>University of Pisa</small></span></li><li><time datetime="2024-03-22">Mar 2024</time><span>La Realtà Aumentata a portata di tutti <small>Fiera Didacta Italia · Florence</small></span></li></ul></section>
+          <section class="academic-panel" aria-labelledby="award-title"><div class="panel-heading"><span class="panel-kicker">RECOGNITION</span><h3 id="award-title">Inclusion 3.0 National Award</h3></div><p class="award-copy">Accessibility — Museum for All category, University of Macerata (2021), associated with the inclusive botanical garden initiative.</p><a class="timeline-link" href="https://www.ortomuseobot.sma.unipi.it/2021/03/il-premio-nazionale-inclusione-3-0-va-allorto-e-museo-botanico-di-pisa/" target="_blank" rel="noopener">Award announcement ↗</a></section>
         </div>
       </div>
-
-      <svg class="waves" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,175 C180,95 330,240 560,155 C790,70 910,235 1120,145 C1170,123 1190,132 1200,140 L1200,240 L0,240 Z" fill="rgba(43,179,163,.16)"></path>
-        <path d="M0,210 C220,155 370,255 640,165 C910,75 980,235 1200,150 L1200,240 L0,240 Z" fill="rgba(43,179,163,.09)"></path>
-      </svg>
+      <div class="outreach-strip"><div><span class="panel-kicker">PUBLIC ENGAGEMENT</span><h3>Making research visible and accessible.</h3></div><p>Co-organizer and facilitator of hands-on activities at Bright Night 2025–2026 and Internet Festival 2026, including accessible games, tactile interaction, and AI for STEM education.</p><a class="text-link" href="https://bright-night.it/innovation-piazze-della-ricerca/" target="_blank" rel="noopener">Discover an event <span aria-hidden="true">↗</span></a></div>
     </section>
 
-    <footer>
-      <div>© <span id="y"></span> Camilla Poggianti</div>
-      <div>HTML · GitHub Pages</div>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    <!-- Contacts -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container"><div class="contact-grid"><div><span class="section-number section-number-light">06 / GET IN TOUCH</span><h2 id="contact-title">Let's make<br><em>learning accessible.</em></h2><p>Interested in collaborating on accessibility, XR, HCI, inclusive education, or multimodal technologies? I'd be happy to connect.</p><a class="contact-mail" href="mailto:camillapoggianti1@gmail.com">camillapoggianti1@gmail.com <span aria-hidden="true">↗</span></a></div><div class="contact-details"><h3>Find me online</h3><a href="https://scholar.google.com/citations?user=XDMP2A0AAAAJ" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a><a href="https://orcid.org/0009-0007-1598-4937" target="_blank" rel="noopener">ORCID <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/camillapoggianti" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/cpoggianti97" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><a href="assets/Camilla_Poggianti_CV.pdf" target="_blank" rel="noopener">Academic CV (PDF) <span aria-hidden="true">↗</span></a></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span id="copyright-year">2026</span> Camilla Poggianti</span><span>Made with care, curiosity, and accessibility in mind.</span><a href="#top" class="back-top">Back to top ↑</a></div></footer>
 </body>
 </html>
